@@ -1104,27 +1104,39 @@ button.btn.btn-purchase {
 }
 
 /* shop background 3/30/2026 */
-div#shop {
-    /* background: linear-gradient(135deg, #d40000, #8b0000); */
-    /* background: linear-gradient(135deg, #000, #8b0000); */
-}
+/* div#shop {
+    background: linear-gradient(135deg, #d40000, #8b0000);
+    background: linear-gradient(135deg, #000, #8b0000);
+    background: linear-gradient(135deg, #0a0a0a 0, #1a0004 100% );
+    width: 100%;
+} */
+
+/* Products */
+
 
 /* shop page mug img styles */
-img.blackMug, img.redMug {
+imblackMug, imgredMug {
     /* width: 100%; */
     /* width: 50%; */
-    width: 100px;
+
+    /* width: 100px;
     height: 120px;
     object-fit: cover;
     border-radius: 5px;
-    filter: drop-shadow(2px 4px 6px black);
+    filter: drop-shadow(2px 4px 6px black); */
+
     /* box-shadow: 0 20px 40px rgba(0,0,0,0.15); */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06),
+
+
+    /* box-shadow: 0 2px 8px rgba(0,0,0,0.06),
                 0 8px 24px rgba(0,0,0,0,0.08);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; */
+
     /* background: #fff; */
-    background: linear-gradient(145deg, #ffffff, #f7f7f7);
-    border-radius: 12px;
+
+    /* background: linear-gradient(145deg, #ffffff, #f7f7f7);
+    border-radius: 12px; */
+
     /* padding: 16px;
      width: 100%;
     height: 220px;
