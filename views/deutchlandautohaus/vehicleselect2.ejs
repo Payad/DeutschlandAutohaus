@@ -1,0 +1,25 @@
+<%if (response) {
+
+console.log(response.data);
+%>
+
+
+
+<form action="" id="form" method="POST"> 
+         <label for="vin">VIN:</label>
+        <!-- <select type="text" name="vin" id="vin"></select> -->
+         <input type="text" name="vin" id="vin">
+         <p></p>
+         <button type="submit">Submit</button>
+ </form>
+
+<form action="">
+
+<input type="text" name="year" id="year">Year: <strong class="s"><%=response.year%>
+<p class="make" name="make">Make: <strong class="s"><%=response.make%></strong></p>
+<p class="model" name="model">Model: <strong class="s"><%=response.model%></strong></p>
+</form>
+
+
+
+<%}%>

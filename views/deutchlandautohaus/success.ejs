@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/success.css">
+    <title>Success Page</title>
+</head>
+<body> -->
+<% layout('layouts/boilerplate') %>
+    <!-- <h1>Success!</h1> -->
+    <!-- <p>You have succefully purchased your products! <=customer.name%></p> -->
+    <p class="Thank-you">Thanks For Your Order!</p>
+    <strong><p class="order-confirmation-title"><strong>Your Order#</strong> <%=session.customer.id%></p></strong>
+    <strong><p class="sent-email">We have sent an email to <%=session.customer.email%> with your order receipt!</p></strong>
+    <!-- <p class="address-city">City: <=customer.address.city%></p> -->
+
+    <div class="order-details">
+        <div class="total-details-container">
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="14" width="15.75" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v32H576V96c0-35.3-28.7-64-64-64H64zM576 224H0V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V224zM112 352h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16H368c8.8 0 16 7.2 16 16s-7.2 16-16 16H240c-8.8 0-16-7.2-16-16z"/></svg><strong><p>Order Details:</p></strong>
+            <!-- <strong><p class="detail-info">Order details</p></strong> -->
+            <p class="card-details"><strong>Card ending in:</strong> xxxx-<%=session.payment_intent.payment_method.card.last4%></p>
+            <!-- <p>date of purchase: <=session.payment_intent.payment_method.created%></p> -->
+            <!-- < if (session.status === 'succeeded') {
+            const currentDate = new Date();
+            
+%> -->
+            <!-- <p>date purchased: <= currentDate %></p> -->
+            <!-- <p>date of purchase: <= new Date().getFullYear();%></p> -->
+            <p><strong>Purchase Date:</strong> <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+            <!-- <}%> -->
+            <p class="order-confirmation#"><strong>Order confirmation:</strong> <%=session.customer.id%></p>
+            <!-- <p class="billing-details">billing details: <=session.payment_intent.payment_method.billing_details.address.city%></p> -->
+            <!-- <p class="cart-quantity">Items in cart: <=session.line_items%> </p> -->
+            <p class="cart-quantity"><strong>Items in cart:</strong> <%=cart.totalQuantity%> </p>
+            <!-- <p class="order-total">Item Total: $465</p> -->
+            <p class="order-total"><strong>Total:</strong> $ <%=session.amount_total / 100%></p>
+            <!-- <p class="order-total">Total: <=cart.totalPrice%></p> -->
+        </div>
+        <div class="shipping-details">
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="14" width="10.5" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg><strong><p class="shipping-address">Shipping Address:</p></strong>
+            <p><%=session.customer.name%></p>
+            <!-- <p class="address-country"><=session.customer.address.country%></p> -->
+            <p class="address-line1"><%=session.customer.address.line1%></p>
+            <p class="address-line2"><%=session.customer.address.line2%></p>
+            <!-- <p class="address-postal_code">Postal Code:<=customer.address.postal_code%></p> -->
+            <span class="address-city"><%=session.customer.address.city%>, </span><span class="address-state"> <%=session.customer.address.state%> </span><span class="address-postal_code"> <%=session.customer.address.postal_code%></span>
+        </div>
+
+        <div class="billing-details">
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L80 128c-8.8 0-16-7.2-16-16s7.2-16 16-16l368 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L64 32zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg><strong><p class="billing-address">Billing Details:</p></strong>
+            <p><%=session.customer.name%></p>
+            <!-- <p class="address-country"><=session.customer.address.country%></p> -->
+            <!-- <p class="address-line1"><=session.customer.address.line1%></p> -->
+            <!-- <span class="address-city"><=session.payment_intent.payment_method.billing_details.address.city%>,</span> <span class="address-country"><=session.payment_intent.payment_method.billing_details.address.country%></span> -->
+            <!-- <p class="address-line2"><=session.customer.address.line2%></p> -->
+            <!-- <p class="address-country"><=session.payment_intent.payment_method.billing_details.address.country%></p> -->
+            <p class="address-line1"><%=session.payment_intent.payment_method.billing_details.address.line1%></p>
+            <p class="address-line2"><%=session.payment_intent.payment_method.billing_details.address.line2%></p>
+            <!-- <p class="address-postal_code"><=session.payment_intent.payment_method.billing_details.address.postal_code%></p> -->
+            <span class="address-city"><%=session.payment_intent.payment_method.billing_details.address.city%>, </span><span class="address-country"> <%=session.payment_intent.payment_method.billing_details.address.country%> </span><span class="address-city"> <%=session.payment_intent.payment_method.billing_details.address.state%> </span><span class="address-postal_code"><%=session.payment_intent.payment_method.billing_details.address.postal_code%></span>
+            <!-- <p><=session.payment_intent.payment_method.billing_details.address.email%></p>
+            <p><=session.payment_intent.payment_method.billing_details.address.name%></p>
+            <p><=session.payment_intent.payment_method.billing_details.address.phone%></p> -->
+            <!-- <span class="address-city"><=session.customer.address.city%></span><span class="address-state"><=session.customer.address.state%></span><span class="address-postal_code"><=session.customer.address.postal_code%></span> -->
+        </div>
+
+        <div class="questions-container">
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg><strong><p>Have a Question?</p></strong>
+            <p class="sub-title">Contact us so we may better help you!</p>
+            <!-- <p>If you have any questions please contact Deutchland Autohaus at <span class="callback-number">9517290614</span></p> -->
+            <div class="phone-container">
+                <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                <p class="phone">(951) 587-8112</p>
+            </div>
+
+            <div class="email-container">
+                <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+                <p class="email">deutchlandautohaus@gmail.com</p>
+            </div>
+
+            <div class="business_hours-container">
+                <p class="hours"><strong>Hours:</strong> 9:00am - 5:00pm</p><span class="days">Mon - Fri</span>
+                <!-- <span class="days"><Strong>Days:</Strong> Mon - Fri</span> -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="order-summary-container">
+        <div class="back-to-page">
+            <a href="">Back to History</a>
+        </div>
+        
+<h3 class="summary-title">Order Summary</h3>
+        <div class="order-history">
+            <!-- <h3>Order Summary</h3> -->
+
+            <div class="item-list-container">
+                <!-- <ul class="item-list"> -->
+                <h5 class="items-title">Items</h5>
+                <!-- <ul class="item-list"> -->
+                <% if (!cart) {%>
+                    <h2>Your cart is Empty</h2>
+                <%} else {%>
+                <% for (let i = 0; i < cart.products.length; i++) {
+                    let product = cart.products[i];
+                %>
+                        <div class="products">
+                            
+                            <div class="product-details">
+                            <img class="item-image" src="/assets/images/<%=product.image%>" alt="">
+                            <span class="productName"><%=product.name%></span>
+                            </div>
+                            
+                            <div class="quantity-price">
+                            <span class="product-quantity">Qty <span class="quantity"><%=product.quantity%></span></span>
+                            <p class="productPrice"> $<%=product.price / 100%></p>
+                            </div>
+
+                          
+                        </div>
+                        <div class="product-underline"></div>
+<%}%>
+
+<%}%>
+
+            </div>
+        </div>
+
+        
+
+        <div class="order-status-container">
+        <div class="order-status">
+            <p class="order-date"><strong>Order Date:</strong> <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+            <p class="order-number"><strong>Order Number:</strong> <%=session.customer.id%></p>
+            <p class="order-completion"><strong>Status:</strong> Completed</p>
+        </div>
+            
+
+
+             <div class="item-total">
+                 <div class="subtotal-container">
+                    <p class="sub-total"><strong>Subtotal</strong>  $<%= session.amount_subtotal / 100%></p>
+                </div>
+                <div class="shipping-container">
+                    <p class="shipping"><strong>Shipping</strong> $<%= session.shipping_cost.amount_total / 100%></p>
+                </div>
+                <div class="tax-container">
+                    <p class="tax"><strong>Tax</strong> $<%= session.shipping_cost.amount_tax / 100%></p>
+                </div>
+                <div class="underline"></div>
+                <div class="total-container">
+                    <p class="total"><strong>Total</strong> $<%= session.amount_total / 100%></p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </body>
+ </html>
+

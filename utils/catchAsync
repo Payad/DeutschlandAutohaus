@@ -1,0 +1,19 @@
+// //exporting function takes a function
+// module.exports = (func) => {
+//     //returns a function 
+//     return function (req, res, next) {
+//         func(req, res, next).catch(next)
+// }
+// }
+
+// const catchAsync = func => {
+//     return function(req, res, next) {
+//         func(req, res, next).catch(next)
+// }
+// }
+
+module.exports = func => {
+    return function(req, res, next) {
+        func(req, res, next).catch(next)
+}
+}

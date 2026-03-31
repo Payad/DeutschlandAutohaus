@@ -1,0 +1,50 @@
+[
+{
+    "id": 1,
+    "image": "IMG_0444.jpeg",
+    "name": "Black Mug",
+    "description": "Classic Deutchland red mug",
+    "price": 2999,
+    "quantity": 1
+},
+{
+    "id": 2,
+    "image": "IMG_0442.jpeg",
+    "name": "Red Mug",
+    "description": "Classic Deutchland red mug",
+    "price": 2999,
+    "quantity": 1
+},
+{
+    "id": 3,
+    "image": "deutschlandshirtB (6).jpg",
+    "name": "Black T-shirt",
+    "description": "100% high quality cotton mens t-shirt",
+    "price": 4999,
+    "quantity": 1
+},
+{
+    "id": 4,
+    "image": "DeutchSweater_black.jpg",
+    "name": "Black Sweatshirt",
+    "description": "100% high quality cotton mens sweater",
+    "price": 4999,
+    "quantity": 1
+},
+{
+    "id": 5,
+    "image": "pantsRight.jpg",
+    "name": "Black Sweatpants",
+    "description": "100% high quality cotton mens sweatpants",
+    "price": 4499,
+    "quantity": 1
+},
+{
+    "id": 6,
+    "image": "beanieImg.jpg",
+    "name": "Beanie",
+    "description": "100% high quality cotton beanie",
+    "price": 3499,
+    "quantity": 1
+}
+]

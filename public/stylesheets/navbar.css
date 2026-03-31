@@ -1,0 +1,316 @@
+img {
+    width: 20px
+}
+
+img.bmwNav3 {
+/* width: initial; */
+background-repeat: no-repeat;
+width: 100%;
+margin:0;
+padding:0;
+position: absolute;
+left: 0;
+top: 0;
+margin-bottom: 20px;
+opacity: 0.8;
+margin-top: -10px;
+height: 7rem;
+
+
+image-rendering: pixelated;
+    /* -webkit-backface-visibility: hidden; */
+    -ms-transform: translateZ(0); /* IE 9 */
+    -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+    transform: translateZ(0);
+}
+
+/* a.nav-link.active {
+    margin-top: 50px;
+} */
+
+nav.navbar.navbar-expand-lg.bg-body-tertiary {
+    line-height: 2rem;
+    padding: initial;
+/* margin-bottom: 5rem; */
+}
+
+.navbar-nav {
+    margin-bottom: 1rem;
+}
+
+.navbar > .container-fluid {
+    /* background-image: url('/assets/images/bmwNav3.jpg'); */
+    background-color: black;
+    /* background-repeat: no-repeat; */
+    /* background-position-y: bottom; */
+    position: relative;
+}
+
+.navbar {
+    padding: 0, 0;
+}
+
+div#navbarNav {
+    justify-content: end;
+background-image: url("/assets/images/bmwNav.jpg");
+background-repeat: no-repeat;
+/* background-position: top; */
+background-position: center;
+    /* width: fit-content; */
+}
+
+.nav-link, .nav-link.active {
+    color: white !important;
+}
+
+.nav-link.active {
+    /* color: white; */
+    border-bottom: 1px solid white;
+    width: fit-content;
+    /* text-decoration: underline;
+    margin-bottom: 1rem; */
+}
+
+/* button.navbar-toggler {
+    z-index: 2;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+button.navbar-toggler.collapsed {
+    position: absolute;
+top:0;
+right:0;
+} */
+/* .navbar-brand::before {
+    content: "";
+    width: 100px;
+    border: 2px solid black;
+    border-color: black;
+    border-style: solid;
+    margin-left: 20px;
+} */
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+/* position: absolute; */
+/* top: 0; */
+/* margin-right: 5px; */
+}
+
+/* .navbar-toggler:hover {
+    text-decoration: none;
+    position: absolute;
+top: 0;
+right: 0;
+} */
+button.navbar-toggler {
+    right: 0;
+    position: absolute;
+    margin-top: 0.5rem;
+    top: 0;
+    margin-right: 0.5rem;
+}
+
+nav.navbar.navbar-expand-lg.bg-body-tertiary #header {
+    background-color: grey;
+}
+
+#header {
+    background-color: grey;
+}
+
+.bg-body-tertiary {
+    background-color: rgba();
+}
+
+.navbar-brand {
+    /* content: "";
+    width: 100px;
+    border: 2px solid black;
+    border-color: black;
+    border-style: solid; */
+    /* margin-left: 20px; */
+    margin-left: 5px;
+    color: white;
+
+    /* display: flex; */
+    align-items: baseline;
+/* margin-bottom: -20px; */
+}
+
+.navbar-toggler-icon {
+    color: white !important;
+}
+
+button.navbar-toggler {
+    background-color: grey;
+    opacity: 0.5;
+}
+
+.navbar-brand.autohaus {
+    margin-bottom: 20px;
+/* margin-left: -5px; */
+}
+
+.flag {
+    display: flex;
+    align-items:center;
+    /* margin-bottom: -10px; */
+    margin-bottom: -20px;
+}
+
+.deutchland {
+    font-size: 27px;
+    /* font-size: 43px; */
+    transform: skew(-24deg);
+    font-family: 'Changa', sans-serif;
+    color: white;
+}
+
+span {
+    color: red;
+}
+
+span.connected {
+    /* color: red; */
+color: white;
+}
+
+/* .autohaus {
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* div {
+margin: 5px;
+} */
+
+/* .autohaus > div {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 10px;
+} */
+
+.name {
+    /* display: flex;
+    justify-content: space-around; */
+    padding-right: 10px;
+    transform: skew(-20deg);
+}
+
+.a {
+    margin-left: 2px;
+}
+
+.a, .u, .t,
+.o, .h, .s {
+    /* padding-right: 20px; */
+    padding-right: 26px;
+    font-size: 10px;
+    /* color: black; */
+    padding-right: 16px;
+    color: white;
+}
+
+.flag.autohaus {
+    /* margin-left: -8px; */
+    margin-left: -7px;
+}
+
+.black {
+    /* border: 2px solid black; */
+    width: 10px;
+    height: 18px;
+    background-color: black;
+    transform: skew(-24deg);
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+    /* margin-left: auto */
+}
+
+.yellow.autohaus {
+    margin-right: 2px;
+}
+
+.red.autohaus,
+.yellow.autohaus,
+.black.autohaus {
+    /* height: 8px; */
+    height: 10px;
+    margin-bottom: -3px;
+}
+.red {
+    /* border: 2px solid red; */
+    width: 10px;
+    height: 18px;
+    background-color: red;
+    transform: skew(-24deg);
+    /* margin-right: 5px; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+.yellow {
+    /* border: 2px solid yellow; */
+    width: 10px;
+    height: 18px;
+    background-color: yellow;
+    transform: skew(-24deg);
+    margin-right: 2px;
+    /* margin-right: auto; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.emblems {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5vh;
+    background-color: #4d4d4d;
+}
+
+/* #jaguar,
+#range,
+#bentley,
+#porche {
+    width: 50px;
+    height: 50px;
+} */
+
+#range {
+    height: 20px;
+    width: 50px;
+}
+
+#bentley {
+    width: 50px;
+    /* height: 40px; */
+}
+
+#audi {
+    width: 40px;
+}
+
+/*username*/
+h5.username {
+    position: relative;
+    text-align: center;
+/* margin-top: 3rem; */
+font-size: 15px;
+color: white;
+}
+
+@media(min-width: 768px) {
+    /* .signInName {
+        color: white;
+        margin-bottom: 0rem;
+        margin-right: 5rem;
+} */
+}

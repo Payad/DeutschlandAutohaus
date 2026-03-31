@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/stylesheets/serviceagreement.css"> -->
+    <link rel="stylesheet" href="/stylesheets/vehicleselect.css">
+    <title>Vehicle Select</title>
+</head>
+<body>
+    <!-- <h1>Select Your Vehicle</h1> -->
+ <h1>Hello Welcome to the vehicle registration page</h1>
+ <h2>Please enter your vehicles information</h2>
+
+
+<h3>Select your vehicle and plan</h3>
+
+<!-- If the user has a pending plan -->
+<% if (currentUser.pending_plan) { %>
+    <p>You are currently waiting for an inspection to finalize your <strong><%= currentUser.pending_plan %></strong> plan.</p>
+<% } else { %>
+    <p>No pending upgrades. You can select your service plan now!</p>
+<% } %>
+
+<form action="/schedule-inspection" method="POST">
+    <input type="hidden" name="userId" value="<%= currentUser._id %>">
+    <button type="submit" class="cta-button">Schedule Inspection</button>
+</form>
+
+<!-- <form action=""> -->
+    <!-- <label for="year">Year</label>
+        <select name="year" id="year">
+        <option value="selectYear">select year</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select> -->
+
+    <!-- <label for="make">Make:</label>
+        <select name="make" id="make">
+            <option value="SelectMake">select make</option>
+            <option value="BMW">Audi</option>
+            <option value="Mercedes">BMW</option>
+            <option value="Porche">Mercedes</option>
+            <option value="Porche">Volkswagon</option> -->
+            <!-- <option value="Porche">Porche</option> -->
+
+        <!-- </select>
+
+    <br>
+        <label for="model">Model:</label>
+        <select name="model" id="model"> -->
+            <!-- <option value="SelectModel">choose option</option> -->
+        <!-- </select>
+        <br> -->
+
+    <!-- < for (l of vin) {%> -->
+
+<!-- < if () { -->
+    <!-- // console.log(response.data)
+// response.data.forEach((response) => {
+//     <p>`${response.data.make}`</p>
+// })
+// <p>`${response}`</p>
+// const form = document.querySelector('form');
+// const innerHTML = `<p>${response.datamake}</p>`;
+// form.innerHTML = innerHTML;
+// const result = 'Hello';
+// console.log(form);
+// <form action=""><label for="vin">VIN: `${response.data.make}`</label></form>
+// const html = `<p>${response.data}</p>`
+
+// <p>`${response.data.year}`</p>
+// console.log(data); -->
+<!-- // %>  -->
+    <!-- < for (let i = 0; i < response.length; i++) {
+//     response[i];
+
+
+
+// const vehicle = response.data.map((v) => ({
+//     year: v.year,
+//     make: v.make,
+//     model: v.model,
+// }));
+
+// function showVehicle(vehicle) {
+//     const vehicleId = vehicle.map((result) => {
+//     `<form action="">
+//         <label for="vin">VIN: ${response.data.make}</label>
+//         <label for="vin">VIN: ${result.year}</label>
+//         < <select type="text" name="vin" id="vin"></select> -->
+<!-- //         <input type="text" name="vin" id="vin">
+//         <p>${response.data}</p>
+//         <button type="submit">Save</button>
+// </form>`
+// })
+// body.append(vehicleId);
+// }
+// showVehicle();
+// %>
+    // <! <=<li>`${l}`</li>%> -->
+<!-- <form action="">
+        <label for="vin">VIN: `${response.data.make}`</label>
+        <! <select type="text" name="vin" id="vin"></select> -->
+        <!-- <input type="text" name="vin" id="vin">
+        <p>`${response.data}`</p>
+        <button type="submit">Save</button> -->
+<!-- </form> --> 
+
+<!-- // < response.data.forEach((response) => {
+//     <p>`${response.data.make}`</p>
+// })
+
+
+<}%> --> 
+<!-- <form action="//carapi.app/api/vin" method=POST id="form" > -->
+ <!-- < if (response) {
+    console.log(response.data);
+//     response.data.forEach((t) => {
+//     // <p>`${t.make}</p>
+//     // <p>< t.make%></p>
+// });
+
+%> -->
+    <form action="/vehicleselect" id="form" method="POST"> 
+        <div class="info_flex"> 
+            <div class="vin_container">
+                <label for="vin">VIN:</label>
+                <!-- <select type="text" name="vin" id="vin"></select> -->
+                <input type="text" name="vin" id="vin" placeholder="Enter vehicle vin">
+            </div>
+            <div class="lic_container">
+                <label for="lic">LIC#</label>
+                <input type="text" name="lic" id="lic" maxlength="7" placeholder="Enter lic plate">
+            </div>
+            <!-- <button type="submit">Submit</button> -->
+        </div>
+             <button type="submit">Submit</button>
+    </form>
+
+ <% if (response) {%>
+    // console.log(response.data);
+//     response.data.forEach((t) => {
+//     // <p>`${t.make}</p>
+//     // <p>< t.make%></p>
+// });
+
+// %>
+
+<!-- <form action="">
+    <p><%/*response.year*/%></p>
+</form> -->
+         <form action="/userprofile3" id="form2" method="POST">
+         <div class="vehicle-container">
+         <p class="title"><strong>Check your vehicle information</strong></p>
+         <div class="form">
+         <!-- <label for="year">Year:</label> -->
+         <!-- <input type="text" name="year" id="year" value="<response.year%>">Year: <strong class="s"><%/*response.year*/%> -->
+          <!-- <p class="id" name="id" value="<response.data.trims%>">ID: <strong class="s"><%/*response.data.trims[2].id*/%></strong></p> -->
+         <input class="make_model_id" name="make_model_id" value="<%=response.trims[0].make_model_id%>">Make_Model_ID: <strong class="s"><%=response.trims[0].make_model_id%></strong>
+         <input class="year" name="year" value="<%=response.year%>">Year: <strong class="s"><%=response.year%></strong>
+          <!-- <input class="make" name="make" id="make" value="<response.make%>">Make: <strong class="s"><%/*response.make*/%></strong> -->
+            <input class="make" name="make" id="make" value="<%=response.make%>">Make: <strong class="s"><%=response.make%></strong>
+          <!-- <input class="model" name="model" value="<response.model%>">Model: <strong class="s"><%/*response.model*/%></strong> -->
+            <input class="model" name="model" value="<%=response.model%>">Model: <strong class="s"><%=response.model%></strong>
+            <input type="text" class="name" name="name" id="name" value="<%=response.trims[0].name%>"><strong class="s"><%=response.trims[0].name%></strong>
+              <!-- <p class="body-class">Body class: <strong><%/*response.specs.body_class*/%></strong></p>
+            <p class="body-class">Body class: <strong><%/*response.engine_brake_hp_from*/%></strong></p> -->
+
+            <p class="trim">Trim: <strong><%=response.trim%></strong></p>
+             <p class="body-class">Body class: <strong><%=response.specs.body_class%></strong></p>
+            <p class="engineHp">Brake HP: <strong><%=response.specs.engine_brake_hp_from%></strong></p>
+            <p class="engineModel">Engine model: <strong><%=response.specs.engine_model%></strong></p>
+             <p class="transmission-style">Transmission style: <strong><%=response.specs.transmission_style%></strong></p>
+             <p class="top-speed">Top Speed: <strong><%=response.specs.top_speed_mph%></strong></p>
+             <p class="engineCylinders">Number of Cylinders: <strong><%=response.specs.engine_number_of_cylinders%></strong></p>
+             <p class="Descriptor">Vehicle Descriptor: <strong><%=response.specs.vehicle_descriptor%></strong></p>
+             <p class="Descriptor">TPMS: <strong><%=response.specs.tire_pressure_monitoring_system_tpms_type%></strong></p>
+                <input class="vin" name="vin" value="<%=vin%>"><strong>v.i.n: </strong><%=vin%>
+                <input class="lic" name="lic" value="<%=lic%>"><strong>lic: </strong><%=lic%>
+                
+               
+                <!-- <input type="text" name="make_model_id" id="make_model_id" value="<response.data.trims[0].make_model_id%>">Make-Id: <strong class="s"><%/*response.data.trims[0].make_model_id*/%></strong> -->
+                <input type="text" name="id" id="id" value="<%=response.trims[0].id%>">ID: <strong><%=response.trims[0].id%></strong>
+            <% /*if (!response.data.trims) {*/%>
+             <!-- const vehicledesc = document.querySelector('vehicle-description-id');
+             vehicledesc.style.display = 'none'; -->
+            <!-- <style>
+                .vehicle-description-id { display: none; }
+            </style> -->
+             
+             <!-- <p class="vehicle-description-id">Trims-id: <strong><%/*JSON.stringify(response.data.trims[2].id)*/%></strong></p>
+             <p class="vehicle-description-name">Trims-name: <strong><%/*JSON.stringify(response.data.trims[2].name)*/%></strong></p>
+             <p class="vehicle-description-description">Trims-description: <strong><%/*JSON.stringify(response.data.trims[2].description)*/%></strong></p>
+              <p class="vehicle-description-id">Trims:<%/*JSON.stringify(response.data.trims[2].id)*/%></p> -->
+            <%/*} */%> 
+             <!-- <p class="engineManufacturer"><%/*response.engine_manufacturer*/%></p> -->
+         </div>
+  </div>
+         <button type="submit" class="save">Save</button>
+ </form>
+ <%} else if (!response) {%>
+<p>If the information above is correct please press submit, Your vehicle information will be sent to DeutchlandAutohaus, otherwise retype your vehicle VIN.</p>
+
+<%}%> 
+
+<!-- // <form action='' id="form2" method="POST">
+
+//     <p>If the information above is correct please press submit, Your vehicle information will be sent to DeutchlandAutohaus, otherwise retype your vehicle VIN.</p>
+
+//      <label for="year">Year:</label>
+//         <input type="text" name="year" id="year" value="<response.data.year%>">Year: <strong class="s"><%/*response.data.year*/%>
+
+//     <label for="year">Make:</label>
+//         <input type="text" name="make" id="make" value="<response.data.make%>">Make: <strong class="s"><%/*response.data.make*/%>
+
+//     <label for="year">Model:</label>
+//         <input type="text" name="model" id="model" value="<response.data.model%>">Model: <strong class="s"><%/*response.data.year*/%>    
+
+//      <label for="make_model_id">id:</label>
+//         <input type="text" name="make_model_id" id="make_model_id" value="<response.data.trims[0].make_model_id%>">Id: <strong class="s"><%/*response.data.trims[0].make_model_id*/%>
+//     <button class="save">Save</button>
+// </form> -->
+<script src="/javascripts/service.js"></script>

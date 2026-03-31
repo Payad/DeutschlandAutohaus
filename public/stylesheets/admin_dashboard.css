@@ -1,0 +1,936 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    display: flex;
+    height: 100vh;
+}
+
+.nav-center {
+    width: 100%;
+}
+
+.link {
+    display: flex;
+}
+
+li.home, li.about, li.pricing, li.signup {
+    padding: 1rem;
+    list-style-type: none;
+}
+
+.sidebar {
+    /* border: 1px solid #000000; */
+    /* width: 250px; */
+    display: flex;
+    flex-direction: column;
+    /* padding: 2rem; */
+    /* height: 100vh; */
+    /* width: 10rem; */
+    /* width: 7rem; */
+    /* min-width: 7rem; */
+    /* padding: 2rem; */
+    /* background: linear-gradient(45deg, black, transparent); */
+    background-color: #808080;
+    /* position: absolute; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    cursor: pointer;
+    /* left: 0; */
+    right: 0;
+    padding: 10px;
+}
+
+.flash-container.message {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    padding: 1rem;
+    left: 0;
+    right: 0;
+    background-color: #4caf50;
+    text-align: center;
+    border-radius: 5px;
+    margin: 2rem auto;
+    width: 50%;
+}
+
+
+.flash-alert
+ {
+    /* margin: 2rem auto; */
+    /* position: absolute; */
+    /* left: 0; */
+    /* right: 0; */
+    /* text-align: center; */
+    /* border: 1px solid black; */
+    /* padding: 1rem; */
+    /* width: 50%; */
+    /* text-transform: uppercase; */
+    /* margin: auto; */
+    /* border-radius: 5px; */
+    /* font-family: system-ui; */
+    /* font-weight: 600; */
+    /* background-color: rgb(131 239 131); */
+    /* background-color: #DFF2BF; */
+    /* background-color: #FFBABA; */
+    /* background-color: #4CAF50; */
+    /* background-color: #ddffdd; */
+    color: #fff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    /* margin: 10px 0; */
+    /* padding: 0.01em 16px; */
+}
+
+/* .hover {
+    background-color: #B4F298;
+background-color: #D9EDF7;
+background-color: #D5D8F7;
+}
+
+.hover-warn {
+     background-color: #FEEFB3;
+} */
+
+.error-alert {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 2rem auto;
+    text-align: center;
+    border: 1px solid black;
+    padding: 1rem;
+    width: 50%;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-color: #FFA4A4;
+    color: #fff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+    /* background-color: #FFBABA; hover */
+}
+
+h1.title {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+
+}
+
+h1 {
+    font-family: system-ui;
+    text-transform: uppercase;
+    color: rgb(128, 128, 128);
+    background-color: rgb(128, 128, 128, 0.2);
+    text-align: center;
+    padding: 2rem;
+}
+
+.sidebar-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links {
+    padding: 2rem;
+    /* padding: 1rem; */
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.main-content {
+    flex-grow: 1;
+    /* margin-left: 250px;
+    padding: 2rem; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+}
+
+/* flag icon dahboard */
+.logo {
+    margin: 2rem;
+}
+
+.flag {
+    display: flex;
+    align-items:center;
+    /* margin-bottom: -10px; */
+    /* margin-bottom: -20px; */
+}
+
+.flag.autohaus {
+    /* margin-left: -8px; */
+    margin-left: -7px;
+}
+
+.black {
+    /* border: 2px solid black; */
+    width: 10px;
+    height: 24px;
+    background-color: black;
+    transform: skew(-24deg);
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+    /* margin-left: auto */
+}
+
+.yellow.autohaus {
+    margin-right: 2px;
+}
+
+.red.autohaus,
+.yellow.autohaus,
+.black.autohaus {
+    /* height: 8px; */
+    height: 10px;
+    margin-bottom: -3px;
+}
+.red {
+    /* border: 2px solid red; */
+    width: 10px;
+    height: 24px;
+    background-color: red;
+    transform: skew(-24deg);
+    /* margin-right: 5px; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+.yellow {
+    /* border: 2px solid yellow; */
+    width: 10px;
+    height: 24px;
+    background-color: yellow;
+    transform: skew(-24deg);
+    margin-right: 2px;
+    /* margin-right: auto; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+
+/* TAB CONTENT STYLING */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.links a {
+    cursor: pointer;
+}
+
+/* .nav-links {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+} */
+
+/* .links {
+    margin-right: 20px;
+} */
+
+.links a {
+    text-decoration: 20px;
+    color: #333;
+    font-size: 18px;
+}
+
+.links a.active {
+    color: #007bff;
+}
+
+.home-tab.active {
+    text-align: center;
+    font-weight: bold;
+    margin: 5rem;
+    text-transform: uppercase;
+}
+
+/* SEARCHBAR */
+.search-container {
+    display: block;
+    /* margin: 3rem 8rem; */
+    margin: 2rem 12rem;
+}
+
+#search-bar {
+    padding: 0.75px 1.5px;
+    border-radius: 5px;
+    font-style: italic;
+
+}
+
+/* USER/MANAGEMENT CONTENT */
+span {
+    font-size: 12px;
+    align-items: center;
+    display: flex;
+}
+
+.user-controls {
+    background-color: rgb(128, 128, 128, 0.2);
+}
+
+.management-controls {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    /* justify-content: space-between; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: rgb(128, 128, 128);
+    /* cursor: pointer; */
+}
+
+.management-content {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    /* cursor: pointer; */
+    /* margin-left: 30rem; */
+    /* gap: 2rem; */
+    position: relative;
+}
+
+.admin-name {
+    padding-left: 7rem;
+    align-items: flex-end;
+    display: flex;
+    font-family: system-ui;
+    font-weight: bold;
+    color: rgb(128, 128, 128);
+}
+
+.user-management-title, .content-management-title, .admin-management-title {
+    cursor: pointer;
+}
+
+.management {
+    display: flex;
+}
+
+.user-management-container, .content-management-container, .admin-management-container, .admin-logout-container {
+    /* padding: 1rem; */
+    display: flex;
+    padding: 0 1rem;
+    /* border: 1px solid #000;
+    padding: 1rem; */
+    /* box-shadow: 1px 8px 12px #000;
+    border-radius: 4px;
+    margin-top: 10px; */
+    position: relative;
+}
+
+.arrow-rotate {
+    rotate: 90deg;
+}
+
+.active {
+    display: block;
+}
+
+.svg_arrow_right {
+    margin: 4px .5rem;
+}
+.user-management-list, .content-management-list, .admin-management-list {
+    box-shadow: 1px 8px 12px #000;
+    background-color: #fff;
+    border-radius: 4px;
+    /* margin-top: 10px; */
+    margin-top: 0.5rem;
+    margin-left: 12px;
+    padding: 0.5rem;
+    z-index: 10;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+}
+
+li.user-manage-link, li.content-link, li.admin-manage-link {
+    list-style-type: none;
+    /* padding: 10px; */
+    margin: 10px;
+    display: flex;
+    cursor: pointer;
+}
+
+.find-icon, .user-delete-icon, .inventory-icon, .vehicle-icon, .inspection-list-icon, .inspection-check-list-icon, .admin-add-icon, .admin-delete-icon, .graph-icon, .admin-settings-icon {
+    padding-right: 5px;
+}
+
+.logout-icon {
+    cursor: pointer;
+}
+
+/* HOME INFO */
+.members-container, .vehicle_quantity {
+    /* border: 1px solid black; */
+    width: 40%;
+    display: block;
+    margin: 2rem auto;
+    /* background: linear-gradient(45deg, black, transparent); */
+    box-shadow: 1px 8px 20px rgb(128, 128, 128);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.home-div-flex {
+    display: flex;
+}
+
+.amount-members, .amount-vehicles {
+    font-size: 20px;
+    width: 30%;
+    margin: auto;
+    border-radius: 4px;
+    background-color: lightgrey;
+}
+
+.joined-members, .joined-vehicles {
+    font-size: 15px;
+}
+
+/* ul.user-management-list, ul.content-management-list {
+    display: none;
+} */
+
+
+/* *, *:before, *:after {
+ margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+} */
+
+/* body {
+  background: #4a69bd;
+} */
+
+/* .container {
+  margin: 200px auto;
+  width: 500px;
+  height: 60px
+} */
+
+/* .form {
+  display: flex;
+  flex-direction: row;
+} */
+
+.search-field {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  /* border: none; */
+  border-radius: 100px;
+  outline: none;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+/* SHARED TABLE ROW STYLING */
+/* .dashboard-row {
+  display: grid;
+  gap: 10px;
+  padding: 1rem;
+  background-color: aliceblue;
+  text-align: center;
+}
+.dashboard-row > th,
+.dashboard-row > td {
+  background: white;
+  padding: 0.5rem;
+  font-size: 10px;
+  border-radius: 4px;
+} */
+
+.inspection-table .dashboard-row {
+  grid-template-columns:
+    1fr 1fr 1fr 60px 80px 80px 120px 80px 1fr 1fr 1fr 1.5fr;
+}
+
+.admin-table .dashboard-row {
+  grid-template-columns:
+    80px 1fr 2fr 1fr 1.5fr;
+}
+
+/*REGISTERED ADMINS SECTION*/
+/* .admin-table {
+    margin: 1rem auto;
+    display: block;
+    width: 54%;
+} */
+
+.admin-list {
+    max-height: 600px;
+    overflow-y: auto;
+    margin: 2rem;
+}
+
+.table_data.id {
+    width: 70px;
+}
+
+.table_row_admin {
+    display: grid;
+    grid: 5px / auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 2rem;
+    background-color: aliceblue;
+    align-self: unset;
+    text-align: center;
+    width: min-content;
+}
+
+/*REGISTERED USERS VEHICLES SECTION*/
+.users-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.vehicle-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.reg-users-title {
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+
+.vehicle-title, .members-title {
+    text-align: center;
+    margin: 2rem;
+    text-transform: uppercase;
+}
+
+.table_row {
+    display: grid;
+    grid: 5px / auto auto auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 2rem;
+    background-color: aliceblue;
+    right: 0;
+    left: 0;
+    /* margin: 5rem; */
+    align-self: unset;
+    text-align: center;
+    /* position: absolute; */
+    /* width: 150%; */
+    /* width: 120%; */
+    /* width: 110%; */
+    width: min-content;
+}
+
+.table_row_vehicle {
+     display: grid;
+    grid: 5px / auto auto auto auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 2rem;
+    background-color: aliceblue;
+    right: 0;
+    left: 0;
+    /* margin: 5rem; */
+    align-self: unset;
+    text-align: center;
+    /* position: absolute; */
+    /* width: 150%; */
+    /* width: 120%; */
+    width: min-content;
+    /* width: 110%; */
+}
+
+/* ALL DATA LISTS */
+.list {
+    max-height: 400px;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+    margin-left: 1rem;
+}
+
+.overflow-list {
+    /* max-height: 600px;
+    overflow-y: auto; */
+    overflow-x: initial;
+    /* margin-left: 1rem; */
+}
+
+
+/* INSPECTION SECTION */
+.inspection-title, .admin-title, .user-title, .vehicle-title, .members-title, .inspectionHistory-title, .calendar-title {
+    text-align: center;
+    margin: 2rem 0;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, black, transparent);
+    color: #fff;
+}
+
+.inpection-table {
+    width: 100%;
+}
+
+/* .inspection-list {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 2rem;
+} */
+
+.table_row_inspection {
+    display: grid;
+    grid: 5px/ auto auto auto auto auto auto auto auto auto auto auto auto;
+    grid-gap: 10px;
+    /* padding: 2rem; */
+    padding: 1rem;
+    background-color: aliceblue;
+    right: 0;
+    left: 0;
+    align-self: unset;
+    text-align: center;
+    /* width: 140%; */
+    width: min-content;
+}
+
+select {
+    height: 1.2rem;
+    font-size: 10px;
+}
+
+.table_data.make {
+    /* width: 100px; */
+    width: 70px;
+}
+
+.table_data.year {
+    width: 40px;
+}
+
+.table_data.lic_plate {
+    width: 80px;
+}
+
+/* .table_data.plan, .table_data.medal_tier, .table_data */
+
+.form-approval {
+    display: flex;
+}
+
+/* .form-renewal {
+   margin: 0 30px;
+} */
+
+#plan_dropdown {
+    width: 60px;
+}
+
+.approval_btn, .reject_btn, .reopen_btn {
+    font-size: 10px;
+    padding: 1.75px 2.5px;
+    margin: 5px;
+    width: 50px;
+    box-shadow: 1px 2px 10px;
+    /* background-color: green; */
+    /* border-radius: 5px; */
+}
+
+/* .approval_btn {
+    background-color: green;
+}
+
+.reject_btn {
+    background-color: red;
+} */
+
+.table_data {
+    font-size: 10px;
+    /* width: 80px; */
+    /* width: 100px; */
+    /* width: 60px; */
+    /* padding: 12px 7px; */
+}
+
+.table_data_btn {
+    display: flex;
+}
+
+/* form {
+    display: flex;
+} */
+
+/* tbody {
+    display: block;
+    margin: 1rem auto;
+    width: 50%;
+    width: 70%;
+    width: 80%;
+    width: 85%;
+} */
+
+/* .table_data.model, .table_data.user, .table_data.plan, .table_data.medal_tier {
+    width: 60px;
+    width: 75px;
+} */
+
+.table {
+    display: block;
+    margin: auto 2rem;
+}
+
+/* table.vehicle-table, table.user-table {
+    margin: auto;
+    display: block;
+    margin: 1rem auto;
+    display: block;
+    width: 70%;
+} */
+
+/* .section_table {
+    margin: 1rem auto;
+    display: block;
+} */
+
+table.inspection-table {
+    margin: 1rem auto;
+    display: block;
+    /* width: 84%;
+    width: 78%;
+    width: 80%; */
+}
+
+.row_title {
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 1rem;
+}
+
+.table-container {
+  width: 100%; /* Full width */
+  /* max-height: 400px; Limit height to 400px (can adjust as needed) */
+  /* overflow-y: auto; Enable vertical scrolling */
+  /* overflow-x: hidden; */
+  /* border: 1px solid #ccc; Border around the scrollable container */
+  /* margin-top: 20px; Optional margin for spacing */
+  margin: 1rem 6rem;
+/* margin: 7rem; */
+    /* margin: 11%; */
+  padding: 0;
+}
+
+/* Style the table itself */
+.user-table, .admin-table {
+  width: 100%;
+  /* width: 90%; */
+  /* border-collapse: collapse; */
+  /* table-layout: fixed; */
+  /* margin: 0; */
+/* margin: 1rem auto;
+    display: block; */
+}
+
+/* Style for table header and data cells */
+/* .user-table th, .user-table td {
+  padding: 10px;
+  text-align: left; */
+  /* border: 1px solid #ddd; Border for table cells */
+/* } */
+
+/* Optional: Make the header sticky so it stays on top while scrolling */
+/* .user-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #f4f4f4;
+  z-index: 1;
+} */
+
+/* INSPECTION HISTORY STYLING */
+/* .inspectionHistory-title {
+    text-align: center;
+    margin: 2rem;
+    text-transform: uppercase;
+} */
+
+.inpectionHistory-table {
+    margin: 1rem auto;
+    display: block;
+    width: 80%;
+}
+
+.inspectionHistory-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.table_row_inspection_history {
+    display: grid;
+    grid: 5px/ auto auto auto auto auto auto auto auto auto auto;
+    grid-gap: 10px;
+    /* padding: 2rem; */
+    padding: 1rem;
+    /* background-color: aliceblue; */
+    right: 0;
+    left: 0;
+    align-self: unset;
+    text-align: center;
+    /* width: 140%; */
+    width: min-content;
+}
+
+.status.expired {
+    font-size: 10px;
+    width: 65px;
+}
+
+tr {
+    margin: .5rem;
+    /* background-color: aliceblue; */
+    background-color: rgb(128, 128, 128, 0.4);
+}
+td.table_data {
+    text-align: center;
+    padding: 1rem;
+    width: 20%;
+}
+
+.make_col, .status_col{
+    width: 50px;
+    /* width: 70px; */
+    text-align: center;
+    /* width: 20%;
+    width: 100%; */
+}
+
+/* CALENDAR STYLING */
+/* Courtesy W3SCHOOLS https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_calendar */
+
+/* .tab-content.active {
+    display: block;
+    width: 70%;
+    margin: 10rem auto;
+} */
+
+.calendar_container {
+    display: block;
+    width: 70%;
+    margin: 10rem auto;
+}
+
+/* h1.calendar-title {
+    margin: 2rem;
+    text-align: center;
+} */
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  /* background: #1abc9c; */
+  background: linear-gradient(45deg, black, transparent);
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+li.prev, li.next {
+    list-style-type: none;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  /* color: #666; */
+ color: #776;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  /* width: 13.6%; */
+  width: 14.1%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  /* background: #1abc9c; */
+  background: linear-gradient(45deg, black, transparent);
+  color: white !important
+}
+
+li.activeLi {
+    background-color: #d3d3d3;
+    border-radius: 5px;
+}

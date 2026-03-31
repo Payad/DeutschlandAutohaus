@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/stylesheets/admin_dashboard.css"> -->
+    <!-- <link rel="stylesheet" href="/stylesheets/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="/stylesheets/audit_logs.css"> -->
+    <title>Audit Logs</title>
+</head>
+<body>
+        <!-- <h1>Administrator Audit Logs</h1> -->
+        <div class="logo-container">
+        <div class="logo">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="block">
+    <div class="navbar-brand" href="#">
+      <div class="flag">
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="deutchland">DEUTSCH<span>LAND</span></div><br>
+      </div>
+      <!-- <div>Deutchland</div><br> -->
+      <div class="flag autohaus">
+      <div class="black autohaus"></div>
+      <div class="red autohaus"></div>
+      <div class="yellow autohaus"></div>
+      <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+      <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+      </div>    
+      <!-- <div>Autohaus</div> -->
+    </div>
+    <!-- <div class="navbar-brand autohaus" href="#">
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="black"></div>    
+      <div>Autohaus</div>
+    </div> -->
+    <!-- <div class="nanvbar-brand" href="#">Autohaus</div> -->
+    </div>
+  
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <a class="navbar-brand" href="#">Autohaus</a> -->
+  </div>
+</div>
+        <!-- <div class="audit_logs-container">
+            < for (log of logs) {%>
+                <p><= log %></p>
+
+<}%>
+        </div> -->
+<style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .logo-container {
+        display: flex;
+        /* margin: auto; */
+        justify-content: center;
+        margin: 5rem;
+    }
+
+        .flag {
+        display: flex;
+        align-items:center;
+        /* margin-bottom: -10px; */
+        /* margin-bottom: -20px; */
+    }
+
+        .deutchland {
+            /* font-size: 27px; */
+            font-size: 24px;
+            /* font-size: 43px; */
+            transform: skew(-24deg);
+            font-family: 'Changa', sans-serif;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        span {
+            color: red;
+        }
+
+        span.connected {
+            /* color: red; */
+        color: white;
+        }
+
+                .flag {
+            margin-bottom: -9px;
+        }
+
+        .name {
+            /* display: flex;
+            justify-content: space-around; */
+            padding-right: 10px;
+            transform: skew(-20deg);
+        }
+
+        .a {
+            margin-left: 2px;
+        }
+
+        .a, .u, .t,
+        .o, .h, .s {
+            /* padding-right: 20px; */
+            padding-right: 26px;
+            font-size: 10px;
+            /* color: black; */
+            padding-right: 16px;
+            color: white;
+        }
+
+        .flag.autohaus {
+            /* margin-left: -8px; */
+            margin-left: -7px;
+        }
+
+        .black {
+            /* border: 2px solid black; */
+            width: 10px;
+            height: 18px;
+            background-color: black;
+            transform: skew(-24deg);
+            border-top: 1px solid white;
+            border-left:1px solid white;
+            border-bottom: 1px solid white;
+            /* margin-left: auto */
+        }
+
+        .yellow.autohaus {
+            margin-right: 2px;
+        }
+
+        .red.autohaus,
+        .yellow.autohaus,
+        .black.autohaus {
+            /* height: 8px; */
+            height: 10px;
+            margin-bottom: -3px;
+        }
+        .red {
+            /* border: 2px solid red; */
+            width: 10px;
+            height: 18px;
+            background-color: red;
+            transform: skew(-24deg);
+            /* margin-right: 5px; */
+            border-top: 1px solid white;
+            border-left:1px solid white;
+            border-bottom: 1px solid white;
+        }
+        .yellow {
+            /* border: 2px solid yellow; */
+            width: 10px;
+            height: 18px;
+            background-color: yellow;
+            transform: skew(-24deg);
+            margin-right: 2px;
+            /* margin-right: auto; */
+            border-top: 1px solid white;
+            border-left:1px solid white;
+            border-bottom: 1px solid white;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        table thead {
+            background: #222;
+        }
+
+        table th,
+        table td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .timestamp {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .action {
+            font-weight: bold;
+            color: #ff6363;
+        }
+
+        .actor {
+            color: #89cff0;
+        }
+
+        .target {
+            color: #f4d35e;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #444;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: #666;
+        }
+
+    </style>
+<div class="container">
+        <h1>Audit Logs</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Actor</th>
+                    <th>Action</th>
+                    <th>Target</th>
+                    <th>IP Address</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% logs.forEach(log => { %>
+                    <tr>
+                        <td class="timestamp">
+                            <%= new Date(log.timestamp).toLocaleString() %>
+                        </td>
+
+                        <td class="actor">
+                            <%= log.actor %>
+                        </td>
+
+                        <td class="action">
+                            <%= log.action %>
+                        </td>
+
+                        <td class="target">
+                            <%= log.target %>
+                        </td>
+
+                        <td>
+                            <%= log.metadata?.ip || 'N/A' %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <a href="/deutchlandautohaus/admin_dashboard" class="back-button">Back to Dashboard</a>
+    </div>
+</body>
+</html>

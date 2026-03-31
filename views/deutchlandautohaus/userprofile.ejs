@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/userprofile.css">
+    <title>User Profile</title>
+</head>
+<body>
+    <% if (currentUser) {%>
+    <section class="user-profile">
+        <div class="user-details-container">
+            <div class="user-image-content">
+                
+                <div class="user-info">
+                    
+                    <div class="user-img-content">
+                         <img class="user-img" src="" alt="">
+                        
+                <!-- <p class="username">Username</p> -->
+                <p class="username"><%= currentUser.username %></p>
+            </div>
+                    
+                    <div class="info">
+                    <!-- <h2>first and last name</h2> -->
+                    <h2><%= currentUser.username %></h2>
+                    <p class="member-initial">member since <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+                    </div>
+                </div>
+                <!-- <div class="member-date">
+                    <p>member since <= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+                </div> -->
+                <div class="edit-links">
+                    <a href="">Edit</a>
+                    <a href="" class="log-out">log out</a>
+                </div>
+            </div>
+            <!-- <div class="user-username">
+                <p>Username</p>
+            </div> -->
+
+
+    <section class="tier-group-section">
+
+
+
+
+    
+            <div class="user-info">
+    
+                <h3 class="user-tiergroup">Member Tier</h3>
+            </div>
+            <!-- <}%> -->
+            <div class="tier-contract-status">
+                <div class="tier-level">
+                    <p class="tier-level-plan">Tier Structure Level: The Nitros Charged Package</p>
+
+                </div>
+                <div class="tier-medal">
+                    <div class="encompass-div">
+                        <ul class="encompass-list">
+
+                            <li class="encompass">oil change/oil filters</li>
+                            <li class="encompass">tire rotation</li>
+                            <li class="encompass">air filters</li>
+                            <li class="encompass">inspections</li>
+                        </ul>
+                        <ul class="encompass-list">
+                            <li class="encompass">cabin air filters</li>
+                            <li class="encompass">light bulbs</li>
+                            <li class="encompass">hand car wash</li>
+                        </ul>
+                        <!-- <span>Note: V6 and v8 vehicles prices may vary</span> -->
+                    </div>
+                </div>
+
+                <% for (let c of cart.vehicles) {%>
+    <!-- <h4 class="vehicle_register">Vehicle</h4>  -->
+    <div class="flex-container">
+        <p class="vehicle_year">Year: <%=c.year%></p>
+        <p class="vehicle_make">Make: <%=c.make%></p>
+        <p class="vehicle_model">Model: <%=c.model%></p>
+    </div>
+ <%}%>
+
+                <div class="vehicle-type">
+                    <p class="vehicle-title">Your Vehicle(s)</p>
+                    <p class="vehicle-service-plan"><strong>Vehicle service agreement Plan:</strong> Nitros Charged Package</p>
+                    <p class="vehicle make"><strong>Make:</strong> BMW</p><p class="vehicle model"><strong>Model:</strong> I135</p><p class="vehicle year"><strong>Year:</strong> 2012</p><p class="vehicle color"><strong>Color:</strong> Black</p>
+                    <p class="vehicle miles"><strong>Miles:</strong> 124,340 miles</p><p class="vehicle vin"><strong>V.I.N:</strong> 1234567GHSI289SDJ</p><p class="vehicle license-plate"><strong>License-plate:</strong> JE1N3K7</p>
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            
+    </section>
+
+<%if (currentUser && order1) {
+// console.log(currentUser);
+// console.log(JSON.stringify(order1.cart));
+// order1.map((item) => {
+//     console.log('Hello', JSON.stringify(item.cart));
+//     // let quantity = item.quantity;
+//     // console.log('Hello', quantity);
+// })
+// console.log(order1);
+%>
+<%}%>
+
+            <section class="previous-orders-section">
+                <div class="previous-orders">
+                    <h3 class="orders">Orders</h3>
+                    <div class="orders-content">
+                        <h4 class="recent-title">recent purchases</h4>
+                     
+                    //   <for (let order of order1) {%>
+                     
+                    <% for (let i = 0; i < order1.length; i++) {
+                            if (order1 && cart) {
+                                console.log("Cart available'");
+                    } else {
+                                console.log("cart unavailable");
+}
+                        let product = order1[i];
+                         product.cart.forEach((product) => {
+                            console.log(product.name);
+                            console.log(product.price);
+                            // console.log(order1.purchaseDate);
+
+                      
+})
+
+%>
+
+<%}%>
+                                <div class="orders-flex-container">
+                            <div class="img-container">
+                                <img class="recentItem-img" src="/assets/images/<%=product.image%>">
+                            </div>
+                                    <div class="product-info">
+                                        <p class="shipping-status">SHIPPED</p>
+                                        <p class="product-name"><%=product.name%></p>
+                                        <p class="product-price">$ <%=product.price / 100%></p>
+                                        <p class="shipping-selection">free shipping</p>
+                                    </div>
+                                    <div class="quantity-container">
+                                        <p class="qty">QTY <%=product.quantity%></p>
+                                    </div>
+                                    <div class="order-date-container">
+                                        <p><=order.purchaseDate%></p>
+                                    </div>
+                                    
+                        </div>
+
+                             <%}%> 
+
+                    
+
+
+
+
+
+
+
+
+                //         < for (let i = 0; i < cart.products.length; i++) {
+                //             let product = cart.products[i];
+                // %> 
+                //         //  <img src="/assets/images/<=order.cart.image%>">
+                //         // <!-- <p><= JSON.stringify(order.cart[0].image) %></p> -->
+                //         // <p><= JSON.stringify(order.cart[0].quantity) %></p>
+                //         // <><='$' + ' ' + order.cart[0].price / 100 %></p>
+                //         // <!-- <p><= JSON.stringify(order.cart) %></p> -->
+                //         // <!-- <p><= order.cart %></p> -->
+                //         //  <img src="/assets/images/<=order.cart.image%>">
+                //         <div class="orders-flex-container">
+                //             <div class="img-container">
+                //                 <img class="recentItem-img" src="/assets/images/<=product.image%>">
+                //             </div>
+                //                     <div class="product-info">
+                //                         <p class="shipping-status">SHIPPED</p>
+                //                         <p class="product-name"><=product.name%></p>
+                //                         <p class="product-price">$ <=product.price / 100%></p>
+                //                         <p class="shipping-selection">free shipping</p>
+                //                     </div>
+                //                     <div class="quantity-container">
+                //                         <p class="qty">QTY <=product.quantity%></p>
+                //                     </div>
+                //                     <div class="order-date-container">
+                //                         <p><=order.purchaseDate%></p>
+                //                     </div>
+                                    
+                //         </div>
+                        // <}%>
+
+
+
+                        
+<%}%>
+</body>
+</html>

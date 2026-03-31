@@ -1,0 +1,24 @@
+<form action="" method="POST" enctype="multipart/form-data">
+<% for (let p of products) {%>
+<!-- <form action="/Cart"> -->
+    <div class="card mx-3 my-3" id="card-accessory" style="width: 18rem;">
+  <!-- <img src="/assets/images/IMG_0444.jpeg" class="blackMug Mugs shop-item-image" alt="..."> -->
+<img src="/assets/images/<%= p.image %>" class="blackMug Mugs shop-item-image" alt="...">
+<!-- <img src="< product.image %>" class="blackMug Mugs shop-item-image" alt="..."> -->
+  <div class="card-body accesories">
+    <!-- <span class="shop-item-id">1</span> -->
+  <span class="shop-item-id"><%= p.id %></span>
+    <!-- <h5 class="card-title shop-item-title">Black Mug</h5> -->
+  <h5 class="card-title shop-item-title"><%= p.name %></h5>
+    <p class="card-text">Deutschland Autohaus premier coffee mug (Black)</p>
+    <hr>
+    <!-- <span class="shop-item-price">$29.99</span> -->
+     <span class="shop-item-price">$<%= p.price / 100 %></span>
+    <!-- <button href="/add-to-cart/:id" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button> -->
+    <!-- <a href="/add-to-cart/<p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a>   -->
+  <!-- <a class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
+<button type="submit" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button>
+</div>
+</div>
+</form>
+<%}%>

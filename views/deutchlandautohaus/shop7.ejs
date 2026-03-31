@@ -1,0 +1,1614 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="wrapper">
+  <!-- <div class="main">this is the main content</div> -->
+<div class="drop-icon">
+  <img class="slide-left" onclick="togglePanel()" src="/assets/images/burgerdropleft-removebg-preview.png" alt="">
+  <a href="/searchpage"><img class="magnifyingGlassImage" src="/assets/images/loupe.png" alt=""></a>
+  <div class="cart">
+  <img class="shoppingCartImage" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
+<div class='count-container'>
+  <span class="countItem"><%=cart.totalQuantity%></span>
+</div>
+  </div>
+  <a href="/login"><img class="accountImage" src="/assets/images/accountImage-removebg-preview.png"></a>
+</div>
+<!-- <div class="main">
+  <div class="content">
+  <a class="link" href="">What's New</a>
+  <a class="link" href="">Jackets</a>
+  <a class="link" href="">Sweaters</a>
+  <a class="link" href="">Beanies</a>
+  <a class="link" href="">Shirts</a>
+  <a class="link" href="">KeyChains</a>
+  
+  <span class="side-panel-toggle">&times</span>
+  </div>
+</div> -->
+</div>
+
+
+<div class="content">
+    <!-- <h2>Hello EveryOne</h2>
+    <h1>Deutschland Autohaus products and Accessories</h1> -->
+    <div class="hero-section">
+    <!-- <div class="hero-center">
+        <div class="hero-content">
+          <div class="hero-glow"></div>
+          <img src="/assets/images/IMG_7342_sweater.png" class="hero-sweater" alt="Deutchland sweater in the inland empire">
+          <div class="hero-tagline">
+              <h1>Deutchland Autohaus</h1>
+              <p class="tagline">Built in the garage. Worn everywhere</p>
+              <a href="#shop" class="hero-cta">Garage Collection</a>
+          </div>
+        </div>
+    </div> -->
+    <div class="hero-grid">
+        <div class="hero-text">
+          <!-- <h1>Deutch<span class="land">land</span> Autohaus</h1> -->
+          <div class="logo">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="block">
+    <div class="navbar-brand" href="#">
+      <div class="flag">
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="deutchland">DEUTSCH<span>LAND</span></div><br>
+      </div>
+      <!-- <div>Deutchland</div><br> -->
+      <div class="flag autohaus">
+      <div class="black autohaus"></div>
+      <div class="red autohaus"></div>
+      <div class="yellow autohaus"></div>
+      <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+      <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+      </div>    
+      <!-- <div>Autohaus</div> -->
+    </div>
+    <!-- <div class="navbar-brand autohaus" href="#">
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="black"></div>    
+      <div>Autohaus</div>
+    </div> -->
+    <!-- <div class="nanvbar-brand" href="#">Autohaus</div> -->
+    </div>
+  
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <a class="navbar-brand" href="#">Autohaus</a> -->
+  </div>
+           <p class="tagline">Built in the garage. Worn everywhere</p>
+              <a href="#shop" class="hero-cta">Garage Collection</a>
+              <div class="scroll-indicator"></div>
+        </div>
+        <div class="hero-product">
+           <div class="product-light"></div>
+          <img src="/assets/images/IMG_7342_sweater.png" class="hero-sweater" alt="Deutchland sweater in the inland empire">
+        </div>
+    </div>
+    </div>
+<!-- <div class="scroll-indicator"></div> -->
+    <div class="section-divider">
+</div>
+
+    <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item caro-active">
+      <img src="/assets/images/pexels-spencer-carousel.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>The latest in acessories</h5>
+        <p>Brand new items for the whole family.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/images/young-man-fashion-carousel.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5></h5>
+        <p>Check out the new styles of the year.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/assets/images/young-women-fashion-carousel.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Just in!</h5>
+        <p>Find the right parts, tools, and supplies at Deutchland.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div> -->
+
+<div class="shop" id="shop">
+    <div class="accessory">
+        <!-- <img src="" alt=""> -->
+        <p id="copyWrite">All our latest clothing and accessories at your fingertips!</p>
+        
+        <!-- <h3>Mugs</h3> -->
+        <div class="shop-items">
+        <!-- < products.forEach(function(product) { %>
+          <div class="card mx-3 my-3" id="card-accessory" style="width: 18rem;">
+          <div class="card mx-3 my-3" id="card-accessory"></div>
+  <img src="/assets/images/IMG_0444.jpeg" class="blackMug Mugs shop-item-image" alt="...">
+<img src="/assets/images/<= product.image %>" class="blackMug Mugs shop-item-image" alt="...">
+<img src="< product.image %>" class="blackMug Mugs shop-item-image" alt="...">
+  <div class="card-body accesories">
+    <span class="shop-item-id">1</span>
+  <span class="shop-item-id"><= product.id %></span>
+    <h5 class="card-title shop-item-title">Black Mug</h5>
+  <h5 class="card-title shop-item-title"><= product.name %></h5>
+    <p class="card-text">Deutschland Autohaus premier coffee mug (Black)</p>
+    <hr>
+    <p class="description"><p><=product.description%></p>
+    <span class="shop-item-price">$29.99</span>
+     <span class="shop-item-price">$<= product.price / 100 %></span>
+    <button href="#" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button>
+  </div>
+</div>
+< }) %> -->
+
+
+<!--Item Added To Cart Div-->
+<div class="itemAdded">
+    <div class="title-div">
+    <p class="title">Item added to cart</p>
+    <p class="title-div-close">&times;</p>
+    </div>
+    <div class="confirm-flex">
+      <img class="confirmImg"/>
+      <div class="item-confirm">
+        <p class="confirmDescription"></p>
+        <!-- </div> -->
+        <!-- <p class="confirmName">Shirt</p> -->
+        <p class="confirmPrice">$29.99</p>
+
+        <div class="details-flex">
+        <p class="confirmColor">Black</p>
+      <!-- < for (let p of products) {%>
+        < if (p.name === 'Black Mug') {%>
+        <p class="confirmSize displayNone"></p> -->
+<!-- <} else {%> -->
+        <p class="confirmSize"></p>
+<!-- <}%>
+<}%> -->
+        </div>
+      </div>
+    </div>
+    <!-- <p class="confirmQuantity">1</p>
+    <p class="confirmShipping">Pickup</p> -->
+
+    <div class="cartBtns">
+      <button class="continueShopping btn">Continue shopping</button>
+      <!-- <button class="goToCart">Go to cart</button> -->
+      <!-- <button class="goToCart btn">view cart & checkout</button> -->
+      <a class="goToCart btn" href="/deutchlandautohaus/shoppingcart">view cart & checkout</a>
+    </div>
+</div>
+
+<!-- <form action="/Cart" method="POST" enctype="multipart/form-data"> -->
+<div class="real-flex">
+<%for (let p of products) {%>
+<!-- < products.forEach((this) => {%> -->
+<!-- < products.forEach((p) => {%> -->
+<div class="productCard" data-id="<%=p._id%>" data-name="<%=p.name%>" data-price="<%=p.price%>" data-img="/assets/images/<%=p.image%>">
+<!-- <form action="/shop7" method="POST"> -->
+    <!-- <div class=" mx-3 my-3" id="card-accessory" style="width: 18rem; display: flex"> -->
+
+<!-- <div class=" mx-3 my-3" id="card-accessory" style="display: flex"></div> -->
+
+  <!-- <img src="/assets/images/IMG_0444.jpeg" class="blackMug Mugs shop-item-image" alt="..."> -->
+
+<!-- <img src="/assets/images/<= p.image %>"  class="blackMug Mugs shop-item-image" alt="..."> -->
+
+<!-- <img src="< product.image %>" class="blackMug Mugs shop-item-image" alt="..."> -->
+  <div class="card-body accesories">
+    <!-- <span class="shop-item-id">1</span> -->
+
+  <!-- <span type="text" name="productId" class="shop-item-id"><= p.id %></span> -->
+
+    <!-- <h5 class="card-title shop-item-title">Black Mug</h5> -->
+
+  <!-- <h5 class="card-title shop-item-title"><= p.name %></h5> -->
+
+  <div class="radio-flex">
+  <!-- <div class="form-check">
+  <input class="form-check-input" type="radio" name="radioDefault" id="radio-black">
+  <label class="form-check-label" for="radioDefault1">
+    Default radio
+    Black
+  </label>
+</div> -->
+<!-- <div class="form-check">
+  <input class="form-check-input" type="radio" name="radioDefault" id="radio-grey" checked>
+  <label class="form-check-label" for="radioDefault2">
+    Default checked radio
+    Grey
+  </label>
+</div> -->
+  <!-- <div class="form-check">
+  <input class="form-check-input" type="radio" name="radioDefault" id="radio-blue" checked>
+  <label class="form-check-label" for="radioDefault2">
+    Default checked radio
+    Blue
+  </label>
+</div> -->
+<% if (p.name === 'sweatshirt') {%>
+    <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+  <!-- <p class="sweater"><=p.name%></p> -->
+    <!-- <p class="shop-item-price">$<=p.price / 100%></p> -->
+    <span class="shop-item-id"><%=p.id%></span>
+    <div class="item-container">
+      <div class="options">
+        <img src="/assets/images/<%= p.image %>"  class="blackMug Mugs sweater-item-image" alt="...">
+        <div class="form-flex">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="1" onchange="changeProduct('sweater', this.value)" name="sweater" id="radio-black" checked>
+                <label class="form-check-label" for="radioDefault1">
+                  <!-- Default radio
+                  Black -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="2" onchange="changeProduct('sweater', this.value)" name="sweater" id="radio-grey">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Grey -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="3" onchange="changeProduct('sweater', this.value)" name="sweater" id="radio-blue">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Blue -->
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="description-container">
+        <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+        <!-- <p class="sweater"><=p.name%></p> -->
+        <p class="description-title"><%= p.description %></p>
+        <p class="shop-item-price">$<%=p.price / 100%></p>
+    </div>
+  </div>
+<!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+<!-- <button class="addToCart">Add to Cart</button> -->
+<%}%>
+<% if (p.name === 'sweatpants') {%>
+    <!-- <p class="sweater">This is the sweatpants<=p.name%></p> -->
+  <!-- <p class="sweatpants"><=p.name%></p> -->
+    <!-- <p class="shop-item-price">$<=p.price / 100%></p> -->
+    <!-- <span class="shop-item-id"><=p.id%></span> -->
+    <div class="item-container">
+      <div class="options">
+        <img src="/assets/images/<%= p.image %>"  class="pants blackMug Mugs pants-item-image" alt="...">
+        <div class="form-flex">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="1" onchange="changeProduct('pants', this.value)" name="pants" id="radio-black" checked>
+                <label class="form-check-label" for="radioDefault1">
+                  <!-- Default radio
+                  Black -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="2" onchange="changeProduct('pants', this.value)" name="pants" id="radio-grey">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Grey -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="3" onchange="changeProduct('pants', this.value)" name="pants" id="radio-blue">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Blue -->
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="description-container">
+        <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+        <!-- <p class="sweater"><=p.name%></p> -->
+        <p class="description-title"><%= p.description %></p>
+        <p class="shop-item-price">$<%=p.price / 100%></p>
+    </div>
+  </div>
+<!-- <form action="/popup/<=p.id%>" class="form"> -->
+<!-- <input type="hidden" class="input_value" value="<=p.name %>" name="<=p.name%>">
+<input type="hidden" class="input_value" value="<=p.id %>" name="<=p.id%>"> -->
+<!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=p.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+<!-- <button class="addToCart">Add to Cart</button> -->
+<!-- </form> -->
+<%}%>
+<% if (p.name === 't-shirt') {%>
+    <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+    <!-- <p class="t-shirt"><=p.name%></p>
+    <p class="shop-item-price">$<=p.price / 100%></p>
+    <span class="shop-item-id"><=p.id%></span> -->
+    <div class="item-container">
+      <div class="options">
+        <img src="/assets/images/<%= p.image %>"  class="blackMug Mugs shirt-item-image" alt="...">
+        <!-- <img src="/assets/images/<= p.image %>"  class="item-image" alt="..."> -->
+        <div class="form-flex">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="1" onchange="changeProduct('shirt', this.value)" name="shirt" id="radio-black" checked>
+                <label class="form-check-label" for="radioDefault1">
+                  <!-- Default radio
+                  Black -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="2" onchange="changeProduct('shirt', this.value)" name="shirt" id="radio-grey">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Grey -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="3" onchange="changeProduct('shirt', this.value)" name="shirt" id="radio-blue">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Blue -->
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="description-container">
+        <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+        <!-- <p class="sweater"><=p.name%></p> -->
+        <p class="description-title"><%= p.description %></p>
+        <p class="shop-item-price">$<%=p.price / 100%></p>
+    </div>
+  </div>
+  <!-- <form action="" class="form">
+<input type="hidden" class="input_value" value="<=p.name %>">
+<button type="submit" class="addToCart" value="<=p.name %>"> Super NEW Add to Cart New<-p.name%></button>
+</form> -->
+<!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=p.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+<!-- <button class="addToCart">Add to Cart</button> -->
+<%}%>
+<% if (p.name === 'beanie') {%>
+    <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+  <!-- <p class="sweater"><=p.name%></p> -->
+    <!-- <p class="shop-item-price">$<=p.price / 100%></p> -->
+    <span class="shop-item-id"><%=p.id%></span>
+    <div class="item-container">
+      <div class="options">
+        <img src="/assets/images/<%= p.image %>"  class="blackMug Mugs beanie-item-image" alt="...">
+        <div class="form-flex">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="1" onchange="changeProduct('beanie', this.value)" name="beanie" id="radio-black" checked>
+                <label class="form-check-label" for="radioDefault1">
+                  <!-- Default radio
+                  Black -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="2" onchange="changeProduct('beanie', this.value)" name="beanie" id="radio-grey">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Grey -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="3" onchange="changeProduct('beanie', this.value)" name="beanie" id="radio-blue">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Blue -->
+                </label>
+              </div>
+        </div>
+    </div>
+    <div class="description-container">
+        <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+        <!-- <p class="sweater"><=p.name%></p> -->
+        <p class="description-title"><%= p.description %></p>
+        <p class="shop-item-price">$<%=p.price / 100%></p>
+    </div>
+  </div>
+<!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+<!-- <button class="addToCart">Add to Cart</button> -->
+<%}%>
+<% if (p.name === 'mug') {%>
+    <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+  <!-- <p class="sweater"><=p.name%></p> -->
+    <!-- <p class="shop-item-price">$<=p.price / 100%></p> -->
+    <span class="shop-item-id"><%=p.id%></span>
+    <div class="item-container">
+      <div class="options">
+        <img src="/assets/images/<%= p.image %>"  class="blackMug Mugs mug-item-image" alt="...">
+        <div class="form-flex">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="1" onchange="changeProduct('mug', this.value)" name="mug" id="radio-black" checked>
+                <label class="form-check-label" for="radioDefault1">
+                  <!-- Default radio
+                  Black -->
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="2" onchange="changeProduct('mug', this.value)" name="mug" id="radio-red">
+                <label class="form-check-label" for="radioDefault2">
+                  <!-- Default checked radio
+                  Grey -->
+                </label>
+              </div>
+              <!-- <div class="form-check">
+                <input class="form-check-input" type="radio" value="3" onchange="changeProduct('mug', this.value)" name="mug" id="radio-blue">
+                <label class="form-check-label" for="radioDefault2">
+                  Default checked radio
+                  Blue
+                </label>
+              </div> -->
+        </div>
+    </div>
+    <div class="description-container">
+        <!-- <p class="sweater">This is the sweater<=p.name%></p> -->
+        <!-- <p class="sweater"><=p.name%></p> -->
+        <p class="description-title"><%= p.description %></p>
+        <p class="shop-item-price">$<%=p.price / 100%></p>
+    </div>
+  </div>
+<!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+<!-- <button class="addToCart">Add to Cart</button> -->
+<%}%>
+</div>
+<!-- <div class="description-container"><p class="description"><= p.description %></p></div> -->
+
+    <!-- <p class="card-text">Deutschland Autohaus premier coffee mug (Black)</p>
+  <p class="card-text">Deutschland Autohaus premier coffee mug (Black) HELLO</p> -->
+    <hr>
+    <!-- <span class="shop-item-price">$29.99</span> -->
+     <!-- <span class="shop-item-price price">$<= p.price / 100 %></span> -->
+
+    <!-- <span class="shop-item-price price">$<= p.price %></span> -->
+
+    <!-- <button href="/add-to-cart/:id" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button> -->
+    <!-- <a href="/add-to-cart/<p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a>   -->
+  <!-- <a class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
+<!-- <button href="/Cart" type="submit" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button> -->
+<!-- <form action="/shop7" method="POST"> -->
+
+<!--is the orginal way i used to send product.id to backend-->
+<!-- <a href="/addToCart/<=p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
+
+<!-- <button class="addToCart" value="<=p.id %>">Add to Cart New</button> -->
+<!-- <input type="text" name="productId" value="<=p.id%>">
+<button type="submit" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button> -->
+<!-- </form> -->
+</div>
+<!-- </div> -->
+<!-- </form> -->
+
+</div> <!--Product Card-->
+<!-- <})%> Product forEach p -->
+<%}%> <!--for p of products-->
+<!-- <})%> Produt foreach loop  -->
+</div>
+</div>
+</div>
+<!--REAL FLEX END-->
+<!-- </form> -->
+
+<!--CART POPUP-->
+<!-- <div class="cartPopup"> -->
+    <!-- <p>Hello Popup</p> -->
+    <!-- < for (let p of products) {%>
+< if (p.name === 'sweatshirt' && p.id === '6980ea56bee0a603e130b') {%>
+<img src="/assets/images/<= p.image %>"  class="blackMug Mugs shirt-item-image" alt="...">
+<img src="/assets/images/<=p.image%>"  class="blackMug Mugs shirt-item-image" alt="...">
+    <p>Item ID: <=p.id%></p>
+    <p>Item Name: `${inputValue}`</p>
+<} else if (p.name === 't-shirt') {%>
+    <img src="/assets/images/<= p.image %>"  class="blackMug Mugs shirt-item-image" alt="...">
+    <p>Item ID: <=p.id%></p>
+<} else if (p.name === 'sweatpants') {%>
+    <img src="/assets/images/<= p.image %>"  class="blackMug Mugs shirt-item-image" alt="...">
+    <p>Item ID: <=p.id%></p>
+<}%>
+
+    <}%> -->
+
+  <!-- <p>NEW PRODUCTS</p> -->
+<!-- < if (products) {
+console.log(products);
+%>
+<products.forEach((p) => {%>
+<p><=p.image%></p>
+<})%>
+<}%> -->
+
+<% if (products) {%>
+<p><%=products.id%></p>
+<p><%=products.name%></p>
+
+  <!--NEW SETUP-->
+  <div class="cartPopup1 hidden">
+  <!-- <p>DEBUG: <%= typeof products %></p>
+    <p>Image DEBUG: <%=products.image%></p>
+    <p><%= JSON.stringify(products) %></p> -->
+    <!-- <di class="img_container"></div> -->
+    <div class="sizeChartContainer">
+    <img class="size_Chart" src="/assets/images/ClothingSizeChart.png" alt="">
+    <p class="chart_close">&times;</p>
+    </div>
+
+    <!-- NEW PRODUCT CARDS 2/17/2026-->
+  <!-- < products.forEach(product => {%> -->
+    <!-- <div class="productCard" data-id="<=product._id%>" data-name="<=product.name%>" data-price="<=product.price%>" data-img="/assets/images/<=product.image%>"> -->
+    <div class="clothingContainer"> <!--Clothing Container-->
+        <div class="popup-top">
+          <p class="popup-title">Choose Options</p>
+          <p class="close-btn">&times;</p>
+          <!-- <div class="underline"></div> -->
+        </div>
+        <div class="underline"></div>
+        <img class="popupImg"/>
+        <!-- <div class="popupOptions"></div> -->
+        <div class="price-container">   
+        <p class="popupPrice"></p><span class="regPrice">reg. $39.99</span>
+        </div>
+        <p class="color">Color: Black</p>
+        <!-- <p class="color"><=products.color%></p> -->
+        <div class="popupOptions"></div>
+        <p class="popupName"></p>
+        <!-- <p class="popupID"></p> -->
+      <%
+const productName = products?.name?.toLowerCase().trim();
+
+%>
+
+<!-- < if (productName !== 'black mug') { %> -->
+<!-- < for (let p of products) {%> -->
+<!-- <p>DEBUG: "<= products.name %>"</p> -->
+  <!-- size selection -->
+<!-- < } %> -->
+      <!-- < if (products && products.name && products.name.trim().toLowerCase() !== 'black mug') {%> -->
+        <!-- < products.forEach((p) => {%>
+      < if (p.name.trim().toLowerCase() !== 'black mug') {%> -->
+      <!-- < if (p.name.trim().toLowerCase() !== 'black mug') {%> -->
+        <!-- <div class="size-selection <= products.name.toLowerCase().includes('mug') ? 'disabledSizes' : '' %>"></div>"> -->
+          <div class="size-selection">
+          <div class="title-sizes">
+              <p class="sizes">Size: S</p>
+              <p class="sizeChart-title">Size Chart</p>
+          </div>
+          <ul class="sizes-list">
+              <li class="size defaultSize">S</li>
+              <li class="size">M</li>
+              <li class="size">L</li>
+              <li class="size">XL</li>
+          </ul>
+        </div>
+<!-- <}%> -->
+<!-- <})%> -->
+<!-- <}%> -->
+
+        <!-- <div class="description_container"></div>
+        <div class="price_container"></div> -->
+
+        <!-- <div class="popupOptions"></div> -->
+        <p class="store">Store: Temecula</p>
+        <div class="delivery-options">
+          <!-- <p class="store">Store: Temecula</p> -->
+          <div class="free-store-pickup package-options highlight">
+            <div class="avail-container">
+            <img class="store-img" src="/assets/images/store-svgrepo-com.svg" alt="store image in Inland Empire">
+            <p class="pick-up option">Pick-up</p>
+            </div>
+            <p class="availability">Available</p>
+          </div>
+          <div class="ship-to-me package-options">
+            <div class="avail-container">
+            <img class="delivery-img" src="/assets/images/delivery-truck-fast-svgrepo-com.svg" alt="delivery truck in Inland Empire">
+            <p class="ship option">Delivery</p>
+            </div>
+            <p class="availability">Available</p>
+          </div>
+        </div>
+
+        <div class="fixed-container">
+          <div class="underline"></div>
+          <!-- <div class="removeItemContainer">
+              <p class="removeItem">Would you like to remove this item?</p>
+              <div class="confirmBtnsContainer">
+                <button class="accept">Yes</button>
+                <button class="decline">No</button>
+              </div>
+          </div> -->
+          <div class="add_quantity">
+          <!-- <button class="decrease" id="decrement" name="quantityInput" onclick="decrease3()"> - </button> -->
+                    <!-- <div class="inputContainer"> -->
+                    <button class="decrease" id="decrement" name="quantityInput"> - </button>
+                    <!-- <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<= product.quantity %>"> -->
+                    <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="1">
+                    <!-- <button  class="increase" name="quantityInput" onclick="increase3()">+</button> -->
+                    <button  class="increase" name="quantityInput"> + </button>
+                    <!-- </div> -->
+            <!-- <a href="/addToCart/<=p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
+           
+              <button type="button" class="confirmAdd addToCart">Add Item</button>
+            <!-- <button type="submit" class="confirmAdd" data-name="<=products.name%>" data-id="<=products._id%>" data-img="/assets/images/<= products.image%>" data-price="<=products.price%>" data-type="<=products.name%>">Add New Item</button> -->
+            
+                <!-- <form  class="addForm" action="/addToCart/<=p.id%>">
+                <button class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button>
+                <input class="productName" type="hidden" value="<=products.name%>">
+                <input type="hidden" value="<=products.image%>">
+                <input type="hidden" value="<=products.description">
+                <input type="hidden" value="<=products.price">
+                <input type="hidden" value="Delivery or Pickup">
+                <button type="submit" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</button>
+
+            </form> -->
+          </div>
+          <div class="underline"></div>
+        </div>
+        <p class="full-details">See full product details</p>
+    </div> <!-- Cothing Container -->
+<!-- </div>product card -->
+</div>
+  <!-- <})%> --> <!--products.forEach product-->
+<%}%>
+</div> <!--shop-->
+</div><!--content-->
+
+<!-- </div> -->
+
+
+<!-- <h1>Hello There</h1> -->
+<!-- <script src="/javascripts/shop4.js"></script> -->
+<script>
+    const radioBtns = document.getElementsByClassName('form-check-input');
+    const color = document.querySelector('.color');
+    const shirtItemImage = document.querySelector('.shirt-item-image');
+    const pantsItemImage = document.querySelector('.pants-item-image');
+    const sweaterItemImage = document.querySelector('.sweater-item-image');
+    const beanieItemImage = document.querySelector('.beanie-item-image');
+    const mugItemImage = document.querySelector('.mug-item-image');
+
+    const packageOptions = document.querySelectorAll('.package-options')
+    const deliveryOptions = document.querySelector('.delivery-options');
+    console.log(deliveryOptions)
+    if (deliveryOptions) {
+    deliveryOptions.addEventListener('click', function(e) {
+      const option = e.target.closest('.package-options')
+      if (!option) return
+
+      packageOptions.forEach((item) => {
+        item.classList.remove('highlight');
+})
+
+      option.classList.add('highlight');
+})
+    }
+
+
+//     packageOptions.forEach((option) => {
+//       // console.log(option);
+//     // option.classList.remove('highlight');
+//     option.addEventListener('click', function(e) {
+//       packageOptions.forEach((item) => {
+//         item.classList.remove('hightlight');
+// //         if (!e.target) {
+// //           item.classList.remove('highlight');
+// // }
+// });
+
+//         // const target = e.currentTarget;
+//         // target.classList.add('highlight');
+//         e.currentTarget.classList.add('highlight');
+
+// //         if (!target.classList.contains('highlight')) {
+// //         // option.classList.remove('highlight');
+// //         packageOptions.classList.remove('highlight');
+// // }
+// });
+
+// });
+
+    const sizesList = document.querySelectorAll('.size');
+    const sizeTitle = document.querySelector('.sizes');
+    const Size_s = document.querySelector('.defaultSize');
+
+    if (Size_s) {
+    Size_s.classList.add('highlight');    
+    }
+    sizesList.forEach((size) => {
+      size.addEventListener('click', function(e) {
+        // const target = e.currentTarget.textContent;
+
+        sizesList.forEach((item) => {
+          item.classList.remove('highlight');
+})
+
+        const target = e.currentTarget;
+        const value = target.textContent;
+        // const list = e.currentTarget;
+        // sizeTitle.textContent = 'Size: ' + target;
+        sizeTitle.textContent = 'Size: ' + value;
+        target.classList.add('highlight');
+        // list.classList.add('highlight');
+        // if (!list && target.contains('highlight')) {
+        // list.classList.remove('highlight');
+        // }
+//         if (!target && target.classList.contains('highlight')) {
+//             target.classList.remove('highlight');
+// }
+//             if (target !== target) {
+//             target.classList.remove('highlight')
+// }
+});
+})
+
+
+// const fullArray = [
+
+//    [
+//       '/assets/images/DeutschShirt_black.jpg',
+//       '/assets/images/DeutschShirt_grey.jpg',
+//       '/assets/images/DeutschShirt_blue.jpg'
+// ],
+
+
+//    [
+//       '/assets/images/DeutschPants_black.jpg',
+//       '/assets/images/DeutschPants_grey.jpg',
+//       '/assets/images/DeutschPants_blue.jpg'
+// ],
+
+
+//    [
+//       '/assets/images/DeutschSweater_black.jpg',
+//       '/assets/images/DeutschSweater_grey.jpg',
+//       '/assets/images/DeutschSweater_blue.jpg'
+// ]
+
+
+
+// ];
+const products = {
+    shirt: [
+        { color: 'black', image: '/assets/images/DeutschShirt_black.jpg'},
+        { color: 'grey', image: '/assets/images/DeutschShirt_grey.jpg'},
+        { color: 'blue', image: '/assets/images/DeutschShirt_blue.jpg'}
+],
+
+    pants: [
+        { color: 'black', image: '/assets/images/DeutschPants_black.jpg'},
+        { color: 'grey', image: '/assets/images/DeutschPants_grey.jpg'},
+        { color: 'blue', image: '/assets/images/DeutschPants_blue.jpg'}
+],
+
+    sweater: [
+        { color: 'black', image: '/assets/images/DeutschSweater_black.jpg'},
+        { color: 'grey', image: '/assets/images/DeutschSweater_grey.jpg'},
+        { color: 'blue', image: '/assets/images/DeutschSweater_blue.jpg'}
+],
+    beanie: [
+        { color: 'black', image: '/assets/images/DeutschBeanie_black.jpg'},
+        { color: 'grey', image: '/assets/images/DeutschBeanie_grey.jpg'},
+        { color: 'blue', image: '/assets/images/DeutschBeanie_blue.jpg'}
+],
+    mug: [
+        { color: 'black', image: '/assets/images/IMG_0444.jpeg'},
+        { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
+]
+};
+
+function changeProduct(productType, value) {
+  const index = parseInt(value) - 1;
+  const productArray = products[productType]
+  if (index >= 0 && index < productArray.length) {
+  const selectedItem = productArray[index];
+if (popupImage) {
+  popupImage.src = selectedItem.image;
+}
+  // color.textContent = 'Color: ' + selectedItem.color;
+  // shirtItemImage.src = productsArray[index];
+  // shirtItemImage.src = productArray[index];
+const selectDiv = document.querySelectorAll('.Mugs');
+
+selectDiv.forEach((d) => {
+    if (productType === 'shirt') {
+        shirtItemImage.src = selectedItem.image;
+        // color.textContent = 'Color: ' + selectedItem.color;
+    } else if (productType === 'pants') {
+        pantsItemImage.src = selectedItem.image
+        // color.textContent = 'Color: ' + selectedItem.color;
+} else if (productType === 'sweater') {
+        sweaterItemImage.src = selectedItem.image;
+        // color.textContent = 'Color: ' + selectedItem.color;
+} else if (productType === 'beanie') {
+        beanieItemImage.src = selectedItem.image;
+        // color.textContent = 'Color: ' + selectedItem.color;
+} else if (productType = 'mug') {
+        mugItemImage.src= selectedItem.image;
+        // color.textContent = 'Color: ' + selectedItem.color
+}
+})
+
+  // shirtItemImage.src = selectedItem.image;
+  // popupImage.src = productsArray[index];
+  } else {
+  console.log('Invalid image index', index)
+}
+}
+
+
+// const object = fullArray.filter((obj) => {
+//     return obj.DeutschPants_black;
+// })
+// console.log(object);
+// console.log(fullArray);
+
+    const shirtArray = [
+      '/assets/images/DeutschShirt_black.jpg',
+      '/assets/images/DeutschShirt_grey.jpg',
+      '/assets/images/DeutschShirt_blue.jpg'
+];
+
+    const pantsArray = [
+      '/assets/images/DeutschPants_black.jpg',
+      '/assets/images/DeutschPants_grey.jpg',
+      '/assets/images/DeutschPants_blue.jpg'
+];
+
+  const sweaterArray = [
+      '/assets/images/DeutschSweater_black.jpg',
+      '/assets/images/DeutschSweater_grey.jpg',
+      '/assets/images/DeutschSweater_blue.jpg'
+];
+
+const beanieArray = [
+      '/assets/images/DeutschBeanie_black.jpg',
+      '/assets/images/DeutschBeanie_grey.jpg',
+      '/assets/images/DeutschBeanie_blue.jpg'
+];
+
+  const mugArray = [
+      '/assets/images/IMG_0444.jpeg',
+      '/assets/images/IMG_0442.jpeg',
+      // '/assets/images/DeutschSweater_blue.jpg'
+];
+//NEW 2/26/2026
+function changeShirt1(image) {
+
+  const imageIndex = parseInt(image) - 1;
+  if (imageIndex >= 0 && imageIndex < shirtArray.length) {
+    // shirtItemImage.src = shirtArray[imageIndex];
+    if (popupImage) {
+      popupImage.src = shirtArray[imageIndex];
+}
+    if (imageIndex === 0) {
+      color.textContent = 'Color: ' + 'Black';
+} else if (imageIndex === 1) {
+      color.textContent = 'Color: ' + 'Grey'
+} else if (imageIndex === 2) {
+      color.textContent = 'Color: ' + 'Blue'
+}
+  // shopItemImage.src = '/assets/images/DeutschShirt_grey.jpg';
+} else {
+  console.log('Invalid image index', imageIndex)
+}
+  // shopItemImage.src = parseInt(shirtArray[image]) - 1;
+  
+  // console.log(parseInt(image));
+}
+//NEW 2/26/2026
+
+    function changeShirt(image) {
+
+  const imageIndex = parseInt(image) - 1;
+  if (imageIndex >= 0 && imageIndex < shirtArray.length) {
+    shirtItemImage.src = shirtArray[imageIndex];
+    if (popupImage) {
+      popupImage.src = shirtArray[imageIndex];
+}
+    if (imageIndex === 0) {
+      color.textContent = 'Color: ' + 'Black';
+} else if (imageIndex === 1) {
+      color.textContent = 'Color: ' + 'Grey'
+} else if (imageIndex === 2) {
+      color.textContent = 'Color: ' + 'Blue'
+}
+  // shopItemImage.src = '/assets/images/DeutschShirt_grey.jpg';
+} else {
+  console.log('Invalid image index', imageIndex)
+}
+  // shopItemImage.src = parseInt(shirtArray[image]) - 1;
+  
+  // console.log(parseInt(image));
+}
+
+  function changePants(image) {
+  const imageIndex = parseInt(image) - 1;
+   if (imageIndex >= 0 && imageIndex < pantsArray.length) {
+    // pantsItemImage.src = pantsArray[imageIndex];
+    if (popupImage) {
+      popupImage.src = pantsArray[imageIndex];
+}
+if (imageIndex === 0) {
+      color.textContent = 'Color: ' + 'Black';
+} else if (imageIndex === 1) {
+      color.textContent = 'Color: ' + 'Grey'
+} else if (imageIndex === 2) {
+      color.textContent = 'Color: ' + 'Blue'
+}
+} else {
+    console.log('Invalid image index', imageIndex)
+}
+}
+
+ function changeSweatshirt(image) {
+  const imageIndex = parseInt(image) - 1;
+   if (imageIndex >= 0 && imageIndex < sweaterArray.length) {
+    // sweaterItemImage.src = sweaterArray[imageIndex];
+    if (popupImage) {
+      popupImage.src = sweaterArray[imageIndex];
+}
+if (imageIndex === 0) {
+      color.textContent = 'Color: ' + 'Black';
+} else if (imageIndex === 1) {
+      color.textContent = 'Color: ' + 'Grey'
+} else if (imageIndex === 2) {
+      color.textContent = 'Color: ' + 'Blue'
+}
+} else {
+    console.log('Invalid image index', imageIndex)
+}
+}
+
+function changeBeanie(image) {
+  const imageIndex = parseInt(image) - 1;
+   if (imageIndex >= 0 && imageIndex < beanieArray.length) {
+    // sweaterItemImage.src = sweaterArray[imageIndex];
+    if (popupImage) {
+      popupImage.src = beanieArray[imageIndex];
+}
+if (imageIndex === 0) {
+      color.textContent = 'Color: ' + 'Black';
+} else if (imageIndex === 1) {
+      color.textContent = 'Color: ' + 'Grey'
+} else if (imageIndex === 2) {
+      color.textContent = 'Color: ' + 'Blue'
+}
+} else {
+    console.log('Invalid image index', imageIndex)
+}
+}
+
+function changeMug(image) {
+  const imageIndex = parseInt(image) - 1;
+   if (imageIndex >= 0 && imageIndex < mugArray.length) {
+    // sweaterItemImage.src = sweaterArray[imageIndex];
+    if (popupImage) {
+      popupImage.src = mugArray[imageIndex];
+}
+if (imageIndex === 0) {
+      color.textContent = 'Color: ' + 'Black';
+} else if (imageIndex === 1) {
+      color.textContent = 'Color: ' + 'Red'
+}
+ 
+// else if (imageIndex === 2) {
+//       color.textContent = 'Color: ' + 'Blue'
+// }
+} else {
+    console.log('Invalid image index', imageIndex)
+}
+}
+
+
+// const newAddBtn = document.querySelector('.addToCart');
+
+// newAddBtn.forEach(btn => {
+//   btn.addEventListener('click', () => {
+//     showPopup();
+// })
+// })
+
+// newAddBtn.addEventListener('click', showPopup)
+const popup = document.querySelector('.cartPopup1');
+const popupImage = popup.querySelector('.popupImg');
+const popupName = popup.querySelector('.popupName');
+const popupPrice = popup.querySelector('.popupPrice');
+// const form = document.querySelectorAll('.form');
+// const addBtn = document.querySelector('');
+
+//popup close
+    const closeBtn = document.querySelector('.close-btn');
+    closeBtn.addEventListener('click', function() {
+      // popup.style.display = 'none';
+      popup.classList.remove('active');
+      color.innerText = 'Color: Black';
+});
+
+
+document.querySelectorAll('.addToCart').forEach((btn) => {
+    btn.addEventListener('click', function() {
+    showPopup();
+      // popupImage.src = `${btn.dataset.img}`;
+    const card = btn.closest('.productCard');
+    if (card) {
+    const cardImage = card.querySelector('img');
+    popupImage.src = cardImage.src;
+    }
+    // popupImage.src = cardImage.src;
+  // popupName.textContent = btn.dataset.name;
+  popupPrice.textContent = 'sale' + ' ' + '$' + `${btn.dataset.price / 100}` + '';
+  // popup.classList.add('active');
+
+  renderColorOptions(btn.dataset.type);
+
+})
+})
+
+  function renderColorOptions(type) {
+
+  const popupOptions = document.querySelector('.popupOptions');
+
+
+  let handler = type === 't-shirt' ? 'changeShirt1':
+  type === 'sweatshirt' ? 'changeSweatshirt':
+  type === 'sweatpants' ? 'changePants': 
+  type === 'beanie' ? 'changeBeanie':
+  type === 'Black Mug' ? 'changeMug': null;
+
+    if (!handler) {
+    popupOptions.innerHTML = '';
+    return;
+}
+console.log(type)
+const sizeChart = document.querySelector('.size-selection');
+sizeChart.classList.remove('disabledSizes');
+if (type === 'Black Mug') {
+  popupOptions.innerHTML = 
+`<div class="form-flex">
+      <div class="form-check">
+        <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="1" id="radio-black" checked
+          onchange="${handler}(this.value)">
+         
+        </label>
+        
+      </div>
+
+      <div class="form-check">
+         <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="2" id="radio-red" 
+          onchange="${handler}(this.value)">
+          
+        </label>
+      </div>`;
+      // const sizeChart = document.querySelector('.size-selection');
+//       sizeChart.innerHTML = `
+//         <div class="size-selection"></div>
+// `;
+      sizeChart.classList.add('disabledSizes');
+} else if (type === 'beanie') {
+      sizeChart.classList.add('disabledSizes');
+      popupOptions.innerHTML = 
+`<div class="form-flex">
+      <div class="form-check">
+        <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="1" id="radio-black" checked
+          onchange="${handler}(this.value)">
+         
+        </label>
+        
+      </div>
+
+      <div class="form-check">
+         <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="2" id="radio-grey" 
+          onchange="${handler}(this.value)">
+          
+        </label>
+      </div>
+
+      <div class="form-check">
+         <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="3" id="radio-blue"
+          onchange="${handler}(this.value)">
+          
+        </label>
+      </div>
+    </div>
+  `;
+} else {
+
+    popupOptions.innerHTML = 
+`<div class="form-flex">
+      <div class="form-check">
+        <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="1" id="radio-black" checked
+          onchange="${handler}(this.value)">
+         
+        </label>
+        
+      </div>
+
+      <div class="form-check">
+         <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="2" id="radio-grey" 
+          onchange="${handler}(this.value)">
+          
+        </label>
+      </div>
+
+      <div class="form-check">
+         <label class="color-option">
+        <input class="form-check-input" type="radio" name="color" value="3" id="radio-blue"
+          onchange="${handler}(this.value)">
+          
+        </label>
+      </div>
+    </div>
+  `;
+//       const sizeChart = document.querySelector('size-selection');
+//       if (sizeChart) {
+//       sizeChart.innerHTML = `
+//         <div class="size-selection">
+//           <div class="title-sizes">
+//               <p class="sizes">Size: S</p>
+//               <p class="sizeChart-title">Size Chart</p>
+//           </div>
+//           <ul class="sizes-list">
+//               <li class="size defaultSize">S</li>
+//               <li class="size">M</li>
+//               <li class="size">L</li>
+//               <li class="size">XL</li>
+//           </ul>
+//         </div>
+// `;
+// }
+}
+
+}
+
+// Size Selection Selection
+// const sizeSection = document.querySelector('.size-selection');
+// if (products.name.toLowerCase().includes('mug')) {
+//   sizeSection.style.display = 'none';
+// } else {
+//   sizeSection.style.display = 'block';
+// }
+
+// <div class="form-check">
+//                 <input class="form-check-input" type="radio" value="1" onchange="changeSweatshirt(this.value)" name="radioDefault" id="radio-black" checked>
+//                 <label class="form-check-label" for="radioDefault1">
+//                   <!-- Default radio
+//                   Black -->
+//                 </label>
+//               </div>
+// const name = newAddBtn.dataset.name;
+// const id = newAddBtn.dataset.id;
+// const img = newAddBtn.dataset.image;
+// const price = newAddBtn.dataset.price;
+// console.log(price, name)
+// const nameContainer = document.querySelector('.name_container');
+const imgContainer = document.querySelector('.img_container');
+const priceContainer = document.querySelector('.price_container');
+
+// priceContainer.textContent = price;
+// imgContainer.src = img;
+
+function showPopup() {
+    // popup.style.display = 'block'
+    popup.classList.add('active');
+    // console.log(p.name, p.id);
+
+}
+
+//INPUT VALUE FOR QUANTITY INPUT ELEMENT
+// let inputValue = document.querySelector('.cart-quantity-input').value;
+// let newValue = parseInt(inputValue);
+// console.log(inputValue, newValue);
+
+const incBtn = document.querySelector('.increase');
+const decBtn = document.querySelector('.decrease');
+const showItemContainer = document.querySelector('.removeItemContainer');
+
+if (incBtn) {
+incBtn.addEventListener('click', function() {
+    // let currentValue = parseInt(newValue + 1);
+    // inputValue.value += currentValue;
+    // console.log(inputValue, currentValue);
+    // let inputValue = document.querySelector('.cart-quantity-input').value;
+    const inputValue = document.querySelector('.cart-quantity-input');
+    let newValue = parseInt(inputValue.value);
+    newValue++
+    inputValue.value = newValue;
+
+    if (newValue > 1) {
+    decBtn.removeAttribute('disabled');
+    decBtn.classList.remove('disabled');
+}
+
+})
+}
+
+if (decBtn) {
+    decBtn.setAttribute('disabled', true);
+    decBtn.classList.add('disabled');
+  decBtn.addEventListener('click', function() {
+    const inputValue = document.querySelector('.cart-quantity-input');
+
+    let newValue = parseInt(inputValue.value);
+    // newValue--;
+    // inputValue.value = newValue;
+
+    if (newValue > 1) {
+      newValue--;
+      inputValue.value = newValue;
+      //  decBtn.removeAttribute('disabled');
+      // decBtn.classList.remove('disabled');
+      // newValue = '1';
+      // const removePop = document.createElement('p');
+      // removePop.innerText = 'Would You Like To Remove Item?'
+      if (newValue === 1) {
+      decBtn.setAttribute('disabled', true);
+      decBtn.classList.add('disabled');
+      // console.log('Would You Like To Remove Item?');
+      // showItemContainer.classList.add('showRemoveItemContainer');
+
+} 
+}
+
+
+
+// if (inputValue.value >= 1) {
+//     inputValue.value - 1;
+//     console.log('Would You Like To Remove Item?');
+// }
+})
+
+}
+
+//New Item Added DIV
+// const confirmAddBtn = document.querySelectorAll('.confirmAdd');
+
+// if (confirmAddBtn) {
+// console.log(confirmAddBtn);
+// }
+// console.log(confirmAddBtn);
+const itemAddedDiv = document.querySelector('.itemAdded');
+const itemDivClose = document.querySelector('.title-div-close');
+
+
+if (itemDivClose) {
+    itemDivClose.addEventListener('click', () => {
+      itemAddedDiv.classList.remove('itemActive');
+});
+}
+// if (confirmAddBtn) {
+// confirmAddBtn.addEventListener('click', function() {
+//     popup.style.display = 'none';
+//     console.log('button clicked');
+//     // itemAddedDiv.style.display = 'block';
+//     itemAddedDiv.classList.add('itemActive');
+//     confirmImg.src = `${confirmAddBtn.dataset.img}`;
+//     console.log(confirmAddBtn.dataset.img);
+// confirmPrice.innerText = `${confirmAddBtn.dataset.price / 100}`
+// // confirmName.innerText = `${confirmAddBtn.dataset.name}`
+// });
+
+// confirmAddBtn.forEach((btn) => {
+//     btn.addEventListener('click', function() {
+//     // popup.style.display = 'none';
+//       popup.classList.remove('active');
+//     //  itemAddedDiv.style.display = 'block';
+//     itemAddedDiv.classList.add('itemActive');
+//     confirmImg.src = `${btn.dataset.image}`;
+//     console.log('Image path:', btn.dataset.image)
+    
+//     confirmPrice.innerText = `${btn.dataset.price / 100}`;
+// });
+// })
+
+// confirmAddBtn.forEach((btn) => {
+//     btn.addEventListener('click', function() {
+//       popup.classList.remove('active')
+
+//       btn.dataset.id = this.dataset.id;
+//       btn.dataset.name = this.dataset.name;
+//       btn.dataset.price = this.dataset.price;
+//       btn.dataset.img = this.dataset.img
+// })
+// })
+// }
+
+// document.querySelectorAll('.productCard').forEach((card) => {
+//     card.addEventListener('click', function() {
+//       popup.classList.remove('active');
+//       const confirmBtn = document.querySelector('.confirmAdd');
+
+//       confirmBtn.dataset.id = this.dataset.id;
+//       confirmBtn.dataset.name = this.dataset.name;
+//       confirmBtn.dataset.price = this.dataset.price;
+//       confirmBtn.dataset.img = this.dataset.img;
+// })
+
+// })
+
+document.querySelectorAll('.productCard').forEach((card) => {
+      // const addBtn = card.querySelector('.confirmAdd');
+      const addBtn = card.querySelector('.addToCart');
+      console.log(addBtn);
+      const confirmBtn = document.querySelector('.confirmAdd');
+      if (addBtn) {
+      addBtn.addEventListener('click', function() {
+        // console.log(addBtn);
+      // addBtn.dataset.id = this.dataset.id;
+      // addBtn.dataset.name = this.dataset.name;
+      // addBtn.dataset.price = this.dataset.price;
+      // addBtn.dataset.img = this.dataset.img;
+
+      confirmBtn.dataset.id = this.dataset.id;
+      confirmBtn.dataset.name = this.dataset.name;
+      confirmBtn.dataset.price = this.dataset.price;
+      confirmBtn.dataset.img = this.dataset.img;
+      confirmBtn.dataset.description = this.dataset.description;
+
+      });
+      }
+ });
+
+//         const addCartBtn = card.querySelector('.addToCart');
+// // if (addCartBtn) {
+// // console.log(addCartBtn);
+// // addCartBtn.addEventListener('click', () => {
+// //           const confirmBtn = document.querySelector('.confirmAdd');
+// //                 confirmBtn.dataset.id = this.dataset.id;
+// //       confirmBtn.dataset.name = this.dataset.name;
+// //       confirmBtn.dataset.price = this.dataset.price;
+// //       confirmBtn.dataset.img = this.dataset.img;
+// })
+//         if (addCartBtn) {
+//         addCartBtn.addEventListener('click', () => {
+//           const confirmBtn = document.querySelector('.confirmAdd');
+//                 confirmBtn.dataset.id = this.dataset.id;
+//       confirmBtn.dataset.name = this.dataset.name;
+//       confirmBtn.dataset.price = this.dataset.price;
+//       confirmBtn.dataset.img = this.dataset.img;
+    
+
+// })
+//         }
+// }
+// });
+// const popupColor = ocuemnt.querySelector('.color');
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('confirmAdd')) {
+        const btn = e.target
+      console.log('Image path:', btn.dataset.img);
+
+      // confirmImg.src = btn.dataset.img;
+      //  popupImage.src = `${btn.dataset.img}`;
+      // confirmImg.src = `${btn.dataset.img}`;
+      // confirmImg.src = popupImage.src;
+      // confirmImg.btn.dataset.img = popupImage.src;
+      // confirmImg.src = popupImage.btn.dataset.img;
+      // console.log(confirmImg, popupImage);
+      console.log(popupImage);
+      const newPopup = document.querySelector('.popupImg');
+      // console.log(newPopup);
+      console.log("Popup image currently:", document.querySelector('.popupImg').src);
+      confirmImg.src = newPopup.src;
+      // console.log("CONFIRM IMAGE SET TO:", confirmImg.src);
+      // console.log(confirmImg);
+      confirmPrice.innerText = `Price: $${btn.dataset.price / 100}`;
+      // confirmColor.innerText = popupColor.innerText;
+      confirmColor.textContent = newColor.textContent;
+      // confirmQuantity.textContent = 'Qauntity: ' + cartInput.value;
+      if (btn.dataset.name.toLowerCase().trim() === 'black mug') {
+      // confirmSize.textContent = '';
+      confirmSize.style.display = 'none';
+} else {
+      confirmSize.textContent = popupSizes.textContent;
+}
+      confirmDescription.textContent = btn.dataset.description;
+          // popup.style.display = 'none';
+          popup.classList.remove('active');
+    //  itemAddedDiv.style.display = 'block';
+    itemAddedDiv.classList.add('itemActive');
+
+    console.log('This is the carts total quantity', <%=cart.totalQuantity%>);
+    const countItem = document.querySelector('.countItem');
+    countItem.innerText = <%=cart.totalQuantity%> + 1;
+}
+})
+
+
+// document.querySelectorAll('.productCard').forEach(card => {
+//     card.addEventListener('click', function() {
+//       const popup = document.querySelector('.cartPopup1');
+//       // const popup = document.querySelector('.cartPopup');
+//       const confirmBtn = document.querySelector('.confirmAdd');
+
+//       document.querySelector('.popupImg').src= this.dataset.img;
+//       document.querySelector('.popupName').innerText = this.dataset.name;
+//       document.querySelector('.popupPrice').innerText = `${this.dataset.price / 100}`;
+
+//       confirmBtn.dataset.id = this.dataset.id;
+//       confirmBtn.dataset.name = this.dataset.name;
+//       confirmBtn.dataset.price = this.dataset.price;
+//       confirmBtn.dataset.img = this.dataset.img
+
+//       if (popup) popup.classlist.remove('hidden');
+//       // popup.style.display = 'none';
+// })
+// })
+
+
+
+// const confirmName = document.querySelector('.confirmName');
+const confirmImg = document.querySelector('.confirmImg');
+console.log(confirmImg);
+const confirmPrice = document.querySelector('.confirmPrice');
+const confirmColor = document.querySelector('.confirmColor');
+const confirmDescription = document.querySelector('.confirmDescription');
+const confirmQuantity = document.querySelector('.confirmQuantity');
+const confirmSize = document.querySelector('.confirmSize');
+const confirmShipping = document.querySelector('.confirmShipping');
+
+const deliverOption = document.querySelector('.highlight');
+const availContainer = document.querySelector('.avail-container');
+// const option = document.querySelector('');
+// console.log(availContainer.previousElementSibling);
+// if (availContainer.previousElementSibling) {
+    // console.log(availContainer.nextElementSibling);
+const option = availContainer.querySelector('.option');
+console.log(option);
+
+if (deliverOption) {
+  const option2 = availContainer.querySelector('.option');
+  console.log(option2);
+}
+
+packageOptions.forEach((p) => {
+
+//   if (p.classList.contains('.hightlight')) {
+//       console.log(p);
+// }
+
+p.addEventListener('click', function(e) {
+  const target = e.currentTarget;
+  // console.log(target);
+  // if(target.classList.contains('ship-to-me')) {
+  // if (target.classList.contains('package-options')) {
+  // target.addEventListener('click', function(e) {
+  // const event = e.currentTarget;
+const result = target.querySelector('.avail-container');
+// console.log(new1);
+
+const option = result.querySelector('.option');
+// console.log(option.textContent);
+
+// confirmShipping.textContent = option.textContent;
+
+//   if (target.classList.contains('highlight')) {
+//   // if (event.classList.contains('highlight')) {
+//     // console.log(target.textContent);
+//     // console.log(event);
+
+//     // const result = document.querySelector('.ship');
+//     const result = target.querySelector('.avail-container');
+//     const text = result.querySelector('.option');
+//     console.log(text)
+//     // const result = document.querySelector('.option');
+//     // console.log(result.textContent);
+//     // confirmShipping.textContent = result.textContent;
+//     // confirmShipping.textContent = text.textContent;
+// }
+
+  })
+})
+// })
+// }
+// console.log('Deliver Options', deliverOption);
+
+// const option = deliverOption.querySelector('.option');
+// if (option) {
+// console.log(option.textContent);
+// }
+// if (deliverOption) {
+
+// }
+const newColor = document.querySelector('.color');
+const popupSizes = document.querySelector('.sizes');
+const cartInput = document.querySelector('.cart-quantity-input');
+// confirmColor.textContent = newColor.textContent;
+
+// confirmAddBtn.forEach((btn) => {
+
+//   confirmImg.src = `${btn.dataset.img}`;
+//   confirmPrice.innerText = `${btn.dataset.price / 100}`;
+//   confirmName.innerText = `${btn.dataset.name}`;
+// })
+
+
+// confirmImg.src = `${confirmAddBtn.dataset.img}`;
+// confirmPrice.innerText = `${confirmAddBtn.dataset.price / 100}`
+// confirmName.innerText = `${confirmAddBtn.dataset.name}`
+
+//Continue Shopping button
+const continueBtn = document.querySelector('.continueShopping');
+
+continueBtn.addEventListener('click', () => {
+  itemAddedDiv.classList.remove('itemActive');
+})
+
+
+
+//SIZE CHART POPUP
+const sizeChartTitle = document.querySelector('.sizeChart-title');
+// const sizeChartImage = document.querySelector('.size_Chart');
+const sizeChartContainer = document.querySelector('.sizeChartContainer');
+const clothingContainer = document.querySelector('.clothingContainer');
+const chartClose = document.querySelector('.chart_close');
+
+if (sizeChartTitle) {
+sizeChartTitle.addEventListener('click', showSizeChart);
+}
+
+function showSizeChart() {
+    // sizeChartImage.style.display = 'block';
+    sizeChartContainer.style.display = 'block';
+    clothingContainer.style.display = 'none';
+}
+
+chartClose.addEventListener('click', function() {
+    // sizeChartImage.style.display = 'none';
+    sizeChartContainer.style.display = 'none';
+    clothingContainer.style.display = 'block';
+    // chartClose.style.display = 'none';
+});
+
+//ADD TO CART BUTTON
+// const addForm = document.querySelector('.addForm');
+// const productName = document.querySelector('.productName');
+// const productDescription = document.querySelector('.productDescription');
+// const productId = document.querySelector('.productId');
+// const productPrice = document.querySelector('.productPrice');
+// const productColor = document.querySelector('.productColor');
+// const productQuantity = document.querySelector('.productQuantity');
+// const productSize = document.querySelector('.productSize');
+// const deliveryPickup = document.querySelector('.deliveryPickup');
+
+// const addedToCartDiv = document.querySelector('addedToCartDiv');
+
+// addForm.addEventListener('click', function(e) {
+//     e.preventDefault();
+
+//     // const input = document.querySelector();
+
+// })
+const input = document.querySelector('.productName');
+if (input) {
+// const input = document.querySelector('.productName');
+console.log(input.value);
+}
+
+</script>
+<!-- <script src="/javascripts/quantityFile.js"></script> -->

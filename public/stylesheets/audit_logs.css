@@ -1,0 +1,76 @@
+.flag {
+    margin-bottom: -9px;
+}
+
+.name {
+    /* display: flex;
+    justify-content: space-around; */
+    padding-right: 10px;
+    transform: skew(-20deg);
+}
+
+.a {
+    margin-left: 2px;
+}
+
+.a, .u, .t,
+.o, .h, .s {
+    /* padding-right: 20px; */
+    padding-right: 26px;
+    font-size: 10px;
+    /* color: black; */
+    padding-right: 16px;
+    color: white;
+}
+
+.flag.autohaus {
+    /* margin-left: -8px; */
+    margin-left: -7px;
+}
+
+.black {
+    /* border: 2px solid black; */
+    width: 10px;
+    height: 18px;
+    background-color: black;
+    transform: skew(-24deg);
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+    /* margin-left: auto */
+}
+
+.yellow.autohaus {
+    margin-right: 2px;
+}
+
+.red.autohaus,
+.yellow.autohaus,
+.black.autohaus {
+    /* height: 8px; */
+    height: 10px;
+    margin-bottom: -3px;
+}
+.red {
+    /* border: 2px solid red; */
+    width: 10px;
+    height: 18px;
+    background-color: red;
+    transform: skew(-24deg);
+    /* margin-right: 5px; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+.yellow {
+    /* border: 2px solid yellow; */
+    width: 10px;
+    height: 18px;
+    background-color: yellow;
+    transform: skew(-24deg);
+    margin-right: 2px;
+    /* margin-right: auto; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}

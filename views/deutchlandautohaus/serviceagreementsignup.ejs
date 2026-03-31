@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/serviceagreement.css">
+     <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Imperial+Script&display=swap" rel="stylesheet">
+    <title>Edit</title>
+</head>
+<% layout('layouts/boilerplate') %>
+<body class='body'>
+    <h1 class="service-title">Service Agreement Signup</h1>
+     <!-- < layout('layouts/boilerplate') %> -->
+
+
+    <!-- <select id="activitySelector">
+      <option value="addNew">Add New Item</option>
+</select> -->
+<!-- <form class="form-agreement" action="/serviceagreementsignup" id="form3" method="POST"> -->
+<form class="form-agreement" action="/submit-signature" id="form3" method="POST">
+<div class="form-title">
+    <!-- <div class="flag autohaus-agreement">
+      <div class="black autohaus-agreement"></div>
+      <div class="red autohaus-agreement"></div>
+      <div class="yellow autohaus-agreement"></div>
+    <h2 class="shop-title">DEUTSCHLAND AUTOHAUS</h2>
+    <p class="service-a">Auto Repair Service Agreement</p>
+</div> -->
+
+<div class="logo-agreement">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="block">
+    <div class="navbar-brand" href="#">
+      <div class="flag">
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="deutchland-agreement">DEUTSCH<span>LAND</span></div><br>
+      </div>
+      <!-- <div>Deutchland</div><br> -->
+      <div class="flag autohaus service">
+      <div class="black autohaus"></div>
+      <div class="red autohaus"></div>
+      <div class="yellow autohaus"></div>
+      <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+      <div class="name autohaus"><span class="a-service">A</span><span class="u-service">U</span><span class="t-service">T</span><span class="o-service">O</span><span class="h-service">H</span><span class="a-service">A</span><span class="u-service">U</span><span class="s-service">S</span></div>
+      </div>    
+      <!-- <div>Autohaus</div> -->
+    </div>
+    <!-- <div class="navbar-brand autohaus" href="#">
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="black"></div>    
+      <div>Autohaus</div>
+    </div> -->
+    <!-- <div class="nanvbar-brand" href="#">Autohaus</div> -->
+    </div>
+  
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <a class="navbar-brand" href="#">Autohaus</a> -->
+  </div>
+
+<p class="auto-agreement">This Auto Repair Service Agreement (the “Agreement”) is entered into by and between:</p>
+<p class="client-shop-agreement-title"> The Customer (Client) and Deutschland Autohaus</p>
+
+<h3 class="client_info">Client Information</h3>
+<div class="client-info">
+<label for="customer-name">Customer Name</label>
+<!-- <input type="text" name="customer-name" id="customer-name" placeholder="first name">Customer Name: _____________________________________</p> -->
+<input type="text" class="input" name="customer-name" id="customer-name" placeholder="full name">
+</div>
+<div class="client-info">
+<label for="customer-address">Customer Address:</label>
+<!-- <input type="text" name="customer-address" id="customer-address" placeholder="address">Address: ___________________________________________ -->
+<input type="text" class="input" name="customer-address" id="customer-address" placeholder="address">
+</div>
+<div class="client-info">
+<label for="customer-phone">Customer Phone:</label>
+<!-- <input type="text" name="customer-phone" id="customer-phone" placeholder="phone">Phone Number: ______________________________________ -->
+<input type="text" class="input" name="customer-phone" id="customer-phone" placeholder="phone">
+</div>
+<div class="client-info">
+<label for="customer-name">Customer Email:</label>
+<!-- <input type="text" name="customer-email" id="customer-email" placeholder="email">Email Address: ______________________________________ -->
+<input type="text"  class="input" name="customer-email" id="customer-email" placeholder="email">
+<!-- </div> -->
+<p class="date">Today's Date: <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+</div>
+
+<div class="biz-container">
+<h3 class="autohaus-details">Deutschland Autohaus Business Details</h3>
+<div class="business_details">
+<label class="shop-name" for="shop-name">Auto Repair Shop Name:</label>
+<!-- <input type="text" name="Shop-name" id="shop-name" placeholder="repair shop name">Auto Repair Shop Name: ______________________________</p> -->
+<!-- <input type="text" class="input" name="Shop-name" id="shop-name" placeholder="repair shop name"> -->
+<!-- <p class="business-name">DEUTSCHLAND AUTOHAUS</p> -->
+<p class="business-name">Deutschland Autohaus of Temecula</p>
+
+<label class="shop-address" for="shop-address">Auto Repair Shop Address:</label>
+<!-- <input type="text" name="shop-address" id="shop-address" placeholder="shop-address">Address: ___________________________________________</p> -->
+<!-- <input type="text" class="input" name="shop-address" id="shop-address" placeholder="shop-address"> -->
+<p class="business-address">28710 Via Montezuma
+Temecula, CA 92590</p>
+
+<label class="shop-number" for="shop-number">Auto Repair Shop Number:</label>
+<!-- <input type="text" name="shop-number" id="shop-number" placeholder="shop-number">Phone Number: ______________________________________</p> -->
+<!-- <input type="text" class="input" name="shop-number" id="shop-number" placeholder="shop-number"> -->
+<p class="business-phone">(951) 587-8112</p>
+
+<label  class="shop-email" for="customer-name">Auto Repair Shop Email:</label>
+<!-- <input type="text" name="shop-email" id="shop-email" placeholder="shop-email">Email Address: ______________________________________</p> -->
+<!-- <input type="text" class="input" name="shop-email" id="shop-email" placeholder="shop-email"> -->
+<p class="business-email">deutschlandautohaus@gmail.com</p>
+</div>
+</div>
+<!-- <p if (date) {%>
+<p class="date">Date: <=date%></p>
+<}%> -->
+
+<div class="agreement-form">
+<div class="service-title-container"><h3 class="agreement_title">SERVICE AGREEMENT</h3></div>
+
+<p class="vehicle_register-title">This agreement pertains to the following vehicle(s):</p>
+
+<!-- <if (cart) {%>
+    <p>Year: <=cart.vehicles[0].year%></p>
+    <p>Make: <=cart.vehicles[0].make%></p>
+    <p>Model: <=cart.vehicles[0].model%></p>
+    <p>ID: <=cart.vehicles[0].id%></p>
+<} else {%>
+    console.log('cart not available');
+    // res.render('de')
+    <p>cart not available</p>
+<}%> -->
+<!-- < if (cart) {%>
+ <p>Year: <=cart.vehicles[0].year%></p>
+    <p>Make: <=cart.vehicles[0].make%></p>
+    <p>Model: <=cart.vehicles[0].model%></p>
+    <p>ID: <=cart.vehicles[0].id%></p>
+<}%> -->
+<!-- <h4 class="vehicle_register">Vehicle(s)</h4> -->
+<% if (cart && cart.vehicles && cart.vehicles.length > 0) {%>
+<% const matchingVehicle = cart.vehicles.find(v = > v.vin === vin); %>
+<% if (matchingVehicle) {%>
+  <!-- < for (let c of cart.vehicles) {%>  -->
+     <h4 class="vehicle_register">Vehicle</h4>  
+     <div class="flex-container">
+        <p class="vehicle_year">Year: <%=c.year%></p>
+        <p class="vehicle_make">Make: <%=c.make%></p>
+        <p class="vehicle_model">Model: <%=c.model%></p>
+        <!-- <if (vin === vin) {%> -->
+        <p class="vehicle-vin">Vin: <%=vin%></p>
+<!-- <}%> -->
+    </div>
+<%} else {%>
+    <p>No matching vehicle found for VIN: <%= vin %></p>
+<%}%>
+ <%} else {%>
+    <p>No vehicles registered in your cart.</p>
+<%}%>
+<%}%>
+ 
+ 
+
+<p class="agreement agreement_title">1. Scope of Services</p>
+<p class="agreement agreement_desc">The Auto Repair Shop agrees to provide the following services to the Customer:</p>
+
+<p class="agreement agreement_desc">Diagnostic services, including but not limited to: [list of diagnostic services].</p>
+<p class="agreement agreement_desc">Repair services, including but not limited to: [list of repairs to be performed].</p>
+<p class="agreement agreement_desc">Replacement of parts as needed, with customer approval.
+The shop will provide an estimate of the cost for repairs and parts prior to performing any work, unless the repair is an emergency situation requiring immediate attention.</p>
+
+<p class="agreement agreement_title">2. Estimates & Authorization</p>
+<p class="agreement agreement_desc">Estimate: An estimate for the repair services will be provided to the customer prior to the commencement of work. This estimate will outline the parts and labor costs.
+Authorization: The Customer authorizes the shop to perform necessary repairs or diagnostics as outlined in the estimate. The Customer will sign the authorization form before work begins.</p>
+<p class="agreement agreement_title">3. Payment Terms</p>
+<p class="agreement agreement_desc">Deposit: A non-refundable deposit of [amount]% of the total estimate may be required before work begins.
+Balance: The remaining balance will be due upon completion of the repair services, prior to the release of the vehicle.
+Payment Methods: Payments can be made via [list payment methods, e.g., cash, credit card, check, etc.].</p>
+<p class="agreement agreement_title">4. Completion and Delivery</p>
+<p class="agreement agreement_desc">The Auto Repair Shop will make reasonable efforts to complete the repair services in a timely manner. The estimated completion date is [insert date or timeframe]. However, delays due to parts availability, labor, or other unforeseen circumstances may occur.
+The Customer will be notified if the completion date needs to be adjusted.</p>
+<p class="agreement agreement_title">5. Warranty</p>
+<p class="agreement agreement_desc">The Auto Repair Shop offers a warranty on labor and parts for [insert warranty period, e.g., 90 days, 6 months, etc.]. This warranty covers any defects in parts and workmanship but does not apply to damage caused by improper use, accidents, or neglect.
+If the vehicle fails within the warranty period due to the repair, the shop will re-perform the services at no additional labor cost, but the customer may still be responsible for parts replacement.</p>
+<p class="agreement agreement_title">6. Customer Responsibilities</p>
+<p class="agreement agreement_desc">The Customer agrees to provide the Auto Repair Shop with access to the vehicle, including keys and any necessary information to complete the work.
+The Customer is responsible for any vehicle or property left at the repair shop. The shop is not liable for loss or damage unless caused by its own negligence.</p>
+<p class="agreement agreement_title">7. Limitation of Liability</p>
+<p class="agreement agreement_desc">The Auto Repair Shop will not be held liable for any incidental or consequential damages, including but not limited to loss of use of the vehicle, damages to personal property, or loss of time. The shop’s liability is limited to the cost of the repair services provided.</p>
+<p class="agreement agreement_title">8. Termination of Agreement</p>
+<p class="agreement agreement_desc">Either party may terminate this Agreement at any time, provided that the Customer has paid for all services rendered up to the termination point.
+If the Customer cancels the service after work has begun, they may be responsible for any costs incurred for parts or labor up until that point.</p>
+<p class="agreement agreement_title">9. Dispute Resolution</p>
+<p class="agreement agreement_desc">In case of any disputes or disagreements, both parties agree to attempt to resolve the matter through mediation before resorting to legal action.</p>
+<p class="agreement agreement_title">10. Governing Law</p>
+<p class="agreement agreement_desc">This Agreement shall be governed by and construed in accordance with the laws of [your state or jurisdiction].</p>
+<p class="agreement agreement_title">11. Signatures</p>
+<p class="agreement agreement_desc">By signing below, both parties acknowledge that they have read, understood, and agree to the terms and conditions outlined in this Auto Repair Service Agreement.</p>
+<!-- < const checkbox = document.querySelector('.checkbox') -->
+    <!-- <if (checkbox) {
+    // const checkbox = document.querySelector('.checkbox');
+    // console.log('Hello');
+// const date_sign = document.querySelector('.sign_date');
+date_sign.style.display = "block";
+    }
+%> -->
+<!-- <label for="first-name">Name</label>
+<input type="text" name="first-name" id="first-name"> -->
+<p class="checkbox"><input type="checkbox" name="checkbox" id="first-name"><span>I read and understand the above agreement</span></p>
+ <!-- <}%> -->
+<!-- </div> -->
+<!-- <if (checkbox) {
+    console.log('Checkbox checked');
+    // const checkbox = document.querySelector('.checkbox');
+    // console.log(sign_date);
+%> -->
+<div class="sign_date">
+    <!-- <p>Customer’s Signature: ___________________________</p> -->
+    <div class="first_name">
+    <label for="customer-firstname">Client First Name</label>
+    <input type="text" class="customer_firstname" name="customer_firstname" id="customer_firstname">
+    </div> 
+    <div class="last_name">
+    <label for="customer-lastname">Client Last Name</label>
+    <input type="text" class="customer_lastname" name="customer_lastname" id="customer_lastname">
+    </div>
+    <div class="client-signature">
+    <label for="customer-signature">Client Signature</label>
+    <input type="text" class="customer_signature" name="customer_signature" id="customer_signature">
+    </div>
+
+    <label for="date">Date</label>
+    <!-- <input type="text" name="date" id="date"> -->
+    <p class="signature_date">Date: <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+    <!-- <p>Date: _________________________________________</p> -->
+
+    <div class="rep-signature">
+    <label for="customer-signature">Client Signature</label>
+    <p class="representative-signature">Auto Repair Shop Representative: <span class="signature">John Ayad</span></p>
+    </div>
+
+    <label for="date">Date</label>
+    <p class="signature_date">Date: <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+    <!-- <p>Auto Repair Shop Representative: _______________</p> -->
+    <!-- <p>Date: _________________________________________</p> -->
+</div>
+<!-- <}%> -->
+
+    <!-- <div class="checkbox"></div> -->
+<!-- <p><input type="checkbox"><span>I read and understand the above agreement</span></p> -->
+
+    <button class="submit">Submit</button>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="serviceagreement-form">
+    <form action="/save-car" method="POST"> -->
+
+        <!-- <label for="make"  id="make">MAKE</label>
+        <input type="text" name="make"> -->
+
+        <!-- <select id="make" name="make">
+            <option value="Audi"></option>
+            <option value="Bentley"></option>
+            <option value="BMW"></option>
+            <option value="Jaguar"></option>
+            <option value="Land Rover"></option>
+            <option value="Mercedez"></option>
+            <option value="MINI"></option>
+            <option value="Porche"></option>
+            <option value="Rolls Royce"></option>
+            <option value="Volkswagon"></option>
+        </select>
+
+        <select name="BMWmodel" id="BMWmodel">
+            <option value="1 series"></option>
+            <option value="2 series"></option>
+            <option value="3 series"></option>
+            <option value="4 series"></option>
+            <option value="5 series"></option>
+            <option value="6 series"></option>
+        </select> -->
+
+        <!-- <label for="year">Year</label>
+        <select name="year" id="year">
+        <option value="selectYear">select year</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select> -->
+
+        <!-- <label for="make">Make:</label>
+        <select name="make" id="make">
+            <option value="SelectMake">select make</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Porche">Porche</option>
+
+        </select>
+        <br>
+        <label for="model">Model:</label> -->
+        <!-- <select name="model" id="model"> -->
+            <!-- <option value="SelectModel">select model</option> -->
+        <!-- </select>
+        <br> -->
+
+        <!--submodel dropdown-->
+        <!-- <label for="submodel" class="hidden" id="submodelLabel">Submodel</label>
+        <select  class="hidden" name="submodel" id="submodel">
+            <option id="submodel" value="sub-model">Sub model</option>
+            <option value="Base">Base</option>
+        </select>
+        <br> -->
+
+     <!--body type dropdown-->
+        <!-- <label for="bodyType" class="hidden" id="bodytypeLabel">Body</label>
+        <select  class="hidden" name="bodyType" id="bodyType">
+            <option value="">Body</option> -->
+            <!-- <option value=""></option> -->
+        <!-- </select>
+        <br> -->
+
+    <!--engine type dropdown-->
+     <!-- <label for="engineType" class="hidden" id="enginetypeLabel">Engine</label>
+        <select  class="hidden" name="engineType" id="engineType"> -->
+            <!-- <option value="">Engine</option>
+            <option value=""></option> -->
+        <!-- </select>
+        <br> -->
+
+    <!--transmission type dropdown-->
+     <!-- <label for="transmissionType" class="hidden" id="transmissiontypeLabel">Body</label>
+        <select  class="hidden" name="transmissionType" id="transmissionType">
+            <option value="">Transmission</option>
+            <option value=""></option>
+        </select>
+        <br> -->
+
+<!-- < for (let i = 0; i < responseThree.length; i++) {
+        let response = responseThree[i];
+        console.log(response);
+%>
+    // <li><= response %></li>
+<}%> -->
+        <!-- < for (let response of combined) {%>
+            <li><=response%></li>
+<}%> -->
+    <!-- <for (let i of filteredCars) {%>
+        <li><=i%></li>
+<}%> -->
+    <!-- < for (let i of items) {%>
+        // console.log(i)
+    < i.responseOne.data.forEach((i) => {%> -->
+    
+    
+    <!-- < if (i.name.startsWith('BM')) {
+        // let li = document.querySelector(li);
+        // li.classList.add('European');
+%>
+<}%> -->
+
+
+<!-- < if (i.name.startsWith('Al')) {%>
+        
+        <select name="" id="">
+        <option value="Alpha-Romero">Alpha Romero</option>
+        </select>
+<}%>
+    < if (i.name.startsWith('Au')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Bent')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('BM')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('May')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Merce')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Min')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Jag')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Lan')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Por')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+< if (i.name.startsWith('Volks')) {%>
+        <li><=JSON.stringify(i.name)%></li>
+<}%>
+    
+     < switch (i) {
+        case a:
+            i.name.startsWith('A');
+            // <li><=JSON.stringify(i.name)%></li>
+            break;
+        case b:
+            i.name.startWith('B');
+%>
+<}%> -->
+    
+    <!-- <})
+ %>
+<}%> -->
+         <!-- <label for="year">Year</label>
+        <select name="year" id="year">
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select> -->
+        <!-- <br>
+        <label for="vin">VIN:</label> -->
+        <!-- <select type="text" name="vin" id="vin"></select> -->
+        <!-- <input type="text" name="vin" id="vin">
+
+        <button type="submit">Save</button> -->
+
+        <!-- <label for="model" id="model">MODEL</label>
+        <input type="text" name="model">
+
+        <label for="year" id="year">YEAR</label>
+        <input type="text" name="year">
+
+        <label for="color" id="color">COLOR</label>
+        <input type="text" name="color">
+
+        <label for="miles" id="miles">MILES</label>
+        <input type="text" name="miles">
+
+        <label for="vin" id="vin">V.I.N</label>
+        <input type="text" name="vin">
+
+        <label for="license-plate" id="license_plate">License-Plate</label>
+        <input type="text" name="license-plate">
+
+        <button>Save</button> -->
+    <!-- </form>
+    </div> -->
+
+<script src="/javascripts/serviceagreement.js"></script>
+
+</body>
+</html>

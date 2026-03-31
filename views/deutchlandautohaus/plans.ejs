@@ -1,0 +1,477 @@
+<!-- <script>
+  const userTier = '<= userTier %>';
+</script>
+<script>
+  const tierRanks = { bronze: 1, silver: 2, gold: 3 };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".tier-card").forEach(card => {
+      const tier = card.classList.contains("gold") ? "gold"
+                  : card.classList.contains("silver") ? "silver"
+                  : "bronze";
+
+      const userRank = tierRanks[userTier];
+      const cardRank = tierRanks[tier];
+
+      if (cardRank < userRank) {
+        card.classList.add("lower-tier");
+        card.querySelector(".price_month").innerText = "Current plan is higher";
+        card.style.pointerEvents = "none";
+      } else if (cardRank === userRank) {
+        card.classList.add("current-tier");
+        card.querySelector(".price_month").innerText = "Your Current Plan";
+        card.style.pointerEvents = "none";
+      } else {
+        card.classList.add("upgrade-tier");
+      }
+    });
+  }); -->
+<!-- </script> -->
+<% let showAuthPopupSafe = typeof showAuthPopup !== 'undefined' ? showAuthPopup : false; %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/plans.css">
+    <title>Plans</title>
+</head>
+<body>
+    <section class="tier-group-section">
+
+        <!--Popup to inform user to sign up for service agreement on plans page-->
+        <script>
+  const showAuthPopup = <%= showAuthPopupSafe ? 'true' : 'false' %>;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (showAuthPopup) {
+      document.getElementById("auth-popup").style.display = "block";
+    }
+  });
+</script>
+
+        <!-- <div id="auth-popup" class="popup_register">
+            <h4>Your not signed in!</h4>
+            <p>Sign in or register to participate in these service plans</p>
+            <a href="/register">Sign up</a>
+        </div> -->
+
+        <div id="auth-popup-overlay" class="popup-overlay" style="display: none">
+  <div class="popup-modal">
+    <button class="popup-close" id="close-popup">&times;</button>
+<div class="logo">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="block">
+        <div class="popup-brand" href="#">
+        <div class="flag">
+        <div class="black"></div>
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="deutchland">DEUTSCH<span class="land">LAND</span></div><br>
+        </div>
+        <!-- <div>Deutchland</div><br> -->
+        <div class="flag autohaus">
+        <div class="black autohaus"></div>
+        <div class="red autohaus"></div>
+        <div class="yellow autohaus"></div>
+        <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+        <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+        </div>    
+        <!-- <div>Autohaus</div> -->
+        </div>
+    </div>
+</div>
+    <h2 class="sign-in">You're not signed in!</h2>
+    <p>Please log in or register to select a service plan.</p>
+    <div class="popup-actions">
+      <a href="/login" class="popup-btn">Log In</a>
+      <a href="/register" class="popup-btn alt">Register</a>
+    </div>
+  </div>
+</div>
+
+    
+            <div class="user-info">
+    
+                <!-- < for (let order of order1) {%>
+
+                <h2><= order.cart._id %></h2>
+                 <h2><= order.cardLast4 %></h2>
+                 <h2><= order.cartTotal %></h2>
+                <}%> -->
+                <!-- <p>member since <= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p> -->
+                <h3 class="user-tiergroup">Member Tier</h3>
+            </div>
+            <!-- <}%> -->
+            <div class="tier-contract">
+                <h4 class="tier-level">TIER LEVEL TITLE</h4>
+
+                <!-- Level 1 Container -->
+                <div class="tier-level-1-container">
+                    <h4 class="tier-level-1">The Nitros Charged Plan</h4>
+                    <p class="note_4">* Recommended for 4 cylinder vehicles only</p>                    
+
+                <div class="tier1_container">
+                    <!-- <button> -->
+                    <!-- <a href="/vehicleselect" class="tier-card bronze"> -->
+                        <!-- < if (currentUser) {%> -->
+                        <div href="#" class="tier-card bronze">
+                            <div class="bronze_tier1_container">
+                                <div class="bronze_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                    <img src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt="Bronze Medal">
+                                    <p class="medals bronze">Bronze Tier</p>
+                                    <p>Starting at</p>
+                                    <div class="price_container">
+                                    <h2 class="price_month">$149/month</h2>
+                                    <span class='price_bracket'>or 1,600 annually</span>
+                                    </div>
+                                    <form action="/select-plan" method="POST" class="select-plan-form">
+                                    <ul class="tier1_bronze_list">
+                                        <!-- <li>Battery replacement</li> -->
+                                    <% const bronzeRepairs = [
+                                        'Battery replacement',
+                                        'Serpentine belt replacement',
+                                        'Oil changes and filter',
+                                        'A/C compressor repair'
+                                        ];%>
+                                        <li class="services-li"><p class="services">Services</p></li>
+                                        <% bronzeRepairs.forEach((repair) => {%>
+                                            <li><input type="hidden" name="repair_list[]" class="repair_list" value="<%= repair %>"><%=repair%></li>
+                                        <%});%>
+                                        <!-- <li><input type="text" name="repair_list[]" class="repair_list" value="Battery replacement" hidden>Battery replacement</li> -->
+                                        <!-- <li>Serpentine belt replacement</li> -->
+                                         <!-- <li><input type="text" name="repair_list[]" value="Serpentine belt replacement" hidden>Serpentine belt replacement</li> -->
+                                    
+                                        <!-- <li>Oil changes and filter</li>
+                                        <li>A/C compressor repair or replace</li> -->
+                                        <% const carwash_list = [
+                                            'Clay Bar Treatment',
+                                            'Polishing',
+                                            'Deep Clean Upholstery'
+                                        ];%>
+                                            <li class="services-li"><p class="carwash">Car Wash</p></li>
+                                        <% carwash_list.forEach((car) => {%>
+                                            <li class="encompass"><input type="hidden" name="carwash_list[]" value="<%= car %>"><%= car %></li>
+                                        <%});%>
+                                    </ul>
+                                    <!-- </form> -->
+                                    <!-- <input type="text" name="repair_list" value=""> -->
+                                <!-- <div id="protected-action" data-authenticated="<= !!user %>"> -->
+                                <!-- <form action="/select-plan" method="POST" class="select-plan-form"> -->
+                                    <input type="hidden" name="plan" value="bronze">
+                                    <input type="hidden" name="plan_tier" value="nitro charged (Pending)">
+                                    <button type="submit" class="cta-button bronze">Select Bronze Plan</button>
+                                </form>
+                <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <}%> -->
+                    <!-- </button> -->
+
+                    <!-- <button> -->
+                    <!-- <a href="/vehicleselect" class="tier-card silver"> -->
+                    <div href="#" class="tier-card silver">
+                        <div class="silver_tier1_container">
+                            <!-- <h4 class="tier-level-2" id="upgrade">The Turbo Charged Plan</h4> -->
+                            <div class="silver_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                <img src="/assets/images/silver-medal-svgrepo-com.svg" class="medal_svg_silver" alt="Silver Medal">
+                                <p class="medals silver">Silver Tier</p>
+                                <p>Starting at</p>
+                                <div class="price_container">
+                                <h2 class="price_month">$169/month</h2>
+                                <span class="price_bracket">or 1,900 annually</span>
+                                </div>
+                                <p class="includes-previous">Includes all services from Bronze Tier</p>
+
+                                <ul class='tier1_silver_list'>
+                                    <!-- <li>Battery replacement</li>
+                                    <li>Serpentine belt replacement</li> -->
+                                    <!-- <li>Oil changes and filter</li>
+                                    <li>A/C compressor repair or replace</li> -->
+                                    <% const silverRepairs = [
+                                        'Wheel Alignments',
+                                        'Suspension',
+                                        'Undercarriage',
+                                        'A/C testing and refills',
+                                        'Battery Checks'
+                                        ];%>
+                                        <li class="services-li"><p class="services">Services</p></li>
+                                        <% silverRepairs.forEach((repair) => {%>
+                                            <li><input type="hidden" name="repair_list[]" class="repair_list" value="<%= repair %>"><%=repair%></li>
+                                        <%});%>
+                                    <!-- <li class="services-li"><p>Services</p></li>
+                                      <li>Wheel Alignments</li>
+                                    <li>Suspension</li>
+                                      <li>Undercarriage</li>
+                                    <li>A/C testing and refills</li>
+                                      <li>Battery checks</li> -->
+                                </ul>
+                                <form action="/select-plan" method="POST" class="select-plan-form">
+                                    <input type="hidden" name="plan" value="silver">
+                                    <input type="hidden" name="plan_tier" value="nitro_charged">
+                                    <button type="submit" class="cta-button silver">Select Silver Plan</button>
+                                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </button> -->
+
+                    <!-- <button> -->
+                    <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card gold"> -->
+                        <div href="#" class="tier-card gold">
+                            <div class="gold_tier1_container">
+                                <div class="gold_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                    <img src="/assets/images/gold-medal-svgrepo-com.svg" class="medal_svg_gold" alt="Gold Medal">
+                                    <p class="medals gold">Gold Tier</p>
+                                    <p>Starting at</p>
+                                    <div class="price_container">
+                                    <h2 class="price_month">$199/month</h2>
+                                    <span class="price_bracket">or 2,100 annually</span>
+                                    </div>
+                                    <p class="includes-previous">Includes all services from Silver Tier</p>
+                                    <ul class="tier1_gold_list">
+                                        <% const goldRepairs = [
+                                        'Engine Repair',
+                                        'Powertrain',
+                                        'Injectors/COil packs',
+                                        'Spark Plugs',
+                                        // 'Battery Checks'
+                                        ];%>
+                                        <li class="services-li"><p class="services">Services</p></li>
+                                        <% goldRepairs.forEach((repair) => {%>
+                                            <li><input type="hidden" name="repair_list[]" class="repair_list" value="<%= repair %>"><%=repair%></li>
+                                        <%});%>
+                                          <!-- <li class="services-li"><p>Services</p></li>
+                                        <li>Engine Repair</li>
+                                        <li>Powertrain</li>
+                                        <li>Injectors/Coil packs</li>
+                                        <li>Spark Plugs</li> -->
+                                    </ul>
+                                        <form action="/select-plan" method="POST" class="select-plan-form">
+                                            <input type="hidden" name="plan" value="gold">
+                                            <input type="hidden" name="plan_tier" value="nitro_charged">
+                                            <button type="submit" class="cta-button gold">Select Gold Plan</button>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </button> -->
+
+                </div>
+
+                </div>
+
+                <!-- Level 2 Container -->
+                <div class="tier-level-2-container">
+                    <h4 class="tier-level-2">The Turbo Charged Plan</h4>
+                    <p class="note_6">* Recommended for 6 cylinder vehicles only</p>                    
+
+                    <div class="tier2_container">
+                        <div href="#" class="tier-card bronze">
+                        <!-- <button> -->
+                        <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card bronze"> -->
+                            <div class="bronze_tier2_container">
+                        <!-- <h4 class="tier-level-2">The Turbo Charged Plan</h4> -->
+                                <div class="bronze_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                        <img src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt="">
+                                        <p class="medals bronze">Bronze Tier</p>
+                                        <p>Starting at</p>
+                                        <div class="price_container">
+                                        <h2 class="price_month">$149/month</h2>
+                                        <span class="price_bracket">or 1,600 annually</span>
+                                        </div>
+                                        <ul class="teir2_bronze_list">
+                                            <!-- <li>Transmission repair</li>
+                                            <li>Motor mounts</li>
+                                            <li>Engine sensors</li>
+                                            <li>Cabinet air filter</li> -->
+                                            <li>Battery replacement</li>
+                                            <li>Serpentine belt replacement</li>
+                                        </ul>
+                                            <form action="/select-plan" method="POST" class="select-plan-form">
+                                                <input type="hidden" name="plan" value="bronze">
+                                                <button type="submit" class="cta-button bronze">Select Bronze Plan</button>
+                                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <!-- </a> -->
+                    <!-- </button> -->
+
+                    <!-- <button> -->
+                     <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card silver"> -->
+                    <div href="#" class="tier-card silver">
+                        <div class="silver_tier2_container">
+                                <div class="silver_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                    <img src="/assets/images/silver-medal-svgrepo-com.svg" class="medal_svg_silver" alt="">
+                                    <p class="medals silver">Silver Tier</p>
+                                    <p>Starting at</p>
+                                    <div class="price_container">
+                                    <h2 class="price_month">$169/month</h2>
+                                    <span class="price_bracket">or 1,900 annually</span>
+                                    </div>
+                                    <ul class="tier2_silver_list">
+                                        <!-- <li>Battery replacement</li>
+                                        <li>Serpentine belt replacement</li> -->
+                                        <li>Oil changes and filter</li>
+                                        <li>A/C compressor repair or replace</li>
+                                    </ul>
+                                        <form action="/select-plan" method="POST" class="select-plan-form">
+                                            <input type="hidden" name="plan" value="silver">
+                                            <button type="submit" class="cta-button silver">Select Silver Plan</button>
+                                        </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </a> -->
+                    <!-- </button> -->
+
+                    <!-- <button> -->
+                         <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card gold"> -->
+                            <div href="#" class="tier-card gold">
+                                <div class="gold_tier2_container">
+                                    <div class="gold_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                        <img src="/assets/images/gold-medal-svgrepo-com.svg" class="medal_svg_gold" alt="">
+                                        <p class="medals gold">Gold Tier</p>
+                                        <p>Starting at</p>
+                                            <div class="price_container">
+                                            <h2 class="price_month">$199/month</h2>
+                                            <span class="price_bracket">or 2,100 annually</span>
+                                            </div>
+                                        <ul class="tier2_gold_list">
+                                            <!-- <li>Alternator replacement</li>
+                                            <li>Tensioner Pulley replacement</li>
+                                            <li>Rear Main Seal and Front Main Seal Replacement</li>
+                                            <li>Suspension kit/Rods and Dampners</li> -->
+                                            <li>Battery replacement</li>
+                                                <li>Serpentine belt replacement</li>
+                                                <li>Oil changes and filter</li>
+                                                <li>A/C compressor repair or replace</li>
+                                        </ul>
+                                        <form action="/select-plan" method="POST" class="select-plan-form">
+                                            <input type="hidden" name="plan" value="gold">
+                                            <button type="submit" class="cta-button gold">Select Gold Plan</button>
+                                        </form>
+                                    </div>
+                    <!-- </a> -->
+                    <!-- </button> -->
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+
+                <!-- /* Level 3 Container */ -->
+                <div class="tier-level-3-container">
+                    <h4 class="tier-level-3">The Super Charged Plan</h4>
+                    <p class="note_8">* Recommended for 8 cylinder vehicles only</p>
+                    
+                    <div class="tier3_container">
+
+                        <!-- <button> -->
+                         <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card bronze"> -->
+                        <div href="#" class="tier-card bronze">
+                            <div class="bronze_tier3_container">
+                            <!-- <h4 class="tier-level-3">The Super Charged Plan</h4> -->
+                                <div class="bronze_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                    <img src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt="">
+                                    <p class="medals bronze">Bronze Tier</p>
+                                    <p>Starting at</p>
+                                        <div class="price_container">
+                                        <h2 class="price_month">$149/month</h2>
+                                        <span class="price_bracket">or 1,600 annually</span>
+                                        </div>
+                                    <ul class="tier3_bronze_list">
+                                        <li>Battery replacement</li>
+                                        <li>Serpentine belt replacement</li>
+                                        <!-- <li>Oil changes and filter</li>
+                                        <li>A/C compressor repair or replace</li>
+                                        <li>Battery replacement</li> -->
+                                    <!-- <li>Serpentine belt replacement</li>
+                                    <li>Oil changes and filter</li>
+                                    <li>A/C compressor repair or replace</li> -->
+                                    </ul>
+                                    <form action="/select-plan" method="POST" class="select-plan-form">
+                                        <input type="hidden" name="plan" value="bronze">
+                                        <button type="submit" class="cta-button bronze">Select Bronze Plan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </a> -->
+                        <!-- </button> -->
+
+                        <!-- <button> -->
+                         <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card silver"> -->
+                        <div href="#" class="tier-card silver">
+                            <div class="silver_tier3_container">
+                                <div class="silver_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                    <img src="/assets/images/silver-medal-svgrepo-com.svg" class="medal_svg_silver" alt="">
+                                    <p class="medals silver">Silver Tier</p>
+                                    <p>Starting at</p>
+                                        <div class="price_container">
+                                        <h2 class="price_month">$169/month</h2>
+                                        <span class="price_bracket">or 1,900 annually</span>
+                                        </div>
+                                    <ul class="teir3_silver_list">
+                                        <!-- <li>Transmission repair</li>
+                                        <li>Motor mounts</li>
+                                        <li>Engine sensors</li>
+                                        <li>Cabinet air filter</li> -->
+                                        <li>Oil changes and filter</li>
+                                    <li>A/C compressor repair or replace</li>
+                                    </ul>
+                                    <form action="/select-plan" method="POST" class="select-plan-form">
+                                        <input type="hidden" name="plan" value="silver">
+                                        <button type="submit" class="cta-button silver">Select Silver Plan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </a> -->
+                        <!-- </button> -->
+
+                        <!-- <button> -->
+                         <!-- <a href="/deutchlandautohaus/serviceagreementsignup" class="tier-card gold"> --> 
+                            <div href="#" class="tier-card gold">
+                                <div class="gold_tier3_container">
+                                <div class="gold_tier_container protect-action" id="protect-action" data-authenticated="<%= !!currentUser %>">
+                                    <img src="/assets/images/gold-medal-svgrepo-com.svg" class="medal_svg_gold" alt="">
+                                    <p class="medals gold">Gold Tier</p>
+                                    <p>Starting at</p>
+                                        <div class="price_container">
+                                        <h2 class="price_month">$199/month</h2>
+                                        <span class="price_bracket">or 2,100 annually</span>
+                                        </div>
+                                    <ul class="teir3_gold_list">
+                                        <!-- <li>Alternator replacement</li>
+                                        <li>Tensioner Pulley replacement</li>
+                                        <li>Rear Main Seal and Front Main Seal Replacement</li>
+                                        <li>Suspension kit/Rods and Dampners</li> -->
+                                        <li>Battery replacement</li>
+                                    <li>Serpentine belt replacement</li>
+                                    <li>Oil changes and filter</li>
+                                    <li>A/C compressor repair or replace</li>
+                                    </ul>
+                                    <form action="/select-plan" method="POST" class="select-plan-form">
+                                        <input type="hidden" name="plan" value="gold">
+                                        <button type="submit" class="cta-button gold">Select Gold Plan</button>
+                                    </form>
+                                
+                                </div>
+                                <!-- </a> -->
+                                <!-- </button> -->
+                            </div>
+                        </div>
+
+                     </div>
+            </div>
+    </section>
+    <script src="/javascripts/plans.js" defer></script>
+</body>
+</html>

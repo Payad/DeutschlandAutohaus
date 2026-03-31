@@ -1,0 +1,85 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body> -->
+<% layout('layouts/boilerplate') %>
+<%- include('../partials/flash.ejs') %>
+<!-- <script src="/javascripts/localStorageToken.js"></script> -->
+    <h5 class="card-title text-center">Login</h5>
+<!-- <form action="/login" method="POST">
+    <label for="username"></label>
+    <input type="text" name="username" id="username" placeholder="enter username">
+
+    <label for="password"></label>
+    <input type="text" name="password" placeholder="enter password">
+<button>submit</button>
+</form> -->
+<form action="/login" method="POST" novalidate class="validated-form">
+  <!-- <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div> -->
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="username" aria-describedby="username" required>
+    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+    <div class="invalid-feedback">
+                Please provide a username.
+            </div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="password" required>
+    <div class="invalid-feedback">
+                Please provide a password.
+            </div>
+    </div>
+  <!-- <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div> -->
+  <!-- <button type="submit" onclick=login() class="btn btn-primary login">Sign in</button> -->
+  <button type="submit" class="btn btn-primary login">Sign in</button>
+</form>
+<!-- <script>
+//   function login() {
+//         // fetch("api/login")
+//         // fetch("/public/javascripts/login")
+//         // fetch("../products.json")
+//         // fetch("/api/login")
+//         fetch('http://localhost:3000/api/login')
+// .then((res) => {
+//     if (res.status == 200) {
+//     return res.json()
+// } else {
+//     throw Error(res.statusText)
+// }
+// })
+// .then(data => {
+//     localStorage.setItem("token", data.token)
+//     // logResponse("loginResponse", `localStorage set with token value: ${data.token}`)
+// }) 
+// .catch(console.error)
+// // console.log('Hello')
+// }
+function login() {
+  // console.log("hello everyone!")
+  // fetch('../login1')
+  // fetch('../products.json')
+  fetch('/api/login?method=cookie')
+.then((res) => {
+  return res.json()
+  // return res
+})
+.then((data) => {
+  console.log(data)
+})
+}
+</script> -->
+<!-- </body>
+</html> -->

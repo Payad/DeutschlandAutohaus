@@ -1,0 +1,103 @@
+<tr class="table_row_inspection">
+  <td class="table_data user"><%= cart.user.username ? cart.user.username.charAt(0).toUpperCase() + cart.user.username.slice(1) : 'Unknown' %></td>
+
+  <% let formattedPlanTier = "Not Selected"; %>
+  <% if (cart.user.plan_tier) {
+    let words = cart.user.plan_tier.split(" ");
+    formattedPlanTier = words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+  } %>
+
+  <% if (cart.user.pending_plan_tier) { %>
+    <td class="table_data plan"><%= cart.user.pending_plan_tier %> (Pending)</td>
+  <% } else { %>
+    <td class="table_data plan"><%= formattedPlanTier %></td>
+  <% } %>
+
+  <% if (cart.user.pending_plan) { %>
+    <td class="table_data plan"><%= cart.user.pending_plan.charAt(0).toUpperCase() + cart.user.pending_plan.slice(1) %> (Pending)</td>
+  <% } else { %>
+    <td class="table_data medal_tier"><%= cart.user.plan ? cart.user.plan.charAt(0).toUpperCase() + cart.user.plan.slice(1) : 'PENDING' %></td>
+  <% } %>
+
+  <td class="table_data year"><%= c.year %></td>
+  <td class="table_data make"><%= c.make %></td>
+  <td class="table_data model"><%= c.model %></td>
+  <td class="table_data"><%= c.vin ? c.vin.toUpperCase() : 'Unknown' %></td>
+  <td class="table_data lic_plate"><%= c.lic %></td>
+
+  <td class="table_data">
+    <form action="">
+      <select name="" id="">
+        <option value="nitro_charged">Nitro Charged</option>
+        <option value="turbo_charged">Turbo Charged</option>
+        <option value="super_charged">Super Charged</option>
+      </select>
+    </form>
+  </td>
+
+  <td class="table_data">
+    <form action="">
+      <select name="" id="">
+        <option value="Bronze">Bronze</option>
+        <option value="Silver">Silver</option>
+        <option value="Gold">Gold</option>
+      </select>
+    </form>
+  </td>
+
+  <td class="table_data approved">
+    <% const status = (cart.user.status || '').trim().toLowerCase(); %>
+    <% const changedAt = new Date(cart.user.statusChangedAt || null); %>
+    <% const now = new Date(); %>
+    <% const diffMinutes = (now - changedAt) / (1000 * 60); %>
+    <% const isExpired = diffMinutes >= 2; %>
+    <% const expirationDate = new Date(changedAt.getTime() + 1000 * 60 * 2); %>
+
+    <% if (status === 'approved') { %>
+      <span class="status approved">Approved</span>
+    <% } else if (status === 'rejected') { %>
+      <span class="status rejected">Rejected</span>
+    <% } else if (status === 'reviewed') { %>
+      <span class="status reviewed">Reviewed</span>
+    <% } else { %>
+      <span class="status pending">Pending</span>
+    <% } %>
+
+    <% if (cart.user.inspection_date) { %>
+      <p><%= new Date(cart.user.inspection_date).toLocaleString('en-US', {
+        year: 'numeric', month: 'short', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      }) %></p>
+    <% } %>
+  </td>
+
+  <% if (context === 'history') { %>
+    <% if (status === 'approved' || status === 'rejected') { %>
+      <td class="status expired">
+        <%= expirationDate.toLocaleString('en-US', {
+          year: 'numeric', month: 'short', day: '2-digit',
+          hour: '2-digit', minute: '2-digit'
+        }) %>
+      </td>
+    <% } else { %>
+      <td class="status expired">Reopened</td>
+    <% } %>
+  <% } else if (context === 'list') { %>
+    <td class="table_data_btn">
+      <% if ((status === 'pending' || status === 'reviewed') && isExpired) { %>
+        <form action="/approve-upgrade" method="POST" class="form-approval" style="display:inline;">
+          <input type="hidden" name="userId" value="<%= cart.user._id %>">
+          <button type="submit" class="approval_btn">Approve</button>
+        </form>
+        <form action="/decline-upgrade" method="POST" class="form-rejection" style="display:inline;">
+          <input type="hidden" name="userId" value="<%= cart.user._id %>">
+          <button type="submit" class="reject_btn">Reject</button>
+        </form>
+      <% } else { %>
+        <button class="approval_btn" disabled>Approve</button>
+        <button class="reject_btn" disabled>Reject</button>
+      <% } %>
+    </td>
+   
+  <% } %>
+</tr>

@@ -1,0 +1,202 @@
+body {
+/* background: linear-gradient(to right, rgb(128, 128, 128), rgb(126, 126, 126, 0.4)); */
+background: #101010;
+font-family: Arial, Helvetica, sans-serif;
+}
+.admin-contents {
+    /* border: 1px solid black; */
+    margin: 5rem auto;
+    width: 50%;
+    padding: 2rem;
+    /* border-radius: 5px; */
+    /* box-shadow: 1px 8px 20px; */
+    /* background-color: #ffffff; */
+}
+
+.admin-sign-in {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* border-radius: 5px; */
+}
+
+input[type="text"], input[type="email"] {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+/* deutchland autohaus logo*/
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signin-title {
+    /* text-align: center;
+    font-family: 'changa', sans-serif;
+    margin-top: 2rem; */
+    text-align: center;
+    /* font-family: 'changa', sans-serif; */
+    margin-top: 2rem;
+    /* font-family: system-ui; */
+    /* font-weight: 400; */
+    /* font-style: italic; */
+    /* color: #ff0000; */
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+
+.navbar-brand {
+    /* content: "";
+    width: 100px;
+    border: 2px solid black;
+    border-color: black;
+    border-style: solid; */
+    /* margin-left: 20px; */
+    margin-left: 5px;
+    /* color: white; */
+
+    /* display: flex; */
+    align-items: baseline;
+/* margin-bottom: -20px; */
+}
+
+/* .navbar-toggler-icon {
+    color: white !important;
+}
+
+button.navbar-toggler {
+    background-color: grey;
+    opacity: 0.5;
+} */
+
+.navbar-brand.autohaus {
+    margin-bottom: 20px;
+/* margin-left: -5px; */
+}
+
+.flag {
+    display: flex;
+    align-items:center;
+    /* margin-bottom: -10px; */
+    margin-bottom: -20px;
+}
+
+.deutchland {
+    font-size: 27px;
+    /* font-size: 43px; */
+    transform: skew(-24deg);
+    /* font-family: 'Changa', sans-serif; */
+    color: #fff;
+}
+
+span {
+    color: red;
+}
+
+span.connected {
+    /* color: red; */
+color: white;
+}
+
+.name {
+    /* display: flex;
+    justify-content: space-around; */
+    /* padding-right: 10px; */
+    margin: 10px;
+    transform: skew(-20deg);
+    /* color: #000; */
+}
+
+.a {
+    /* margin-left: 2px; */
+    margin-left: -7px;
+}
+
+.a, .u, .t,
+.o, .h, .s {
+    /* padding-right: 20px; */
+    padding-right: 22px;
+    /* padding-right: 26px; */
+    font-size: 10px;
+    /* color: black; */
+    /* color: #000; */
+    /* padding-right: 16px; */
+    color: #fff;
+}
+
+.flag.autohaus {
+    /* margin-left: -8px; */
+    margin-left: -7px;
+}
+
+.black {
+    /* border: 2px solid black; */
+    width: 10px;
+    height: 24px;
+    background-color: black;
+    transform: skew(-24deg);
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+    /* margin-left: auto */
+}
+
+.yellow.autohaus {
+    margin-right: 2px;
+}
+
+.red.autohaus,
+.yellow.autohaus,
+.black.autohaus {
+    /* height: 8px; */
+    height: 10px;
+    margin-bottom: -3px;
+}
+.red {
+    /* border: 2px solid red; */
+    width: 10px;
+    height: 24px;
+    background-color: red;
+    transform: skew(-24deg);
+    /* margin-right: 5px; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+.yellow {
+    /* border: 2px solid yellow; */
+    width: 10px;
+    height: 24px;
+    background-color: yellow;
+    transform: skew(-24deg);
+    margin-right: 2px;
+    /* margin-right: auto; */
+    border-top: 1px solid white;
+    border-left:1px solid white;
+    border-bottom: 1px solid white;
+}
+
+/* ADMIN BUTTON LOGIN */
+.admin-btn {
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #444;
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid black;
+    /* background: linear-gradient(45deg, red, transparent); */
+    /* background: linear-gradient(to right, #ff0000, #ff000080); */
+     /* box-shadow: 0 8px 20px rgba(128, 128, 128, 0.6); */
+}
+
+/* Admin BUtton hover */
+.admin-btn:hover {
+    background-color: #777;
+}

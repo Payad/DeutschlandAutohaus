@@ -1,0 +1,56 @@
+{
+"mugs": [
+{
+    "id": 1,
+    "image": "IMG_0444.jpeg",
+    "name": "Black Mug",
+    "price": 4999,
+    "quantity": 1
+},
+{
+    "id": 2,
+    "image": "IMG_0442.jpeg",
+    "name": "Red Mug",
+    "price": 2999,
+    "quantity": 1
+}
+ ],
+"clothing": [
+{
+    "id": 3,
+    "image": "deutschlandshirtB (6).jpg",
+    "image2": "deutschlandshirtB (5).jpg",
+    "name": "Black T-shirt",
+    "price": 4999,
+    "quantity": 1
+},
+{
+    "id": 4,
+    "image": "IMG_7342 (2).jpg",
+    "image2": "IMG_7342 (6).jpg",
+    "image3": "IMG_7342 (3).jpg",
+    "image4": "IMG_7342 (8).jpg",
+    "name": "Black Sweatshirt",
+    "description": "100% high quality cotton, mens sweater",
+    "price": 4999,
+    "quantity": 1
+},
+{
+    "id": 5,
+    "image": "pantsRight (1).jpg",
+    "image2": "pantsLeft (5) (4).jpg",
+    "name": "Black Sweatpants",
+    "price": 4499,
+    "quantity": 1
+},
+{
+    "id": 6,
+    "image": "beanieImg.jpg",
+    "image2": "beanieImg.jpg",
+    "name": "Beanie",
+    "price": 3499,
+    "quantity": 1
+}
+]
+}
+

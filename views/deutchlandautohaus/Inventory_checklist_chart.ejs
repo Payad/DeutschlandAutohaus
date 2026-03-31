@@ -1,0 +1,201 @@
+<div class="logo-container">
+        <div class="logo">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="block">
+    <div class="navbar-brand" href="#">
+      <div class="flag">
+      <div class="black"></div>
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="deutchland">DEUTSCH<span>LAND</span></div><br>
+      </div>
+      <!-- <div>Deutchland</div><br> -->
+      <div class="flag autohaus">
+      <div class="black autohaus"></div>
+      <div class="red autohaus"></div>
+      <div class="yellow autohaus"></div>
+      <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+      <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+      </div>    
+      <!-- <div>Autohaus</div> -->
+    </div>
+    <!-- <div class="navbar-brand autohaus" href="#">
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="black"></div>    
+      <div>Autohaus</div>
+    </div> -->
+    <!-- <div class="nanvbar-brand" href="#">Autohaus</div> -->
+    </div>
+  
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <a class="navbar-brand" href="#">Autohaus</a> -->
+  </div>
+</div>
+
+<h1>Inventory Checklist Chart</h1>
+
+<div class="canvas-container">
+  <canvas id="myChart" width="400" height="200"></canvas>
+</div>
+<style>
+body {
+            /* background: #101010; */
+            /* color: white; */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+}
+
+        .logo-container {
+        display: flex;
+        /* margin: auto; */
+        justify-content: center;
+        margin: 5rem;
+    }
+
+        .flag {
+        display: flex;
+        align-items:center;
+        /* margin-bottom: -10px; */
+        /* margin-bottom: -20px; */
+    }
+
+        .deutchland {
+            /* font-size: 27px; */
+            font-size: 24px;
+            /* font-size: 43px; */
+            transform: skew(-24deg);
+            font-family: 'Changa', sans-serif;
+            /* color: #ffffff; */
+            font-weight: 600;
+        }
+
+        span {
+            color: red;
+        }
+
+        span.connected {
+            /* color: red; */
+        color: white;
+        }
+
+                .flag {
+            margin-bottom: -4px;
+        }
+
+        .name {
+            /* display: flex;
+            justify-content: space-around; */
+            padding-right: 10px;
+            transform: skew(-20deg);
+        }
+
+        .a {
+            margin-left: 2px;
+        }
+
+        .a, .u, .t,
+        .o, .h, .s {
+            /* padding-right: 20px; */
+            padding-right: 26px;
+            font-size: 10px;
+            /* color: black; */
+            padding-right: 17.5px;
+            /* color: white; */
+            color: #000;
+        }
+
+        .flag.autohaus {
+            /* margin-left: -8px; */
+            margin-left: -7px;
+        }
+
+        .black {
+            /* border: 2px solid black; */
+            width: 10px;
+            height: 18px;
+            background-color: black;
+            transform: skew(-24deg);
+            border-top: 1px solid white;
+            border-left:1px solid white;
+            border-bottom: 1px solid white;
+            /* margin-left: auto */
+        }
+
+        .yellow.autohaus {
+            margin-right: 2px;
+        }
+
+        .red.autohaus,
+        .yellow.autohaus,
+        .black.autohaus {
+            /* height: 8px; */
+            height: 10px;
+            margin-bottom: -3px;
+        }
+        .red {
+            /* border: 2px solid red; */
+            width: 10px;
+            height: 18px;
+            background-color: red;
+            transform: skew(-24deg);
+            /* margin-right: 5px; */
+            border-top: 1px solid white;
+            border-left:1px solid white;
+            border-bottom: 1px solid white;
+        }
+        .yellow {
+            /* border: 2px solid yellow; */
+            width: 10px;
+            height: 18px;
+            background-color: yellow;
+            transform: skew(-24deg);
+            margin-right: 2px;
+            /* margin-right: auto; */
+            border-top: 1px solid white;
+            border-left:1px solid white;
+            border-bottom: 1px solid white;
+        }
+
+        .canvas-container {
+            margin: 5rem;
+           
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        const ctx = document.getElementById('myChart');
+
+        fetch('/api/deutchlandautohaus/inventory_checklist_chart')
+        .then((response) => response.json())
+        .then((data) => {
+        new Chart(ctx, {
+    type: 'bar',
+    data: {
+    //   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      datasets: [{
+        // label: '# of Votes',
+        label: '# Inventory Sold',
+        // data: [12, 19, 3, 5, 2, 3],
+        data: data,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+})
+</script>

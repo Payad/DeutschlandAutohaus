@@ -1,0 +1,445 @@
+<!-- <script>
+  const userTier = '< userTier %>';
+</script>
+<script>
+  const tierRanks = { bronze: 1, silver: 2, gold: 3 };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".tier-card").forEach(card => {
+      const tier = card.classList.contains("gold") ? "gold"
+                  : card.classList.contains("silver") ? "silver"
+                  : "bronze";
+
+      const userRank = tierRanks[userTier];
+      const cardRank = tierRanks[tier];
+
+      if (cardRank < userRank) {
+        card.classList.add("lower-tier");
+        card.querySelector(".price_month").innerText = "Current plan is higher";
+        card.style.pointerEvents = "none";
+      } else if (cardRank === userRank) {
+        card.classList.add("current-tier");
+        card.querySelector(".price_month").innerText = "Your Current Plan";
+        card.style.pointerEvents = "none";
+      } else {
+        card.classList.add("upgrade-tier");
+      }
+    });
+  });
+</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/userprofile.css">
+    <title>User Profile</title>
+</head>
+<body>
+    <% if (currentUser) {%>
+    <!-- <div class="main-image">
+        <img src="/assets/images/BMW-1-profile.jpg" alt="">
+    </div> -->
+
+<div class="user-profile-container">
+  <img src="/assets/images/BMW-1-profile.jpg" alt="Background" class="background-img" />
+  
+  <div class="user-overlay">
+    <img src="/assets/images/BMW-profile_image.jpg" alt="User profile picture" class="user-img" />
+    <!-- <p class="username"><= currentUser.username %></p> -->
+    <div class="info">
+      <h2 class="username"><%= currentUser.username %></h2>
+      <p class="member-initial">Member since <%= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <section class="user-profile">
+        <div class="user-details-container">
+            <div class="user-image-content">
+                
+                <div class="user-info">
+                    <!-- <div class="main-image">
+                    <img src="/assets/images/BMW-1-profile.jpg" alt="">
+                    </div> -->
+                    <div class="user-img-content">
+                         <!-- <img class="user-img" src="" alt=""> -->
+                        <!-- <img src="/assets/images/BMW-profile_image.jpg" alt="" class="user-img">
+                        <img class="background-image" src="/assets/images/BMW-1-profile.jpg" alt=""> -->
+                        
+                        <!-- <p class="username">Username</p> -->
+                        <!-- <p class="username"><= currentUser.username %></p> -->
+                    </div>
+                    
+                    <div class="info">
+                        <!-- <h2>first and last name</h2> -->
+                        <!-- <h2><= currentUser.username %></h2> -->
+                        <!-- <p class="member-initial">member since <= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p> -->
+                        <!-- </div> -->
+                    </div>
+                    <!-- <div class="member-date">
+                        <p>member since <= new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: '2-digit'}).format(new Date()) %></p>
+                    </div> -->
+                    <div class="edit-links">
+                        <!-- <a href="">Edit</a> -->
+                        <a href="" class="profile" id="profile_account" title="user profile"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff0000" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg></a>
+                        <a href="" class="profile" id="profile_edit" title="Edit profile" aria-label="Edit Profile"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="17.5" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff0000" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l293.1 0c-3.1-8.8-3.7-18.4-1.4-27.8l15-60.1c2.8-11.3 8.6-21.5 16.8-29.7l40.3-40.3c-32.1-31-75.7-50.1-123.9-50.1l-91.4 0zm435.5-68.3c-15.6-15.6-40.9-15.6-56.6 0l-29.4 29.4 71 71 29.4-29.4c15.6-15.6 15.6-40.9 0-56.6l-14.4-14.4zM375.9 417c-4.1 4.1-7 9.2-8.4 14.9l-15 60.1c-1.4 5.5 .2 11.2 4.2 15.2s9.7 5.6 15.2 4.2l60.1-15c5.6-1.4 10.8-4.3 14.9-8.4L576.1 358.7l-71-71L375.9 417z"/></svg></a>
+                        <a href="" class="profile" id="profile_logout" title="logout"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#ff0000" d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg></a>
+                        <!-- <a href="" class="log-out">log out</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- <div class="user-username">
+                <p>Username</p>
+            </div> -->
+
+        <div class="user-info">
+    <!-- <h2>Welcome, <= user.name %>!</h2> -->
+    <!-- <h2>Welcome, <= currentUser.name %>!</h2> -->
+    <h2>Welcome, <%= currentUser.username %>!</h2>
+    <!-- <p>Current Plan: <= currentUser.user_tier || 'NO PLAN SELECTED' %></p> -->
+    <!-- <p>Current Plan: <= currentUser.plan_tier || 'NO PLAN SELECTED' %></p> -->
+    <p>
+  <!-- Selected Plan Tier:
+  < if (currentUser.plan_tier) {%>
+      <= currentUser.plan_tier.charAt(0).toUpperCase() + currentUser.plan_tier.slice(1) %> - <%= currentUser.plan_tier %> (Approved)
+ <} else if (currentUser.pending_plan_tier) {%>
+      <= currentUser.pending_plan_tier.charAt(0).toUppercase() + currentUser.pending_plan_tier.slice(1) %> - <%= currentUser.pending_plan_tier %> (Pending Approval)
+<} else {>
+    No Plan Tier Selected
+<}%> -->
+
+
+  Selected Plan: 
+  <% if (currentUser.plan_tier) { %>
+    <%= currentUser.plan_tier.toUpperCase() + currentUser.plan_tier.slice(20) %> - <%= currentUser.plan.charAt(0).toUpperCase() + currentUser.plan.slice(1) %> (Approved)
+  <% } else if (currentUser.pending_plan) { %>
+    <%= currentUser.pending_plan_tier.charAt(0).toUpperCase() + currentUser.pending_plan_tier.slice(1) %> - <%= currentUser.pending_plan %> (Pending Approval)
+  <% } else { %>
+    No plan selected
+  <% } %>
+</p>
+
+  Plan Expiration Date:
+  <%
+  const status = (currentUser.status || '').trim().toLowerCase();
+  const changedAt = new Date(currentUser.statusChangedAt || null);
+  const now = new Date();
+  const diffYears = (now - changedAt) / (1000 * 60 * 60 * 24 * 365);
+  const isExpired = diffYears >= 2;
+%>
+
+<% if (isExpired) { %>
+  <span class="status expired">⏳ Status expired</span>
+<% } else { %>
+  <span class="status <%= status %>"><%= status || null %></span>
+<% } %>
+
+<p>
+<!-- Selected Plan Tier:
+  < if (currentUser.plan_tier) {%>
+      <= currentUser.plan_tier.charAt(0).toUpperCase() + currentUser.plan_tier.slice(1) %> - <%= currentUser.plan_tier %> (Approved)
+ <} else if (currentUser.pending_plan_tier) {%>
+      <= currentUser.pending_plan_tier.charAt(0).toUppercase() + currentUser.pending_plan_tier.slice(1) %> - <%= currentUser.pending_plan_tier %> (Pending Approval)
+<} else {>
+    No Plan Tier Selected
+<}%> -->
+</p>
+    <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a>
+
+    <!-- Display if there is a pending upgrade -->
+    <% if (currentUser.pending_plan) { %>
+        <p>Your plan is pending for inspection: <%= currentUser.pending_plan %></p>
+        <button class="cta-button" onclick="window.location.href='/inspection'">Schedule Inspection</button>
+    <% } %>
+</div>
+
+    </section>
+    <section class="tier-group-section section-padding">
+<div class="user-info">
+                <h3>Member Tier</h3>
+                <h3 class="user-tiergroup"><span>Current Plan:</span> Nitros Charged Package</h3>
+                <div class="upgrade-plan-container">
+  <!-- <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a> -->
+</div>
+                <!-- <h3 class="user-tiergroup">Member Tier: The Nitros Charged Package</h3> -->
+            </div>
+            <!-- <}%> -->
+            <div class="tier-contract-status">
+                <div class="tier-level">
+                    <p class="tier-level-plan2"></p>
+                    <!-- <p class="tier-level-plan">Tier Structure Level: The Nitros Charged Package</p> -->
+                  <div class="upgrade-plan-container">
+  <!-- <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a> -->
+</div>
+                  <span class="tier-level-plan"><h3>Tier Structure Level</h3>
+                  <p>Entry Level Plan With Basic Services</p>  
+                    <!-- <img id="image-1" src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt=""> -->
+                </span>
+<div class="secondDiv">
+<span title="Entry-level plan with basic services">
+<img id="image-2" src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt="" aria-label="bronze medal">
+<span class="medal_name">BRONZE</span>
+</span>
+</div>
+                    <!-- <p class="tier-level-plan2"></p> -->
+                </div>
+                <!-- <span><img id="image-3" src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt=""></span> -->
+                <div class="tier-medal">
+                    <h2 class="member_benefits">Membership Benefits</h2>
+                    <div class="encompass-div">
+                    <!-- <h2 class="member_benefits">Membership Benefits</h2> -->
+                        <ul class="encompass-list">
+                            <div class="title_detail">
+                            <img class="encompass_img_repair" src="/assets/images/car_9815739.png" alt=""><span>Repairs</span>
+                            </div>
+
+                            <ul>
+  <% if (currentUser.repair_list && currentUser.repair_list.length > 0) { %>
+    <% currentUser.repair_list.forEach(item => { %>
+      <li><%= item %></li>
+    <% }) %>
+  <% } else { %>
+    <li>No repairs listed.</li>
+  <% } %>
+</ul>
+                            <!-- <li class="encompass">oil change/oil filters</li>
+                            <li class="encompass">tire rotation</li>
+                            <li class="encompass">air filters</li>
+                            <li class="encompass">inspections</li>
+
+                            <li class="encompass">cabin air filters</li>
+                            <li class="encompass">light bulbs</li>
+                            <li class="encompass">hand car wash</li> -->
+                        </ul>
+                        <ul class="encompass-list">
+                            <div class="title_detail">
+                            <img class="encompass_img_wash" src="/assets/images/vehicle_14952688.png" alt=""><span>Car Wash</span>
+                            </div>
+                            <!-- <li class="encompass">cabin air filters</li>
+                            <li class="encompass">light bulbs</li>
+                            <li class="encompass">hand car wash</li> -->
+                            <!-- <li class="encompass">Free Car Wash</li> -->
+                            <ul class="encompass">
+                                <li class="encompass">Clay Bar Treatment</li>
+                                <li class="encompass">Polishing</li>
+                                <li class="encompass">Deep Clean Upholstery</li>
+                                <!-- <li>clay bar treatment, polishing, and deep-cleaning your upholstery</li> -->
+                              </ul>
+                        </ul>
+                        <!-- <span>Note: V6 and v8 vehicles prices may vary</span> -->
+                        <ul class="encompass-list">
+                            <div class="title_detail">
+                              <!-- <img class="encompass_roadside" src="/assets/images/tow-truck_11133622.png" alt=""> -->
+                              <img class="encompass_roadside" src="/assets/images/towing-vehicle_9398628.png" alt=""><span>Roadside Services</span>
+                            </div> 
+                            <li class="encompass">AAA Roadside Service 24/7</li>
+                                <li class="encompass">Dead/dying batteries</li>
+                                <li class="encompass">Tire Flats</li>
+                                <li class="encompass">lockouts</li>
+                        </ul>
+
+                        <ul class="encompass-list">
+                            <div class="title_detail">
+                              <!-- <img class="encompass_roadside" src="/assets/images/tow-truck_11133622.png" alt=""> -->
+                              <img class="encompass_roadside" src="/assets/images/towing-vehicle_9398628.png" alt=""><span>Roadside Services</span>
+                            </div> 
+                            <li class="encompass">AAA Roadside Service 24/7</li>
+                                <li class="encompass">Dead/dying batteries</li>
+                                <li class="encompass">Tire Flats</li>
+                                <li class="encompass">lockouts</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            <!-- < for (let c of cart.vehicles) {%>
+    <- <h4 class="vehicle_register">Vehicle</h4>  -->
+    <!-- <div class="flex-container">
+        <p class="vehicle_year vehicle year">Year: <=c.year%></p>
+        <p class="vehicle_make vehicle make">Make: <=c.make%></p>
+        <p class="vehicle_model vehicle model">Model: <=c.model%></p>
+    </div> -->
+ <!-- }%> -->
+
+            <div class="vehicle-type">
+                    <h2 class="vehicle-title">Your Vehicle</h2>
+                    <div class="vehicle-type-div">
+                        <!-- <div class="vehicle-title">hello</div> -->
+                    </div>
+                    <!-- < for (let c of cart.vehicles) {%> -->
+    <!-- <h4 class="vehicle_register">Vehicle</h4>  -->
+    <!-- <div class="flex-container">
+        <p class="vehicle_year vehicle year">Year: <c.year%></p>
+        <p class="vehicle_make vehicle make">Make: <c.make%></p>
+        <p class="vehicle_model vehicle model">Model: <c.model%></p>
+        <p class="vehicle vin">V.I.N: <c.vin%></p>
+    </div> -->
+ <!-- <}%> -->
+<!-- < if (vin) {
+   <p class="vehicle vin">V.I.N: <=vin%></p>
+<} else {
+    <p class="vehicle vin">V.I.N: NA</p>
+<}
+< if (cart) {
+<p class="vehicle cart">Cart <cart.vehicles[0]%></p>
+<p class="vehicle cart">Cart <cart.vehicles[1]%></p>
+<p class="vehicle cart">Cart <cart.vehicles[2]%></p>
+<p class="vehicle cart">Cart <cart.vehicles[3]%></p>
+<p class="vehicle cart">Cart <cart.vehicles[4]%></p>
+<p class="vehicle cart"> Cart ID: <cart.id%></p>
+<p class="vehicle cart"> Cart make: <cart.make%></p>
+<p class="vehicle cart"> Cart model: <cart.model%></p>
+<p class="vehicle cart"> Cart year: <cart.vehicles[0].year%></p>
+<}> -->
+<!-- < for (let c of cart.vehicles) {%>
+ <div class="flex-container">
+ <p class="vehicle_year vehicle year">Year: <=c.year%></p>
+        <p class="vehicle_make vehicle make">Make: <=c.make%></p>
+        <p class="vehicle_model vehicle model">Model: <=c.model%></p>
+        <p class="vehicle vin">V.I.N: <=c.vin%></p>
+        <p class="vehicle license">Lic: <=c.lic || 'NO LIC FOUND'%></p>
+
+    
+</div>
+<}%> -->
+
+<% if (cart && cart.vehicles && cart.vehicles.length > 0) { %>
+  <% cart.vehicles.forEach(c => { %>
+    <div class="flex-container">
+    <p>🚗</p>
+      <p class="vehicle_year vehicle year">Year: <%= c.year || 'NA' %></p>
+      <p class="vehicle_make vehicle make">Make: <%= c.make || 'NA' %></p>
+      <p class="vehicle_model vehicle model">Model: <%= c.model || 'NA' %></p>
+      <p class="vehicle vin">V.I.N: <%= c.vin || 'NA' %></p>
+      <p class="vehicle license">Lic: <%= c.lic || 'NO LIC FOUND' %></p>
+    </div>
+  <% }); %>
+<% } else { %>
+  <p class="no-vehicle-msg">🚗 You haven’t added any vehicles yet.</p>
+  <a href="/add-vehicle" class="btn-add-vehicle">Add a Vehicle</a>
+<% } %>
+
+<!-- <p>You haven’t added any vehicles yet.</p>
+<a href="/add-vehicle">Add a Vehicle</a> -->
+<!-- <}> -->
+
+    <!-- < const cartArr = cart.vehicles.forEach((c) => {
+        <p>year new<c.year%></p>
+        <p>make new<c.make%></p>  
+        <p>model new<c.model%></p>
+        <p>id new<c.id%></p>
+<})%> -->
+
+                    <!-- <p class="vehicle-service-plan"><strong>Vehicle service agreement Plan:</strong> Nitros Charged Package</p>
+                    <p class="vehicle make"><strong>Make:</strong> BMW</p><p class="vehicle model"><strong>Model:</strong> I135</p><p class="vehicle year"><strong>Year:</strong> 2012</p><p class="vehicle color"><strong>Color:</strong> Black</p>
+                    <p class="vehicle miles"><strong>Miles:</strong> 124,340 miles</p><p class="vehicle vin"><strong>V.I.N:</strong> 1234567GHSI289SDJ</p><p class="vehicle license-plate"><strong>License-plate:</strong> JE1N3K7</p> -->
+                    <div class="underline"></div>
+                </div>
+            </div>
+
+            
+    </section>
+
+<section class="previous-orders-section section-padding">
+                <div class="previous-orders">
+                    <h2 class="orders">Orders</h2>
+                    <div class="orders-content">
+                        <h4 class="recent-title">recent purchases</h4>
+
+
+                
+
+
+
+                <%for (let order of order1) { 
+                
+                for (let i = 0; i < order.cart.length; i++) {
+                       let product = order.cart[i];
+                       
+                        console.log(product);
+                       
+
+%>                      
+<div class="orders-flex-container">
+                            <div class="img-container">
+                                <img class="recentItem-img" src="/assets/images/<%=product.image%>">
+                            </div>
+                                    <div class="product-info">
+                                        <p class="shipping-status">SHIPPED</p>
+                                        <p class="product-name"><%=product.name%></p>
+                                        <p class="product-price">$ <%=product.price / 100%></p>
+                                        <p class="shipping-selection">free shipping</p>
+                                    </div>
+                                    <div class="quantity-container">
+                                        <p class="qty">QTY <%=product.quantity%></p>
+                                    </div>
+                                    <div class="order-date-container">
+                                        <p><%=order.purchaseDate%></p>
+                                    </div>
+                                    
+                        </div>
+                
+
+ %>
+
+
+  <%}%>
+
+  %>
+
+
+
+
+
+
+
+
+                
+
+
+<%}%>
+
+
+<% if (order1 && order1.length > 0) { %>
+  <% order1.forEach(order => {
+    order.cart.forEach(product => {
+  %>
+    <div class="orders-flex-container">
+      <div class="img-container">
+        <img class="recentItem-img" src="/assets/images/<%= product.image %>">
+      </div>
+      <div class="product-info">
+        <p class="shipping-status">SHIPPED</p>
+        <p class="product-name"><%= product.name %></p>
+        <p class="product-price">$<%= (product.price / 100).toFixed(2) %></p>
+        <p class="shipping-selection">Free shipping</p>
+      </div>
+      <div class="quantity-container">
+        <p class="qty">QTY <%= product.quantity %></p>
+      </div>
+      <div class="order-date-container">
+        <p><%= order.purchaseDate %></p>
+      </div>
+    </div>
+  <% }); }); %>
+<% } else { %>
+  // <p class="no-orders-msg">No orders yet. Once you make a purchase, it’ll appear here!</p>
+    <p class="no-orders-msg">
+  🚗 You haven’t placed any orders yet. Check out our <a href="/shop">services</a>!
+</p>
+<% } %>
+
+</section>
+<%}%>
+</body>
+</html>

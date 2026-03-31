@@ -1,0 +1,257 @@
+<% layout('layouts/boilerplate') %>
+<!-- <script src="https://checkout.stripe.com/checkout.js" defer></script> -->
+<script src="https://js.stripe.com/v3"></script>
+<script>
+  var stripePublicKey = '<= stripePublicKey %>'
+</script>
+
+<!-- <div class="shopmain">
+    <span><=</span><span>Deutschland Autohaus</span>
+    <div class="cartContent">
+    <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
+    <p>Your cart is empty<br>Have an acount?<br>Sign up for free!</p>
+    <span class="close">&times</span>
+    </div>
+  </div> -->
+<h1 class="shoppingcart">shopping cart</h1>
+
+<div class="shopmain">
+    <!-- <span><=</span><span>Deutschland Autohaus</span> -->
+
+    <!-- current user shoppingcart -->
+  <% if (!currentUser) { %>
+    <div class="cartContent">
+    <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
+    <p>You must be logged in to view the cart<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p>
+    <span class="close">&times;</span>
+    </div>
+  </div>
+
+<% } else if (currentUser) { %>
+<!-- < localStorage.getItem('cart') %> -->
+    <div class="cartContent">
+    <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
+    <p>Your cart is empty<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p>
+    <span class="close">&times;</span>
+    </div>
+  </div>
+<!-- < } else {%> -->
+<!-- main body of cart page -->
+<!-- <main> -->
+
+<!--ITEM MUG PLACEHOLDER-->
+<!-- <div class="flex4">
+<span class="item">Item</span>
+  <span class="price">Price</span> -->
+  <!-- <span class="quantity">Quantity</span> -->
+  <!-- <span class="quantity">Qty</span>
+</div> -->
+<!--END ITEM MUG PLACEHOLDER-->
+
+    <!-- <div class="cart-items"> -->
+    <div class="item-title-container">
+    <div class="item-container">
+    <span class="item">Item</span>
+    </div>
+  <div class="price-container">
+  <span class="price">Price</span>
+  </div>
+  <div class="quantity-container">
+  <span class="quantity">Qty</span>
+  </div>
+</div>
+        <!-- < products.forEach(function(product) {})  -->
+        <!-- <div class="mainCart"> -->
+
+        <!--ITEM MUG PLACEHOLDER-->
+        <!-- <div class="cart-row">
+            <div class="cart-item cart-column">
+            <span class="shop-item-title">Black Mugs</span>
+                <img class="blackMug Mugs cart-item-image" src="/assets/images/IMG_0444.jpeg" alt="">
+                <img class="blackMug Mugs cart-item-image" src="/assets/images/whiteCup2-removebg-preview.png" alt="">
+                <span class="shop-item-title">Black Mugs</span>
+            </div>
+            <div class="item-price">
+            <span class="cart-item-price">$29.99</span>
+            </div>
+            <div class="cart-quantity cart-column">
+                <input type="number" class="cart-quantity-input" value="1">
+              <p>Deutschland Autohaus premier coffee mug (Black)</p>
+              <span class="cart-item-price">$30</span>
+                <button class="btn btn-danger" type="button">REMOVE</button>
+            </div>
+        </div> -->
+        <!--END ITEM MUG PLACEHOLDER-->
+
+          <!-- <div class="cart-item-price">
+          <span >$30</span>
+          </div> -->
+          <!-- <button class="cartBTN1">Add to cart</button> -->
+
+          <!--ITEM MUG PLACEHOLDER-->
+          <!-- <div class="cart-row">
+            <div class="cart-item cart-column">
+            <span class="shop-item-title">Black Mugs</span>
+                <img class="blackMug Mugs cart-item-image" id="cartItemImg" src="/assets/images/IMG_0442.jpeg" alt="">
+                <span class="cart-item-title">Black Mugs</span>
+            </div>
+            <span class="cart-item-price">$29.99</span>
+            <div class="cart-quantity cart-column">
+                <input type="number" class="cart-quantity-input" value="1">
+              <p>Deutschland Autohaus premier coffee mug (Black)</p>
+              <span class="cart-item-price">$30</span>
+                <button class="btn btn-danger" type="button">REMOVE</button>
+            </div>
+        </div> -->
+        <!--END ITEM MUG PLACEHOLDER-->
+
+        <!-- </div> -->
+      <!-- </div> -->
+<!-- <div class="cart-total"> -->
+<!-- <button class="rmvAll btn btn-danger">REMOVE ALL</button> -->
+<!-- </div> -->
+        <!--ITEM MUG PLACEHOLDER-->
+        <!-- <div class="cart-total"> -->
+            <!-- <div><button>Remove All</button></div> -->
+            <!-- <button class="rmvAl btn btn-danger">REMOVE ALL</button> -->
+            <!-- <div class="checkout"> -->
+              <!-- <div class="cart-checkout"> -->
+                <!-- <span class="cart-title"><strong class="cart-total-title">TOTAL</strong></span>
+                <span class="cart-total-price">$59.98</span> -->
+              <!-- </div> -->
+              <!-- <h1><session.cart%></h1> -->
+            <!-- <button class="btn btn-purchase">PURCHASE</button> -->
+              <!-- <button class="btn btn-purchase">CHECKOUT</button> -->
+            <!-- </div> -->
+        <!-- </div> -->
+        <!--END ITEM MUG PLACEHOLDER-->
+
+<!-- </div>
+</main> -->
+<% } %>
+
+<!-- cart render in shoppingcart.ejs -->
+<% if (cart && cart.products.length == 0) {%>
+
+<div class="cartContent">
+    <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
+    <p>You must be logged in to view the cart<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p>
+    <span class="close">&times</span>
+    </div>
+  </div>
+
+<%} else {%>
+
+
+
+<!-- <}%> -->
+<!-- // <tr>
+//   <th scope="row">
+//   < i+1 %>
+// </th>
+// <td>Product Name: < product.name %></td>
+// <td>Product Price: < product.price %></td>
+// <td>Product Quantity: < product.quantity %></td>
+// <img src="/assets/images/<product.image%>">
+// <td>
+//  <form action="/delete-cart" method="POST">
+//  <input type="hidden" name="prodId" value="< i.id%>">
+//  <button type="submit" class="btn btn-primary">Delete</button>
+//  </form>
+// </td>
+// </tr> -->
+<!--below was in cart-items div-->
+<!-- <span class="shop-item-title">Black Mugs</span> -->
+<!-- <p>Deutschland Autohaus premier coffee mug (Black)</p> -->
+              <!-- <span class="cart-item-price">$30</span> -->
+
+<!--below was part of for(let i =0, i < cart.products.length; i++) loop conditional-->
+<!-- /*<for action="/delete-quantity" method="POST">
+                <button class="" name="decrease">-</button>
+                <input type="number" class="cart-quantity-inpu" name="quantityInput" value="<= product.quantity %>">
+                <input type="hidden" name="prodId" value="<=product.id%>">
+                <button class="increase" name="increase">+</button>
+              </for>
+*/
+// for action="/create-checkout-session" method="POST">/for>
+//added cart items div -->
+
+<!--below part of cart-total div-->
+     <!-- <button class="btn btn-purchase">CHECKOUT</button>
+ <button type="button" id="checkout-butt">Subscribe</button> -->
+<!--<button type="button" class="btn btn-purchase" id="checkout-button">Checkout</button>-->
+<!--<span class="cart-item-price">$ <= product.price / 100%> </span>-->
+<% for (let i = 0; i < cart.products.length; i++) {
+    let product = cart.products[i];
+%>
+
+<div class="cart-items"> 
+  <div class="cart-row">
+            <div class="cart-item cart-column">
+            
+                <img class="blackMug Mugs cart-item-image" id="cartItemImg" src="/assets/images/<%=product.image%>" alt="">
+                <span class="cart-item-title"><%= product.name %></span>
+            </div>
+           
+            <div class="cart-quantity cart-column">  
+            <span class="cart-item-price">$ <%= product.price / 100%> </span>
+              <button class="decrease" id="decrement" name="quantityInput" > - </button>
+              <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<%= product.quantity %>">
+              <button  class="increase" name="quantityInput" onclick="increase3()">+</button>
+
+<form action="/delete-cart" method="POST">
+                <input type="hidden" name="prodId" class="cart-item-id" value="<%=product.id%>">
+                <button class="btn btn-danger" type="submit">REMOVE</button>
+</form>
+            </div>
+        </div>
+</div>
+ 
+
+
+
+<%}%>
+
+<div class="cart-total">
+<form action="/delete-all" method="POST">
+  <button class="rmvAll btn btn-danger" type="submit">REMOVE ALL</button>
+</form> 
+  
+ 
+<form action="/create-checkout-session" method="POST">  
+<button type="button" class="btn btn-purchase" id="checkout-button">CHECKOUT</button>
+</form>
+</div>
+<tr class="price-table"><td class="pricet">Total Price: </td><td colspan="4">$ <%=cart.totalPrice / 100%></td></tr>
+<tr class="quantity-table"><td>Total Quantity: </td><td colspan="4"><%=cart.totalQuantity%></td></tr>
+
+<span class="price-span"><span>Total Price:</span><span class="totalPrice">$ <%=cart.totalPrice / 100%></span></span>
+<span class="quantity-span">Total Quantity: <span class="totalQuantity"><%=cart.totalQuantity%></span></span>
+<%}%>
+
+<script>
+      function decrease(value) {
+        const inputValue = document.getElementById('quantity');
+        const sumValue = inputValue.innerText;
+        console.log(sumValue);
+        // decreaseBtn.value = 
+}
+</script>
+
+
+<!-- < for (let c of cart) {%>
+    <h1><=c.id%></h1>
+    <p><=c.name%></p>
+<}%> -->
+<!-- < if (cart) {%>
+  <h1>Hello CART!!!!<session.cart.totalQuantity%></h1>
+<}%> -->
+<!-- < if (req.session.cart) {%>
+  <h1>Hello</h1>
+<}%> -->
+        <!-- <button class="btn btn-primary btn-purchase">PURCHASE</button> -->
+<!-- <script src="/javascripts/shoppingCart3.js"></script> -->
+<!-- <script src="/javascripts/shoppingcart4.js"></script> -->
+<!-- <script async src="/javascripts/shoppingcart6.js"></script> -->
+<--<script sr="/javascripts/shoppingcart6.js" defer></script>-->
+<script src="/javascripts/quantityFile.js"></script>

@@ -1,0 +1,493 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+};
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(to bottom, rgb(147 29 29), rgba(0, 0, 0, 0)); */
+    /* background-color: rgb(139, 0, 0) !important; */
+    /* background-color: rgb(255, 0, 0); */
+
+}
+/* body {
+    background: linear-gradient(to bottom, rgb(147 29 29), rgba(0, 0, 0, 0));
+} */
+/* form */
+.body {
+ /* background-color: rgb(139, 0, 0) !important; */
+background-color: rgb(255, 0, 0) !important;
+min-width: min-content;
+}
+
+form {
+    display: flex;
+    /* flex-direction: column;
+    width: 50%;
+    margin: 5rem auto; */
+    margin: auto;
+}
+
+/* input[type="text"] {
+    margin: 1rem;
+} */
+
+/* Deutchland title */
+.logo-agreement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 1rem; */
+    margin: 5rem auto;
+    /* position: absolute; */
+    /* top: 0; */
+    /* margin-right: 5px; */
+}
+
+.navbar-brand {
+    /* margin-left: 20px; */
+    margin-left: 5px;
+    color: white;
+    /* display: flex
+; */
+    align-items: baseline;
+    /* margin-bottom: -20px; */
+}
+
+.flag {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: -10px; */
+    margin-bottom: -20px;
+    color: black;
+}
+
+.flag.autohaus {
+    /* margin-left: -8px; */
+    margin-left: -11px;
+}
+
+.black {
+    /* border: 2px solid black; */
+    width: 20px;
+    height: 28px;
+    background-color: black;
+    transform: skew(-24deg);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    /* margin-left: auto; */
+}
+
+.red {
+    /* border: 2px solid red; */
+    width: 20px;
+    height: 28px;
+    background-color: red;
+    transform: skew(-24deg);
+    /* margin-right: 5px; */
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.yellow {
+    /* border: 2px solid yellow; */
+    width: 20px;
+    height: 28px;
+    background-color: yellow;
+    transform: skew(-24deg);
+    margin-right: 2px;
+    /* margin-right: auto; */
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.deutchland{
+    /* font-size: 37px; */
+    font-size: 27px;
+    /* font-size: 43px; */
+    transform: skew(-24deg);
+    font-family: 'Changa', sans-serif;
+    /* color: white; */
+    color: black;
+}
+
+.deutchland-agreement {
+    font-size: 27px;
+    color: black;
+     transform: skew(-24deg);
+    font-family: 'Changa', sans-serif;
+}
+
+.flag.autohaus.service {
+    margin-left: -6px;
+}
+/* span.a {
+    padding-left: 5px;
+} */
+
+span.a-service {
+    margin-left: 2px;
+}
+
+.a-service, .u-service, .t-service, .o-service, .h-service, .s-service {
+    /* padding-right: 20px; */
+    padding-right: 26px;
+    /* font-size: 12px; */
+    font-size: 10px;
+    /* color: black; */
+    padding-right: 22px;
+    /* color: white; */
+    color: black;
+    margin-right: -5.8px
+}
+
+.red.autohaus, .yellow.autohaus, .black.autohaus {
+    /* height: 8px; */
+    height: 15px;
+    margin-bottom: -3px;
+}
+
+.name {
+    padding-right: 10px;
+    transform: skew(-20deg);
+}
+
+
+
+
+/* form agreement */
+.form-agreement {
+    /* width: 80%; */
+    width: 100%;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    /* border-radius: 20px; */
+    box-shadow: inset 0 0 12px;
+}
+
+/* .form-title {
+    margin-bottom: 5rem;
+    color: grey;
+} */
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+}
+
+label {
+    margin: 0;
+}
+
+.input {
+    /* margin: 10px 0; */
+    margin-bottom: 20px;
+    /* width: 50%;
+    margin: auto; */
+}
+
+.business_details {
+    margin: auto;
+    text-align: center;
+    /* font-size: 14px; */
+}
+
+.hidden {
+    display: none;
+}
+
+.service-title, .shop-title, .service-a {
+    text-align: center;
+    text-transform: uppercase;
+transform: skew(-24deg);
+    font-family: 'Changa', sans-serif;
+    margin: 2rem;
+    
+}
+
+.auto-agreement {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 2rem;
+}
+
+/* label {
+    text-transform: uppercase;
+    text-align: center;
+} */
+
+.client-shop-agreement-title {
+    text-align: center;
+    font-family: 'Changa';
+}
+
+.client_info {
+    text-align: center;
+    font-family: 'Changa', sans-serif;
+    margin-top: 5rem;
+    background-color: rgb(255, 255, 0);
+    padding: 1rem;
+    width: 50%;
+    margin: 2rem auto;
+    transform: skew(-20deg);
+}
+
+.shop-name, .shop-address, .shop-number, .shop-email {
+    text-align: center;
+text-decoration: underline;
+}
+
+/* .shop-name {
+    margin-top: 5rem;
+} */
+
+.autohaus-details {
+    margin: 5rem 0;
+    text-align: center;
+    font-family: 'Changa', sans-serif;
+    width: 50%;
+    background-color: rgb(255, 0, 0);
+    margin: 2rem auto;
+    transform: skew(-20deg);
+}
+
+.business-name, .business-address, .business-phone {
+    /* text-transform: uppercase; */
+    font-weight: 600;
+    /* text-align: center; */
+}
+
+.business-email {
+    font-weight: 600;
+}
+
+/* Agreement form styles */
+
+.vehicle_register-title {
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.vehicle_register {
+    /* text-align: center; */
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 5rem;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.vehicle_year, .vehicle_make, .vehicle_model {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    /* color: orangered; */
+    padding: 0 1rem;
+}
+
+
+.agreement-form {
+padding: 20px;
+    /* background-color: grey;
+    box-shadow: inset 10px -100px 90px -10px; 
+     box-shadow: 0 0 5px 5px red; 
+     box-shadow: inset 0 0 12px blue;
+    font-family: 'changa';
+    padding: 2rem;
+    border-radius: 20px; */
+
+  /* margin: 100px 0;
+  background: #2222ff; 
+  height: 600px;
+  background: grey;
+  position: relative; */
+
+
+
+/* div::after {
+  position: absolute;
+  content: "";
+  height: 30%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(white 0%, transparent 100%);
+}
+
+div::before {
+  position: absolute;
+  content: "";
+  height: 30%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(transparent 0%, white 100%);
+} */
+
+}
+
+/* .agreement-form::after {
+    position: absolute;
+  content: "";
+  height: 30%;
+    height: 5%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(white 0%, transparent 100%);
+}
+
+.agreement-form::before {
+  position: absolute;
+  content: "";
+  height: 30%;
+    height: 5%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(transparent 0%, white 100%);
+} */
+
+.agreement {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* .agreement_title {
+    text-align: center;
+    padding: 2rem;
+    padding: 10rem;
+    margin: 100px 0;
+  background: #2222ff; 
+  height: 600px;
+  background: grey;
+  position: relative;
+}
+
+.agreement_title::before {
+    position: absolute;
+  content: "";
+  height: 30%;
+    height: 5%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(white 0%, transparent 100%);
+}
+
+.agreement_title::after {
+    position: absolute;
+  content: "";
+  height: 30%;
+    height: 5%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(white 0%, transparent 100%);
+} */
+
+
+.service-title-container {
+    margin: 100px 10px;
+  /* background: #2222ff;  */
+  height: 60px;
+  background: grey;
+  position: relative;
+}
+
+.agreement_title {
+    text-align: center;
+    /* padding: 1rem;
+background-color: white; */
+background-color: initial;
+/* text-shadow: initial; */
+padding: 1rem;
+    width: 50% !important;
+    margin: 2rem auto;
+    /* border-bottom-right-radius: 100%; */
+    transform: skew(-20deg);
+}
+
+.service-title-container::before {
+     position: absolute;
+  content: "";
+  /* height: 30%; */
+    /* height: 5%; */
+height: 80%;
+  width: 100%;
+right: 0;
+  /* top: 0; */
+  left: 0;
+  background: linear-gradient(white 0%, transparent 100%);
+}
+
+.service-title-container::after {
+    position: absolute;
+  content: "";
+  /* height: 30%; */
+    height: 5%;
+  /* width: 100%; */
+  /* top: 0; */
+  left: 0;
+  background: linear-gradient(white 0%, transparent 100%);
+}
+
+.agreement.agreement_title {
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 50%;
+    display: flex;
+    /* text-align: center; */
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.agreement_desc {
+    /* font-weight: 600; */
+    line-height: 1.5;
+    padding: 1rem 2rem;
+}
+
+.checkbox {
+    text-align: center;
+    padding: 1rem;
+}
+
+.sign_date {
+    /* display: none; */
+    color: green;
+}
+
+.show_sign-date {
+    /* display: block; */
+    color: red;
+}
+
+.signature {
+     font-family: "Imperial Script", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.submit {
+    /* margin: auto; */
+    display: block;
+    margin: 2rem auto;
+    /* width: 50%; */
+    font-size: 15px;
+    padding: 2px 5px;
+}
+
+

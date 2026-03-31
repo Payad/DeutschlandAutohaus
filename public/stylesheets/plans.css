@@ -1,0 +1,547 @@
+:root {
+    --bronze: #cd7f32;
+    --silver: #c0c0c0;
+    --gold: #ffd700;
+    --text-dark: #333;
+    --text-light: #777;
+    --accent: #007BFF;
+}
+
+/* body {
+    font-family: 'Inter', sans-serif;
+} */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* background-color: #f8f9fa; */
+    /* background: linear-gradient(135deg, #f5f7fa, #c3cfe2); */
+  background: linear-gradient(45deg, black, transparent);
+  color: #333;
+  line-height: 1.6;
+}
+/* TIER PLAN STYLES */
+/* h4 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  text-align: center;
+
+color: rgb(246,190,0);
+font-style: italic;
+} */
+
+/* POP up div for registering */
+/* .popup_register {
+    width: 200px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: auto;
+    background: #ffff;
+    display: none;
+} */
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  backdrop-filter: blur(4px);     /* Optional blur */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Title Style */
+.popup-brand {
+    margin-left: 5px;
+    /* color: white; */
+    align-items: baseline;
+   
+}
+
+.flag {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: -10px; */
+    margin-bottom: -20px;
+}
+
+.flag.autohaus {
+    /* margin-left: -8px; */
+    /* margin-left: -7px; */
+  margin-left: -6px;
+}
+
+ .red, .black, .yellow {
+    width: 10px;
+    height: 18px;
+    /* background-color: yellow; */
+    transform: skew(-24deg);
+    margin-right: 2px;
+    /* margin-right: auto; */
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.red {
+  background-color: red;
+}
+
+.black {
+  background-color: black;
+}
+
+.yellow {
+  background-color: yellow;
+  margin-right: 2px;
+}
+
+.deutchland {
+    /* font-size: 27px; */
+    font-size: 25px;
+    /* font-size: 43px; */
+    transform: skew(-24deg);
+    font-family: 'Changa', sans-serif;
+    /* color: white; */
+}
+
+.red.autohaus, .yellow.autohaus, .black.autohaus {
+    /* height: 8px; */
+    height: 10px;
+    margin-bottom: -3px;
+}
+
+.name {
+    padding-right: 10px;
+    transform: skew(-20deg);
+}
+
+.a, .u, .t, .o, .h, .s {
+    /* padding-right: 20px; */
+    /* padding-right: 26px; */
+    font-size: 10px;
+    /* color: black; */
+    padding-right: 18px;
+    /* color: white; */
+}
+
+.a {
+  margin-left: 2px;
+}
+
+.land {
+  color: #ff0000;
+}
+
+/* Modal Box */
+.popup-modal {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  margin: 10rem auto;
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Buttons */
+.popup-actions {
+  margin-top: 1.5rem;
+}
+
+.popup-btn {
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 10px 20px;
+  /* background-color: #007bff; */
+  /* background-color: #f83636; */
+  background-color: rgba(226, 23, 23, 0.8);
+  /* background-color: #000000; */
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  /* transition: background 0.3s ease; */
+   transition: all 0.3s ease;
+}
+
+.popup-btn:hover {
+  /* background-color: #0056b3; */
+  /* background-color: rgba(226, 23, 23, 0.8); */
+   background-color: #f83636;
+  transform: translateY(-2px);
+  /* background: linear-gradient(to right, #808080, #383737); */
+    box-shadow: 0 8px 20px rgba(128, 128, 128, 0.6);
+}
+
+.popup-btn.alt {
+  /* background-color: #28a745; */
+  /* background-color: #ff0000; */
+  /* background-color: rgb(63, 62, 62); */
+  /* background-color: #000000; */
+  background-color: rgb(63, 62, 62);
+}
+
+.popup-btn.alt:hover {
+  /* background-color: #1e7e34; */
+  /* background-color: #f83636; */
+  /* background-color: rgb(63, 62, 62); */
+  background-color: #000000;
+  box-shadow: 0 8px 20px rgba(128, 128, 128, 0.6);
+}
+
+/* sign-in alert */
+.sign-in {
+  margin-top: 2rem;
+}
+
+
+h4.tier-level-1 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  text-align: center;
+
+    text-align: center;
+    color: rgb(246,190,0);
+    font-style: italic;
+
+}
+.note_4, .note_6, .note_8 {
+    text-align: center;
+    font-style: italic;
+}
+
+.tier1_container {
+    display: grid;
+    gap: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    color: rgb(246,190,0);
+}
+
+.medals {
+    text-align: center;
+}
+
+.medal_svg_bronze {
+    /* width: 20px; */
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.medal_svg_silver {
+    /* width: 20px; */
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.medal_svg_gold {
+    /* width: 20px; */
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.bronze {
+    /* border-color: rgb(205, 127, 50);
+    color: rgb(205,127,50) */
+    color: var(--bronze);
+}
+
+.silver {
+    /* color: #c0c0c0; */
+    color: var(--silver);
+}
+
+.gold {
+    /* color: rgb(255, 215, 0); */
+    color: var(--gold);
+}
+
+/* buttons for selection style */
+button {
+    border: none;
+    background-color: rgb(255, 255, 255);
+}
+
+/* .bronze_tier1_container {
+    border: 1px solid yellow;
+    margin: 1rem;
+    padding: 1rem;
+    box-shadow: 1px 10px 10px yellow;
+    max-width: 200px;
+} */
+.tier-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+
+      /* text-decoration: none;
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+/* .tier-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+} */
+
+/* .bronze_tier1_container {
+    background-image: url('/assets/images/bronze-medal-svgrepo-com.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100px;
+    opacity: 0.5;
+background: 100px no-repeat 0.5 url('/assets/images/bronze-medal-svgrepo-com.svg');
+background: url('/assets/images/bronze-medal-svgrepo-com.svg') no-repeat fixed center;
+
+
+} */
+
+/* .medal_svg_bronze {
+    background-image: url('/assets/images/bronze-medal-svgrepo-com.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100px;
+    opacity: 0.5; 
+     width: 100%; 
+} */
+.tier1_bronze_list, .tier1_silver_list, .tier1_gold_list {
+    font-size: 10px;
+    list-style-type: circle;
+}
+
+.services-li {
+    list-style-type: none;
+}
+
+.includes-previous {
+    text-align: center;
+    /* margin: 20px; */
+    font-size: 15px;
+    display: block;
+}
+
+.bronze_tier1_container, .silver_tier1_container, .gold_tier1_container {
+    background-color: #fff;
+    border: 1px solid yellow;
+    border-radius: 12px;
+    margin: 1rem;
+    padding: 1.5rem;
+    /* padding: 1rem;
+    padding: 1.5rem;
+    /* box-shadow: 1px 10px 10px yellow; */
+    /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); */
+    box-shadow: -1px 10px 40px rgb(255 255 0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 200px;
+    /* cursor: pointer; */
+}
+
+.bronze_tier1_container:hover, .silver_tier1_container:hover, .gold_tier1_container:hover {
+    /* transform: translateX(-10px); */
+    /* transform: scale(1.1); Slight zoom */
+    transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+/* transform: translateZ(1px); */
+}
+
+.tier-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.price_month {
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.tier-card:hover .price_month {
+    color: var(--accent)
+}
+
+.price_bracket {
+    font-size: 10px;
+    text-align: center;
+    /* margin: auto; */
+    display: block;
+}
+
+/* Level 2 Container */
+/* .tier-level-2-container {
+    display: flex;
+    color: rgb(255, 0, 0);
+} */
+h4.tier-level-2 {
+    text-align: center;
+    color: rgb(255, 0, 0);
+    font-style: italic;
+}
+
+/* .tier2_container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    color: rgb(255, 0, 0);
+} */
+
+.tier-level-plan2
+ {
+    width: 50%;
+    background-color: red;
+    margin: 50px 20px;
+    transform: skew(-25deg);
+}
+
+.bronze_tier2_container, .silver_tier2_container, .gold_tier2_container {
+    background-color: #fff;
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 12px;
+    margin: 1rem;
+    /* padding: 1rem; */
+    padding: 1.5rem;
+    /* box-shadow: 1px 10px 10px rgb(255, 0, 0); */
+    /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); */
+    box-shadow: -1px 10px 40px rgb(255 0 0);
+    max-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* cursor: pointer; */
+}
+
+.bronze_tier2_container:hover, .silver_tier2_container:hover, .gold_tier2_container:hover {
+    /* transform: scale(1.1); Slight zoom */
+    transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Level 3 Container */
+/* .tier-level-3-container {
+    display: flex;
+   
+    color: rgb(0, 0, 0);
+} */
+h4.tier-level-3 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-style: italic;
+}
+
+.tier1_container, .tier2_container, .tier3_container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: rgb(0, 0, 0);
+    padding: 2rem 0;
+}
+
+.bronze_tier3_container, .silver_tier3_container, .gold_tier3_container {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin: 1rem;
+    /* padding: 1rem; */
+    padding: 1.5rem;
+    /* box-shadow: 1px 10px 10px; */
+    /* box-shadow: 06px 18px rgba(0, 0, 0, 0.1); */
+    /* box-shadow: 1px 0px 30px rgba(0, 0, 0, 0.3); */
+    box-shadow: 1px 10px 40px;
+    max-width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* cursor: pointer; */
+}
+
+.bronze_tier3_container:hover, .silver_tier3_container:hover, .gold_tier3_container:hover {
+transform: scale(1.05);   
+ /* transform: scale(1.1); Slight zoom */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tier-card.lower-tier {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tier-card.current-tier {
+  border: 2px solid #28a745;
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+}
+
+.tier-card.upgrade-tier:hover {
+  box-shadow: 0 10px 24px rgba(0, 123, 255, 0.4);
+} 
+
+/* form button styling */
+.cta-button {
+    border: 1px solid black;
+    padding: 0.75rem 1.5rem;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    /* background: linear-gradient(45deg, black, transparent); */
+    box-shadow: 1px 8px 20px;
+    cursor: pointer;
+}
+
+.medals.bronze {
+  background: linear-gradient(45deg, #cd7f32, transparent);
+  border-radius: 5px;
+}
+
+.medals.silver {
+  background: linear-gradient(45deg, silver, transparent);
+   border-radius: 5px;
+}
+
+.medals.gold {
+  background: linear-gradient(45deg, rgb(243, 222, 101), transparent);
+   border-radius: 5px;
+}
+
+/* MEDIA 768PX */
+@media (max-width: 768px) {
+    .tier1_container,
+    .tier2_container,
+    .tier3_container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

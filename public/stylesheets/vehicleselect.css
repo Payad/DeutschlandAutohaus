@@ -1,0 +1,51 @@
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    /* background: linear-gradient(45deg black transparent); */
+     background: linear-gradient(to right, #808080, #383737);
+    margin: 0;
+    padding: 0;
+    /* background-color:darkred; */
+}
+
+/* FORM */
+
+p.title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1, h2 {
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+.info_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vin_container, .lic_container {
+    margin: 1rem;
+}
+
+input:placeholder-shown {
+   font-style: italic;
+}
+
+button {
+    display: block;
+    margin: auto;
+}
