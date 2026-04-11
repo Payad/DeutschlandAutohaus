@@ -8,7 +8,7 @@
   <div class="cart">
   <img class="shoppingCartImage" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
 <div class='count-container'>
-  <span class="countItem"><%=cart.totalQuantity%></span>
+  <!-- <span class="countItem"><=cart.totalQuantity%></span> -->
 </div>
   </div>
   <a href="/login"><img class="accountImage" src="/assets/images/accountImage-removebg-preview.png"></a>
@@ -1438,9 +1438,9 @@ document.addEventListener('click', function(e) {
     //  itemAddedDiv.style.display = 'block';
     itemAddedDiv.classList.add('itemActive');
 
-    console.log('This is the carts total quantity', <%=cart.totalQuantity%>);
+    // console.log('This is the carts total quantity', '<=cart.totalQuantity%>');
     const countItem = document.querySelector('.countItem');
-    countItem.innerText = <%=cart.totalQuantity%> + 1;
+    // countItem.innerText = <=cart.totalQuantity%> + 1;
 }
 })
 

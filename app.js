@@ -2932,7 +2932,8 @@ app.get('/deutchlandautohaus/shop7', async function(req, res) {
     const products = await Product.find({});
     const user = await User.find(req.user);
     const cart = await Cart.findOne({user: user});
-    console.log(cart.totalQuantity);
+    // console.log(cart.totalQuantity);
+        console.log(cart);
     // console.log(products)
 //     fs.readFile('products.json', function(error, data) {
 // console.log(data)
