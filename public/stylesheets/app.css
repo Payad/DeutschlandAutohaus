@@ -24,9 +24,19 @@ body {
 }
 
 .addToCart:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
+    transform: translateY(5px);
     background: #e60023;
     color: white;
+}
+
+div#shop {
+    /* background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%), url(/assets/images/carbon-fiberbackground.jpg); */
+    /* background: linear-gradient(to top, black, transparent); */
+    /* background:linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%), url(/assets/images/carbon-fiberbackground.jpg); */
+    /* border-top: 1px solid transparent; */
+    /* border-top: groove; */
+    /* box-shadow: 0 0px 80px rgba(15, 15, 15); */
 }
 
 /* Hero Section */
@@ -285,6 +295,18 @@ animation: float 6s ease-in-out infinite;
         transform:rotate(18deg)
         translateY(0px);
 }
+}
+
+@keyframes hover {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero-tagline {
@@ -1136,19 +1158,22 @@ button.btn.btn-purchase {
     object-fit: cover;
     border-radius: 20px;
     filter: drop-shadow(2px 4px 8px rgb(0,0,0, 0.06));
+    /* animation: float 6s ease-in-out infinite; */
     /* box-shadow: 0 2px 8px rgba(0,0,0,0.06),
                 0 8px 24px rgba(0,0,0,0,0.08); */
-    transition: all 0.03s ease;
+    /* transition: all 0.03s ease; */
 }
 
 .main-products:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     /* box-shadow: 0 6PX 6PX rgb(0, 0, 0, 0.06), 0 16px 40px rgb(0, 0, 0, 0.08); */
     /* filter: drop-shadow(2px 4px 6px black); */
-    box-shadow: 
+    /* box-shadow: 
     0 6px 16px rgba(0,0,0,0.08),
-    0 16px 40px rgba(0,0,0,0.12);
+    0 16px 40px rgba(0,0,0,0.12); */
     cursor: pointer;
+    /* animation: float 6s ease-in-out infinite; */
+    animation: hover 2s ease-in-out infinite;
      /* box-shadow: 0 2px 8px rgba(0,0,0,0.06),
                 0 8px 24px rgba(0,0,0,0,0.08); */
 }
@@ -1456,6 +1481,10 @@ img.pants.blackMug.Mugs.shop-item-image {
     margin-top: 1rem;
 }
 
+.popup-title {
+    cursor: pointer;
+}
+
 .underline {
     border: 1px solid rgb(0, 0, 0);
 }
@@ -1468,6 +1497,7 @@ img.popupImg {
     padding-right: 1rem;
     padding-top: 1rem; */
 }
+
 
 .popupOptions {
     margin: 0 15px;
@@ -1610,6 +1640,10 @@ ul.sizes-list {
     padding: 0;
 }
 
+ul.sizes-list li:hover {
+    cursor: pointer;
+}
+
 .sizes, .sizeChart-title {
     margin: 0;
     padding: 0;
@@ -1635,6 +1669,10 @@ ul.sizes-list {
     top: 0;
     right: 0;
     padding: 1rem;
+}
+
+.chart_close:hover {
+    cursor: pointer;
 }
 
 li.size {

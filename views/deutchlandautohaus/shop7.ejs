@@ -138,7 +138,7 @@
 <div class="shop" id="shop">
     <div class="accessory">
         <!-- <img src="" alt=""> -->
-        <p id="copyWrite">All our latest clothing and accessories at your fingertips!</p>
+        <!-- <p id="copyWrite">All our latest clothing and accessories at your fingertips!</p> -->
         
         <!-- <h3>Mugs</h3> -->
         <div class="shop-items">
@@ -255,7 +255,7 @@
     <span class="shop-item-id"><%=p.id%></span>
     <div class="item-container">
       <div class="options">
-         <img src="/assets/images/<%= p.image %>"  class="main-products" alt="...">
+         <img src="/assets/images/<%= p.image %>"  class="main-products Mugs sweater-item-image" alt="...">
         <!-- <img src="/assets/images/<= p.image %>"  class="blackMug Mugs sweater-item-image" alt="..."> -->
         <div class="form-flex">
               <div class="form-check">
@@ -299,7 +299,7 @@
     <!-- <span class="shop-item-id"><=p.id%></span> -->
     <div class="item-container">
       <div class="options">
-         <img src="/assets/images/<%= p.image %>"  class="main-products" alt="...">
+         <img src="/assets/images/<%= p.image %>"  class="main-products Mugs pants-item-image" alt="...">
         <!-- <img src="/assets/images/<%= p.image %>"  class="pants blackMug Mugs pants-item-image" alt="..."> -->
         <div class="form-flex">
               <div class="form-check">
@@ -347,7 +347,8 @@
     <span class="shop-item-id"><=p.id%></span> -->
     <div class="item-container">
       <div class="options">
-        <img src="/assets/images/<%= p.image %>"  class="main-products" alt="...">
+        <img src="/assets/images/<%= p.image %>"  class="main-products Mugs shirt-item-image" alt="...">
+          <!-- <img src="/assets/images/Deutschshirt_black-removebg-preview.png" class="main-products Mugs shirt-item-image" alt="">
         <!-- <img src="/assets/images/<= p.image %>"  class="blackMug Mugs shirt-item-image" alt="..."> -->
         <!-- <img src="/assets/images/<= p.image %>"  class="item-image" alt="..."> -->
         <div class="form-flex">
@@ -396,7 +397,7 @@
     <span class="shop-item-id"><%=p.id%></span>
     <div class="item-container">
       <div class="options">
-         <img src="/assets/images/<%= p.image %>"  class="main-products" alt="...">
+         <img src="/assets/images/<%= p.image %>"  class="main-products Mugs beanie-item-image" alt="...">
         <!-- <img src="/assets/images/<= p.image %>"  class="blackMug Mugs beanie-item-image" alt="..."> -->
         <div class="form-flex">
               <div class="form-check">
@@ -440,8 +441,8 @@
     <span class="shop-item-id"><%=p.id%></span>
     <div class="item-container">
       <div class="options">
-         <img src="/assets/images/<%= p.image %>"  class="main-products" alt="...">
-        <!-- <img src="/assets/images/<= p.image %>"  class="blackMug Mugs mug-item-image" alt="..."> -->
+         <img src="/assets/images/<%= p.image %>"  class="main-products Mugs mug-item-image" alt="...">
+        <!-- <img src="/assets/images/<%= p.image %>"  class="blackMug Mugs mug-item-image" alt="..."> -->
         <div class="form-flex">
               <div class="form-check">
                 <input class="form-check-input" type="radio" value="1" onchange="changeProduct('mug', this.value)" name="mug" id="radio-black" checked>
@@ -568,6 +569,7 @@ console.log(products);
           <!-- <div class="underline"></div> -->
         </div>
         <div class="underline"></div>
+        <div class="product-light"></div>
         <img class="popupImg"/>
         <!-- <div class="popupOptions"></div> -->
         <div class="price-container">   
@@ -791,32 +793,64 @@ const productName = products?.name?.toLowerCase().trim();
 
 
 // ];
+// const products = {
+//     shirt: [
+//         { color: 'black', image: '/assets/images/DeutschShirt_black.jpg'},
+//         { color: 'grey', image: '/assets/images/DeutschShirt_grey.jpg'},
+//         { color: 'blue', image: '/assets/images/DeutschShirt_blue.jpg'}
+// ],
+
+//     pants: [
+//         { color: 'black', image: '/assets/images/DeutschPants_black.jpg'},
+//         { color: 'grey', image: '/assets/images/DeutschPants_grey.jpg'},
+//         { color: 'blue', image: '/assets/images/DeutschPants_blue.jpg'}
+// ],
+
+//     sweater: [
+//         { color: 'black', image: '/assets/images/DeutschSweater_black.jpg'},
+//         { color: 'grey', image: '/assets/images/DeutschSweater_grey.jpg'},
+//         { color: 'blue', image: '/assets/images/DeutschSweater_blue.jpg'}
+// ],
+//     beanie: [
+//         { color: 'black', image: '/assets/images/DeutschBeanie_black.jpg'},
+//         { color: 'grey', image: '/assets/images/DeutschBeanie_grey.jpg'},
+//         { color: 'blue', image: '/assets/images/DeutschBeanie_blue.jpg'}
+// ],
+//     mug: [
+//         { color: 'black', image: '/assets/images/IMG_0444.jpeg'},
+//         { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
+// ]
+// };
+
 const products = {
     shirt: [
-        { color: 'black', image: '/assets/images/DeutschShirt_black.jpg'},
-        { color: 'grey', image: '/assets/images/DeutschShirt_grey.jpg'},
-        { color: 'blue', image: '/assets/images/DeutschShirt_blue.jpg'}
+        { color: 'black', image: '/assets/images/DeutschShirt_blackNew.png'},
+        { color: 'grey', image: '/assets/images/DeutschShirt_greyNew.png'},
+        { color: 'blue', image: '/assets/images/DeutschShirt_blueNew.png'}
 ],
 
     pants: [
-        { color: 'black', image: '/assets/images/DeutschPants_black.jpg'},
-        { color: 'grey', image: '/assets/images/DeutschPants_grey.jpg'},
-        { color: 'blue', image: '/assets/images/DeutschPants_blue.jpg'}
+        { color: 'black', image: '/assets/images/DeutschPants_blackNew1.png'},
+        { color: 'grey', image: '/assets/images/DeutschPants_greyNew1.png'},
+        { color: 'blue', image: '/assets/images/DeutschPants_blueNew1.png'}
 ],
 
     sweater: [
-        { color: 'black', image: '/assets/images/DeutschSweater_black.jpg'},
-        { color: 'grey', image: '/assets/images/DeutschSweater_grey.jpg'},
-        { color: 'blue', image: '/assets/images/DeutschSweater_blue.jpg'}
+        { color: 'black', image: '/assets/images/DeutschSweater_blackNew.png'},
+        { color: 'grey', image: '/assets/images/DeutschSweater_greyNew.png'},
+        { color: 'blue', image: '/assets/images/DeutschSweater_blueNew.png'}
 ],
     beanie: [
-        { color: 'black', image: '/assets/images/DeutschBeanie_black.jpg'},
-        { color: 'grey', image: '/assets/images/DeutschBeanie_grey.jpg'},
-        { color: 'blue', image: '/assets/images/DeutschBeanie_blue.jpg'}
+        { color: 'black', image: '/assets/images/DeutschBeanie_blackNew.png'},
+        { color: 'grey', image: '/assets/images/DeutschBeanie_greyNew.png'},
+        { color: 'blue', image: '/assets/images/DeutschBeanie_blueNew.png'}
 ],
     mug: [
-        { color: 'black', image: '/assets/images/IMG_0444.jpeg'},
-        { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
+        // { color: 'black', image: '/assets/images/IMG_0444.jpeg'},
+        // { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
+        { color: 'black', image: '/assets/images/DeutschMugNew.png'},
+        { color: 'red', image: '/assets/images/DeutschMugRed.png'}
+        // { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
 ]
 };
 
@@ -832,6 +866,7 @@ if (popupImage) {
   // shirtItemImage.src = productsArray[index];
   // shirtItemImage.src = productArray[index];
 const selectDiv = document.querySelectorAll('.Mugs');
+// const selectDiv = document.querySelectorAll('.main-products');
 
 selectDiv.forEach((d) => {
     if (productType === 'shirt') {
@@ -846,8 +881,8 @@ selectDiv.forEach((d) => {
 } else if (productType === 'beanie') {
         beanieItemImage.src = selectedItem.image;
         // color.textContent = 'Color: ' + selectedItem.color;
-} else if (productType = 'mug') {
-        mugItemImage.src= selectedItem.image;
+} else if (productType === 'mug') {
+        mugItemImage.src = selectedItem.image;
         // color.textContent = 'Color: ' + selectedItem.color
 }
 })
@@ -867,32 +902,34 @@ selectDiv.forEach((d) => {
 // console.log(fullArray);
 
     const shirtArray = [
-      '/assets/images/DeutschShirt_black.jpg',
-      '/assets/images/DeutschShirt_grey.jpg',
-      '/assets/images/DeutschShirt_blue.jpg'
+      '/assets/images/DeutschShirt_blackNew.jpg',
+      '/assets/images/DeutschShirt_greyNew.jpg',
+      '/assets/images/DeutschShirt_blueNew.jpg'
 ];
 
     const pantsArray = [
-      '/assets/images/DeutschPants_black.jpg',
-      '/assets/images/DeutschPants_grey.jpg',
-      '/assets/images/DeutschPants_blue.jpg'
+      '/assets/images/DeutschPants_blackNew1.jpg',
+      '/assets/images/DeutschPants_greyNew1.jpg',
+      '/assets/images/DeutschPants_blueNew1.jpg'
 ];
 
   const sweaterArray = [
-      '/assets/images/DeutschSweater_black.jpg',
-      '/assets/images/DeutschSweater_grey.jpg',
-      '/assets/images/DeutschSweater_blue.jpg'
+      '/assets/images/DeutschSweater_blackNew.jpg',
+      '/assets/images/DeutschSweater_greyNew.jpg',
+      '/assets/images/DeutschSweater_blueNew.jpg'
 ];
 
 const beanieArray = [
-      '/assets/images/DeutschBeanie_black.jpg',
-      '/assets/images/DeutschBeanie_grey.jpg',
-      '/assets/images/DeutschBeanie_blue.jpg'
+      '/assets/images/DeutschBeanie_blackNew.jpg',
+      '/assets/images/DeutschBeanie_greyNew.jpg',
+      '/assets/images/DeutschBeanie_blueNew.jpg'
 ];
 
   const mugArray = [
-      '/assets/images/IMG_0444.jpeg',
-      '/assets/images/IMG_0442.jpeg',
+      // '/assets/images/IMG_0444.jpeg',
+      '/assets/images/DeutschMugNew.png',
+      '/assets/images/DeutschMugRed.png'
+      // '/assets/images/IMG_0442.jpeg',
       // '/assets/images/DeutschSweater_blue.jpg'
 ];
 //NEW 2/26/2026
@@ -1077,7 +1114,8 @@ document.querySelectorAll('.addToCart').forEach((btn) => {
   type === 'sweatshirt' ? 'changeSweatshirt':
   type === 'sweatpants' ? 'changePants': 
   type === 'beanie' ? 'changeBeanie':
-  type === 'Black Mug' ? 'changeMug': null;
+  // type === 'Black Mug' ? 'changeMug': null;
+  type === 'mug' ? 'changeMug': null;
 
     if (!handler) {
     popupOptions.innerHTML = '';
