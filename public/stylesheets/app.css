@@ -20,12 +20,12 @@ body {
     transition: all 0.25s ease;
     letter-spacing: 0.5px;
     font-weight: 500;
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
 }
 
 .addToCart:hover {
     /* transform: translateY(-10px); */
-    transform: translateY(5px);
+    transform: translateY(-5px);
     background: #e60023;
     color: white;
 }
@@ -211,15 +211,15 @@ html, body {
 
 .product-light {
     position: absolute;
-    /* width: 420px;
-    height: 420px; */
+    width: 420px;
+    height: 420px;
     width: 280px;
-    /* width: 580; */
+    width: 580;
     height: 280px;
 
     background: radial-gradient(circle, rgba(255, 0, 0, 0.35) 0%, transparent 70%);
     filter:blur(120px); 
-    /* filter: blur(80px); */
+    filter: blur(80px);
 bottom: 0;
 margin-bottom: 5rem;
 }
@@ -1155,8 +1155,9 @@ button.btn.btn-purchase {
 .main-products {
     width: 100%;
     height: 120px;
-    object-fit: cover;
-    border-radius: 20px;
+    /* object-fit: cover; */
+    object-fit: contain;
+    /* border-radius: 20px; */
     filter: drop-shadow(2px 4px 8px rgb(0,0,0, 0.06));
     /* animation: float 6s ease-in-out infinite; */
     /* box-shadow: 0 2px 8px rgba(0,0,0,0.06),
@@ -1288,7 +1289,7 @@ img.blackMug:hover, img.redMug:hover {
 
 .form-flex {
     display: flex;
-    margin: 5px 0;
+    margin: 5px 10px;
 }
 
 .form-check-input {
@@ -1362,7 +1363,7 @@ color: #e60023;
     transition: all 0.25s ease;
     letter-spacing: 0.5px;
     font-weight:500;
-    transform: translateY(10px)
+    /* transform: translateY(10px) */
 }
 /* Add to cart btn style*/
 addToCart {
@@ -1407,6 +1408,12 @@ addToCart:hover {
 .confirmAdd:hover {
     background-color: #ff0000;
     color: #fff;
+}
+
+.confirmAdd.addToCart.shop {
+    background-color: red;
+    color: white;
+    padding: 5px 12px;
 }
 
 .confirmPrice {
@@ -1463,9 +1470,11 @@ addToCart:hover {
 
 .options {
     /* width: 50px; */
-    width: 100px;
+    /* width: 100px; */
+    width: 120px;
     display: block;
     margin: auto;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.35) 0%, transparent 70%)
 }
 img.pants.blackMug.Mugs.shop-item-image {
     height: 10rem;
@@ -1485,12 +1494,17 @@ img.pants.blackMug.Mugs.shop-item-image {
     cursor: pointer;
 }
 
-.underline {
+.underline-popup {
     border: 1px solid rgb(0, 0, 0);
 }
 
 img.popupImg {
-    width: 100%;
+    /* width: 100%; */
+    width: 80%;
+    display: block;
+    margin: auto;
+    /* height: 120px;
+    object-fit: cover; */
     padding: 1rem;
     border-radius: 10%;
     /* padding-left: 1rem;
@@ -1793,8 +1807,11 @@ p.full-details {
 .active {
 display: block;
     border: .5px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     /* height: 100vh; */
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
     top: 0;
     right: 0;
     background-color: white;
@@ -1814,8 +1831,8 @@ display: block;
     background-color: yellow;
     border-radius: 20px;
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     position: absolute;
     font-size: 12px;
 }
@@ -1823,9 +1840,9 @@ display: block;
 .countItem {
     /* padding-left: 4px;
     padding-bottom: 4px; */
-    padding: 0px 0px 4px 4px;
-    position: absolute;
-    top: 0;
+    padding: 0px 0px 1px 6px;
+    /* position: absolute;
+    top: 0; */
 }
 
 /* .active {
@@ -1991,18 +2008,95 @@ padding: 0 20px;
 height: 100vh;
 }
 
+/* hero banner */
+/* .deutchland {
+    font-size: 50px;
+}
+
+.shop {
+    width: 22px;
+    height: 35px
+} */
+
+.black.shop, .red.shop, .yellow.shop {
+    height: 32px;
+    width: 20px;
+}
+
+.deutchland.shop {
+    font-size: 50px;
+}
+
+.flag-container {
+    margin-top: -25px;
+}
+
+.black.autohaus.shop, .red.autohaus.shop {
+    width: 25px;
+    height: 15px;
+    margin-left: -5px;
+}
+
+.yellow.autohaus.shop {
+    /* width: 25px; */
+    height: 15px;
+    margin-left: -5px;
+}
+
+/* #exclusive-shop {
+    margin-top: 2px !important;
+} */
+ /* .black.autohaus, .yellow.autohaus, .red.autohaus {
+    margin-top: 2.3px !important;
+ } */
+  /* .flag-container {
+    margin-top: 2.3px !important;
+  } */
+
+/* .p {
+    font-size: 10px;
+    padding-right: 16px;
+    color: #fff !important;
+} */
+
 /* hero-sweater */
+.hero-product {
+    position: static;
+}
 .hero-sweater {
     /* transform: rotate(10deg);
 width: 280px; */
 max-width: 420px;
 transform: rotate(15deg);
 }
+
+.hero-text {
+    position: static;
+}
 /* sign in styles */
 .signInName {
     margin-bottom: 0rem;
 }
 
+/* Hero Product Backlight */
+.product-light {
+    margin-bottom: 20rem;
+}
+
+/* Product Cards */
+.radio-flex {
+    width: 200px;
+}
+
+.form-flex {
+    display: flex;
+    margin: 5px 10px;
+}
+
+.addToCart {
+    margin: auto;
+    display: block;
+}
 
 /* Carousel-inner */
 .carousel-inner {

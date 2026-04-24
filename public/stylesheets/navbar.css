@@ -200,6 +200,11 @@ margin: 5px;
     justify-content: space-around; */
     padding-right: 10px;
     transform: skew(-20deg);
+    margin: auto;
+}
+
+.flag-container {
+    margin-top: 2.3px;
 }
 
 .a {
@@ -207,7 +212,7 @@ margin: 5px;
 }
 
 .a, .u, .t,
-.o, .h, .s {
+.o, .h, .s, .p {
     /* padding-right: 20px; */
     padding-right: 26px;
     font-size: 10px;

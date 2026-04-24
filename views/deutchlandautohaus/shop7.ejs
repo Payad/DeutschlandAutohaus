@@ -8,6 +8,11 @@
   <div class="cart">
   <img class="shoppingCartImage" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
 <div class='count-container'>
+  <% if (cart && cart.products.length > 0) {%>
+    <span class="countItem"><%=cart.totalQuantity%></span>
+  <%} else {%>
+    <span class="countItem">0</span>
+  <%}%>
   <!-- <span class="countItem"><=cart.totalQuantity%></span> -->
 </div>
   </div>
@@ -53,19 +58,30 @@
     <div class="block">
     <div class="navbar-brand" href="#">
       <div class="flag">
-      <div class="black"></div>
-      <div class="red"></div>
-      <div class="yellow"></div>
-      <div class="deutchland">DEUTSCH<span>LAND</span></div><br>
+      <div class="black shop"></div>
+      <div class="red shop"></div>
+      <div class="yellow shop"></div>
+      <div class="deutchland shop">DEUTSCH<span>LAND</span></div><br>
+      </div>
+      <!-- <div class="flag autohaus"> -->
+        <div class="flag-container">
+          <div class="flag autohaus" id="exclusive-shop">
+        <div class="black autohaus shop"></div>
+        <div class="red autohaus shop"></div>
+        <div class="yellow autohaus shop"></div>
+        <div class="name autohaus">
+          <span class="s">S</span><span class="h">H</span><span class="o">O</span><span class="p">P</span>
+        </div>
+        </div>
       </div>
       <!-- <div>Deutchland</div><br> -->
-      <div class="flag autohaus">
+      <!-- <div class="flag autohaus">
       <div class="black autohaus"></div>
       <div class="red autohaus"></div>
-      <div class="yellow autohaus"></div>
+      <div class="yellow autohaus"></div> -->
       <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
-      <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
-      </div>    
+      <!-- <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+      </div>     -->
       <!-- <div>Autohaus</div> -->
     </div>
     <!-- <div class="navbar-brand autohaus" href="#">
@@ -300,6 +316,8 @@
     <div class="item-container">
       <div class="options">
          <img src="/assets/images/<%= p.image %>"  class="main-products Mugs pants-item-image" alt="...">
+          <!-- <img src="/assets/images/Untitled_design__2_-removebg-preview (1).png" class="main-products Mugs Pants-item-image" alt=""> -->
+           <!-- <img src="/assets/images/Untitled_design__4___1_-removebg-preview.png" alt="" class="main-products Mugs pants-item-image"> -->
         <!-- <img src="/assets/images/<%= p.image %>"  class="pants blackMug Mugs pants-item-image" alt="..."> -->
         <div class="form-flex">
               <div class="form-check">
@@ -568,12 +586,13 @@ console.log(products);
           <p class="close-btn">&times;</p>
           <!-- <div class="underline"></div> -->
         </div>
-        <div class="underline"></div>
-        <div class="product-light"></div>
+        <div class="underline-popup"></div>
+        <!-- <div class="product-light"></div> -->
         <img class="popupImg"/>
         <!-- <div class="popupOptions"></div> -->
         <div class="price-container">   
-        <p class="popupPrice"></p><span class="regPrice">reg. $39.99</span>
+        <!-- <p class="popupPrice"></p><span class="regPrice">reg. $39.99</span> -->
+         <!-- <p class="popupPrice"></p> -->
         </div>
         <p class="color">Color: Black</p>
         <!-- <p class="color"><=products.color%></p> -->
@@ -654,7 +673,7 @@ const productName = products?.name?.toLowerCase().trim();
                     <!-- </div> -->
             <!-- <a href="/addToCart/<=p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
            
-              <button type="button" class="confirmAdd addToCart">Add Item</button>
+              <button type="button" class="confirmAdd addToCart shop">Add Item</button>
             <!-- <button type="submit" class="confirmAdd" data-name="<=products.name%>" data-id="<=products._id%>" data-img="/assets/images/<= products.image%>" data-price="<=products.price%>" data-type="<=products.name%>">Add New Item</button> -->
             
                 <!-- <form  class="addForm" action="/addToCart/<=p.id%>">
@@ -668,9 +687,9 @@ const productName = products?.name?.toLowerCase().trim();
 
             </form> -->
           </div>
-          <div class="underline"></div>
+          <!-- <div class="underline"></div> -->
         </div>
-        <p class="full-details">See full product details</p>
+        <!-- <p class="full-details">See full product details</p> -->
     </div> <!-- Cothing Container -->
 <!-- </div>product card -->
 </div>
@@ -902,27 +921,27 @@ selectDiv.forEach((d) => {
 // console.log(fullArray);
 
     const shirtArray = [
-      '/assets/images/DeutschShirt_blackNew.jpg',
-      '/assets/images/DeutschShirt_greyNew.jpg',
-      '/assets/images/DeutschShirt_blueNew.jpg'
+      '/assets/images/DeutschShirt_blackNew.png',
+      '/assets/images/DeutschShirt_greyNew.png',
+      '/assets/images/DeutschShirt_blueNew.png'
 ];
 
     const pantsArray = [
-      '/assets/images/DeutschPants_blackNew1.jpg',
-      '/assets/images/DeutschPants_greyNew1.jpg',
-      '/assets/images/DeutschPants_blueNew1.jpg'
+      '/assets/images/DeutschPants_blackNew1.png',
+      '/assets/images/DeutschPants_greyNew1.png',
+      '/assets/images/DeutschPants_blueNew1.png'
 ];
 
   const sweaterArray = [
-      '/assets/images/DeutschSweater_blackNew.jpg',
-      '/assets/images/DeutschSweater_greyNew.jpg',
-      '/assets/images/DeutschSweater_blueNew.jpg'
+      '/assets/images/DeutschSweater_blackNew.png',
+      '/assets/images/DeutschSweater_greyNew.png',
+      '/assets/images/DeutschSweater_blueNew.png'
 ];
 
 const beanieArray = [
-      '/assets/images/DeutschBeanie_blackNew.jpg',
-      '/assets/images/DeutschBeanie_greyNew.jpg',
-      '/assets/images/DeutschBeanie_blueNew.jpg'
+      '/assets/images/DeutschBeanie_blackNew.png',
+      '/assets/images/DeutschBeanie_greyNew.png',
+      '/assets/images/DeutschBeanie_blueNew.png'
 ];
 
   const mugArray = [
@@ -1097,7 +1116,8 @@ document.querySelectorAll('.addToCart').forEach((btn) => {
     }
     // popupImage.src = cardImage.src;
   // popupName.textContent = btn.dataset.name;
-  popupPrice.textContent = 'sale' + ' ' + '$' + `${btn.dataset.price / 100}` + '';
+  // popupPrice.textContent = 'sale' + ' ' + '$' + `${btn.dataset.price / 100}` + '';
+  popupPrice.textContent = `${btn.dataset.price / 100}` + '';
   // popup.classList.add('active');
 
   renderColorOptions(btn.dataset.type);
@@ -1124,7 +1144,7 @@ document.querySelectorAll('.addToCart').forEach((btn) => {
 console.log(type)
 const sizeChart = document.querySelector('.size-selection');
 sizeChart.classList.remove('disabledSizes');
-if (type === 'Black Mug') {
+if (type === 'mug') {
   popupOptions.innerHTML = 
 `<div class="form-flex">
       <div class="form-check">
