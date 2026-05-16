@@ -27,13 +27,15 @@
     });
   }); -->
 <!-- </script> -->
+<% layout('layouts/boilerplate') %>
 <% let showAuthPopupSafe = typeof showAuthPopup !== 'undefined' ? showAuthPopup : false; %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/stylesheets/app.css">
     <link rel="stylesheet" href="/stylesheets/plans.css">
     <title>Plans</title>
 </head>
@@ -70,7 +72,7 @@
         <div class="black"></div>
         <div class="red"></div>
         <div class="yellow"></div>
-        <div class="deutchland">DEUTSCH<span class="land">LAND</span></div><br>
+        <div id="deutschland-shop" class="deutchland">DEUTSCH<span class="land">LAND</span></div><br>
         </div>
         <!-- <div>Deutchland</div><br> -->
         <div class="flag autohaus">
@@ -78,7 +80,7 @@
         <div class="red autohaus"></div>
         <div class="yellow autohaus"></div>
         <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
-        <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+        <div class="name autohaus"><span class="a auto-text">A</span><span class="u auto-text">U</span><span class="t auto-text">T</span><span class="o auto-text">O</span><span class="h auto-text">H</span><span class="a auto-text">A</span><span class="u auto-text">U</span><span class="s auto-text">S</span></div>
         </div>    
         <!-- <div>Autohaus</div> -->
         </div>

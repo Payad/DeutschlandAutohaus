@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-
+<% let showAuthPopupSafe = typeof showAuthPopup !== 'undefined' ? showAuthPopup : false; %>
 <div class="wrapper">
   <!-- <div class="main">this is the main content</div> -->
 <div class="drop-icon">
@@ -55,6 +55,7 @@
     <!-- <div class="red"></div>
     <div class="yellow"></div>
     <div class="black"></div> -->
+    <div class="logo-container">
     <div class="block">
     <div class="navbar-brand" href="#">
       <div class="flag">
@@ -91,6 +92,7 @@
       <div>Autohaus</div>
     </div> -->
     <!-- <div class="nanvbar-brand" href="#">Autohaus</div> -->
+    </div>
     </div>
   
     <!-- <div class="red"></div>
@@ -150,6 +152,46 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div> -->
+
+<!--POPUP OVERLAY-->
+<div id="auth-popup-overlay" class="popup-overlay" style="display: none">
+  <div class="popup-modal">
+    <button class="popup-close" id="close-popup">&times;</button>
+<div class="logo">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="block">
+        <div class="popup-brand" href="#">
+        <div class="flag">
+        <div class="black"></div>
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div id="deutschland-shop" class="deutchland">DEUTSCH<span class="land">LAND</span></div><br>
+        </div>
+        <!-- <div>Deutchland</div><br> -->
+        <div class="flag autohaus">
+        <div class="black autohaus"></div>
+        <div class="red autohaus"></div>
+        <div class="yellow autohaus"></div>
+        <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+        <div class="name autohaus"><span class="a auto-text">A</span><span class="u auto-text">U</span><span class="t auto-text">T</span><span class="o auto-text">O</span><span class="h auto-text">H</span><span class="a auto-text">A</span><span class="u auto-text">U</span><span class="s auto-text">S</span></div>
+        </div>    
+        <!-- <div>Autohaus</div> -->
+        </div>
+    </div>
+</div>
+    <h2 class="sign-in">You're not signed in!</h2>
+    <!-- <p>Please log in or register to select a service plan.</p> -->
+     <p>Please log in or register to purchase a product.</p>
+    <div class="popup-actions">
+      <a href="/login" class="popup-btn">Log In</a>
+      <a href="/register" class="popup-btn alt">Register</a>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="shop" id="shop">
     <div class="accessory">
@@ -222,7 +264,7 @@
 <%for (let p of products) {%>
 <!-- < products.forEach((this) => {%> -->
 <!-- < products.forEach((p) => {%> -->
-<div class="productCard" data-id="<%=p._id%>" data-name="<%=p.name%>" data-price="<%=p.price%>" data-img="/assets/images/<%=p.image%>">
+<div class="productCard" data-id="<%=p._id%>" data-name="<%=p.name%>" data-price="<%=p.price%>" id="protect-action" data-authenticated="<%= !!currentUser %>" data-img="/assets/images/<%=p.image%>">
 <!-- <form action="/shop7" method="POST"> -->
     <!-- <div class=" mx-3 my-3" id="card-accessory" style="width: 18rem; display: flex"> -->
 
@@ -305,7 +347,9 @@
     </div>
   </div>
 <!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<form action="addToCart" method="POST" class="cartClick">
 <button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+</form>
 <!-- <button class="addToCart">Add to Cart</button> -->
 <%}%>
 <% if (p.name === 'sweatpants') {%>
@@ -354,7 +398,9 @@
 <!-- <input type="hidden" class="input_value" value="<=p.name %>" name="<=p.name%>">
 <input type="hidden" class="input_value" value="<=p.id %>" name="<=p.id%>"> -->
 <!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=p.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
-<button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+<form action="addToCart" method="POST" class="cartClick">
+<button type="submit" class="addToCart" value="<%=p.name %>" data-color="3" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+</form>
 <!-- <button class="addToCart">Add to Cart</button> -->
 <!-- </form> -->
 <%}%>
@@ -405,7 +451,9 @@
 <button type="submit" class="addToCart" value="<=p.name %>"> Super NEW Add to Cart New<-p.name%></button>
 </form> -->
 <!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=p.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<form action="addToCart" method="POST" class="cartClick">
 <button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+</form>
 <!-- <button class="addToCart">Add to Cart</button> -->
 <%}%>
 <% if (p.name === 'beanie') {%>
@@ -449,7 +497,9 @@
     </div>
   </div>
 <!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<form action="addToCart" method="POST" class="cartClick">
 <button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+</form>
 <!-- <button class="addToCart">Add to Cart</button> -->
 <%}%>
 <% if (p.name === 'mug') {%>
@@ -493,7 +543,9 @@
     </div>
   </div>
 <!-- <button type="submit" class="addToCart" value="<=p.name %>" data-description="<=p.description%>" data-name="<=p.name%>" data-id="<=.id%>" data-img="/assets/images/<= p.image%>" data-price="<=p.price%>" data-type="<=p.name%>"> Super NEW Add to Cart New<-p.id%></button> -->
+<form action="addToCart" method="POST" class="cartClick">
 <button type="submit" class="addToCart" value="<%=p.name %>" data-description="<%=p.description%>" data-name="<%=p.name%>" data-id="<%=p.id%>" data-img="/assets/images/<%= p.image%>" data-price="<%=p.price%>" data-type="<%=p.name%>">Add to Cart</button>
+</form>
 <!-- <button class="addToCart">Add to Cart</button> -->
 <%}%>
 </div>
@@ -561,10 +613,12 @@ console.log(products);
 <p><=p.image%></p>
 <})%>
 <}%> -->
+<!-- <div class="cartPopup1 hidden"> -->
 
-<% if (products) {%>
-<p><%=products.id%></p>
-<p><%=products.name%></p>
+<!-- < for (let p of products) {%> -->
+
+<!-- <p><=products.id%></p>
+<p><=products.name%></p> -->
 
   <!--NEW SETUP-->
   <div class="cartPopup1 hidden">
@@ -592,7 +646,7 @@ console.log(products);
         <!-- <div class="popupOptions"></div> -->
         <div class="price-container">   
         <!-- <p class="popupPrice"></p><span class="regPrice">reg. $39.99</span> -->
-         <!-- <p class="popupPrice"></p> -->
+         <p class="popupPrice"></p>
         </div>
         <p class="color">Color: Black</p>
         <!-- <p class="color"><=products.color%></p> -->
@@ -673,7 +727,11 @@ const productName = products?.name?.toLowerCase().trim();
                     <!-- </div> -->
             <!-- <a href="/addToCart/<=p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
            
-              <button type="button" class="confirmAdd addToCart shop">Add Item</button>
+                    <!-- <form action="/addToCart/<=p.id%>" method="POST" class="submitForm"> -->
+                      <form action="/addToCart" method="POST" class="submitForm">
+                      <!-- <input type="hidden" value="<=p.id%>"> -->
+              <button type="submit" class="confirmAdd addToCart shop">Add Item</button>
+              </form>
             <!-- <button type="submit" class="confirmAdd" data-name="<=products.name%>" data-id="<=products._id%>" data-img="/assets/images/<= products.image%>" data-price="<=products.price%>" data-type="<=products.name%>">Add New Item</button> -->
             
                 <!-- <form  class="addForm" action="/addToCart/<=p.id%>">
@@ -692,9 +750,10 @@ const productName = products?.name?.toLowerCase().trim();
         <!-- <p class="full-details">See full product details</p> -->
     </div> <!-- Cothing Container -->
 <!-- </div>product card -->
-</div>
-  <!-- <})%> --> <!--products.forEach product-->
-<%}%>
+</div> 
+  <!-- <})%> --> <!--products.forEach product -->
+<!-- <}%> -->
+<!-- </div> -->
 </div> <!--shop-->
 </div><!--content-->
 
@@ -714,7 +773,7 @@ const productName = products?.name?.toLowerCase().trim();
 
     const packageOptions = document.querySelectorAll('.package-options')
     const deliveryOptions = document.querySelector('.delivery-options');
-    console.log(deliveryOptions)
+    // console.log(deliveryOptions)
     if (deliveryOptions) {
     deliveryOptions.addEventListener('click', function(e) {
       const option = e.target.closest('.package-options')
@@ -752,6 +811,60 @@ const productName = products?.name?.toLowerCase().trim();
 
 // });
 
+//Popup to inform user to sign up for service agreement on plans page
+//POPUP OVERLAY
+const showAuthPopup = <%= showAuthPopupSafe ? 'true' : 'false' %>;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (showAuthPopup) {
+      document.getElementById("auth-popup-overlay").style.display = "block";
+    }
+  });
+
+  //authentication handler
+document.addEventListener("DOMContentLoaded", function() {
+    const forms = document.querySelectorAll('.cartClick');
+    const popup = document.querySelector('#auth-popup-overlay');
+    const closeBtn = document.getElementById('close-popup');
+  console.log(forms, popup, closeBtn)
+    forms.forEach((form) => {
+      const closest = form.closest('[data-authenticated]');
+      console.log(closest);
+
+      if (!closest) return
+
+        const isAuthenticated = closest.dataset.authenticated === 'true';
+        console.log(isAuthenticated);
+        form.addEventListener('submit', function(e) {
+            if (!isAuthenticated) {
+              e.preventDefault();
+              // popup.style.display = 'block';
+              document.getElementById('auth-popup-overlay').style.display = 'block';
+              return false;
+            } else {
+              e.preventDefault();
+              document.getElementById('auth-popup-overlay').style.display = 'none';
+              showPopup();
+            }
+        })
+    })
+
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none'; // Hide modal
+})
+
+     // Optional: Close on outside click
+     if (popup) {
+    popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+    popup.style.display = 'none';
+}
+});
+     }
+  })
+
+
+  //SIZES CHART AND OPTIONS
     const sizesList = document.querySelectorAll('.size');
     const sizeTitle = document.querySelector('.sizes');
     const Size_s = document.querySelector('.defaultSize');
@@ -769,20 +882,8 @@ const productName = products?.name?.toLowerCase().trim();
 
         const target = e.currentTarget;
         const value = target.textContent;
-        // const list = e.currentTarget;
-        // sizeTitle.textContent = 'Size: ' + target;
         sizeTitle.textContent = 'Size: ' + value;
         target.classList.add('highlight');
-        // list.classList.add('highlight');
-        // if (!list && target.contains('highlight')) {
-        // list.classList.remove('highlight');
-        // }
-//         if (!target && target.classList.contains('highlight')) {
-//             target.classList.remove('highlight');
-// }
-//             if (target !== target) {
-//             target.classList.remove('highlight')
-// }
 });
 })
 
@@ -877,48 +978,61 @@ function changeProduct(productType, value) {
   const index = parseInt(value) - 1;
   const productArray = products[productType]
   if (index >= 0 && index < productArray.length) {
+    // if (productArray[index] === productType) {
+    //    const selectedItem = productArray[index];
+    //   console.log('ProductArra and productType are a match');
+    // } else {
+    //   console.log('Product Array ant type are not a match');
+    // }
   const selectedItem = productArray[index];
+  console.log(products[productType], productType);
 if (popupImage) {
   popupImage.src = selectedItem.image;
 }
-  // color.textContent = 'Color: ' + selectedItem.color;
-  // shirtItemImage.src = productsArray[index];
-  // shirtItemImage.src = productArray[index];
 const selectDiv = document.querySelectorAll('.Mugs');
-// const selectDiv = document.querySelectorAll('.main-products');
 
 selectDiv.forEach((d) => {
     if (productType === 'shirt') {
         shirtItemImage.src = selectedItem.image;
-        // color.textContent = 'Color: ' + selectedItem.color;
-    } else if (productType === 'pants') {
+        color.textContent = 'Color: ' + selectedItem.color.charAt(0).toUpperCase() + selectedItem.color.slice(1);
+    // if (productType !== 'shirt') {
+    //       color.textContent = 'Color: ' + 'Black';
+    //       // color.textContent = ' ';
+    //     }
+      } else if (productType === 'pants') {
         pantsItemImage.src = selectedItem.image
         // color.textContent = 'Color: ' + selectedItem.color;
+         color.textContent = 'Color: ' + selectedItem.color.charAt(0).toUpperCase() + selectedItem.color.slice(1);
+        //  if (!productType === 'pants') {
+        //   color.textContent = 'Color: ' + 'Black';
+        // }
 } else if (productType === 'sweater') {
         sweaterItemImage.src = selectedItem.image;
         // color.textContent = 'Color: ' + selectedItem.color;
+         color.textContent = 'Color: ' + selectedItem.color.charAt(0).toUpperCase() + selectedItem.color.slice(1);
+        //  if (!productType === 'sweater') {
+        //   color.textContent = 'Color: ' + 'Black';
+        // }
 } else if (productType === 'beanie') {
         beanieItemImage.src = selectedItem.image;
         // color.textContent = 'Color: ' + selectedItem.color;
+         color.textContent = 'Color: ' + selectedItem.color.charAt(0).toUpperCase() + selectedItem.color.slice(1);
+        //  if (!productType === 'beanie') {
+        //   color.textContent = 'Color: ' + 'Black';
+        // }
 } else if (productType === 'mug') {
         mugItemImage.src = selectedItem.image;
         // color.textContent = 'Color: ' + selectedItem.color
+         color.textContent = 'Color: ' + selectedItem.color.charAt(0).toUpperCase() + selectedItem.color.slice(1);
+        //  if (!productType === 'mug') {
+        //   color.textContent = 'Color: ' + 'Black';
+        // }
 }
 })
 
-  // shirtItemImage.src = selectedItem.image;
-  // popupImage.src = productsArray[index];
-  } else {
-  console.log('Invalid image index', index)
 }
 }
 
-
-// const object = fullArray.filter((obj) => {
-//     return obj.DeutschPants_black;
-// })
-// console.log(object);
-// console.log(fullArray);
 
     const shirtArray = [
       '/assets/images/DeutschShirt_blackNew.png',
@@ -967,13 +1081,9 @@ function changeShirt1(image) {
 } else if (imageIndex === 2) {
       color.textContent = 'Color: ' + 'Blue'
 }
-  // shopItemImage.src = '/assets/images/DeutschShirt_grey.jpg';
 } else {
   console.log('Invalid image index', imageIndex)
 }
-  // shopItemImage.src = parseInt(shirtArray[image]) - 1;
-  
-  // console.log(parseInt(image));
 }
 //NEW 2/26/2026
 
@@ -992,13 +1102,10 @@ function changeShirt1(image) {
 } else if (imageIndex === 2) {
       color.textContent = 'Color: ' + 'Blue'
 }
-  // shopItemImage.src = '/assets/images/DeutschShirt_grey.jpg';
 } else {
   console.log('Invalid image index', imageIndex)
 }
-  // shopItemImage.src = parseInt(shirtArray[image]) - 1;
-  
-  // console.log(parseInt(image));
+
 }
 
   function changePants(image) {
@@ -1043,6 +1150,7 @@ function changeBeanie(image) {
   const imageIndex = parseInt(image) - 1;
    if (imageIndex >= 0 && imageIndex < beanieArray.length) {
     // sweaterItemImage.src = sweaterArray[imageIndex];
+    // beanieItemImage.src = beanieArray[imageIndex];
     if (popupImage) {
       popupImage.src = beanieArray[imageIndex];
 }
@@ -1070,23 +1178,12 @@ if (imageIndex === 0) {
 } else if (imageIndex === 1) {
       color.textContent = 'Color: ' + 'Red'
 }
- 
-// else if (imageIndex === 2) {
-//       color.textContent = 'Color: ' + 'Blue'
-// }
+
 } else {
     console.log('Invalid image index', imageIndex)
 }
 }
 
-
-// const newAddBtn = document.querySelector('.addToCart');
-
-// newAddBtn.forEach(btn => {
-//   btn.addEventListener('click', () => {
-//     showPopup();
-// })
-// })
 
 // newAddBtn.addEventListener('click', showPopup)
 const popup = document.querySelector('.cartPopup1');
@@ -1096,18 +1193,100 @@ const popupPrice = popup.querySelector('.popupPrice');
 // const form = document.querySelectorAll('.form');
 // const addBtn = document.querySelector('');
 
+// const radioBtn = btnAtt.querySelector('input:checked');
 //popup close
     const closeBtn = document.querySelector('.close-btn');
     closeBtn.addEventListener('click', function() {
       // popup.style.display = 'none';
       popup.classList.remove('active');
-      color.innerText = 'Color: Black';
+      const popupOptions = popup.querySelector('.popupOptions');
+      // console.log(popupOptions);
+      popupOptions.innerHTML = '';
+    
 });
 
+const productColors = {
+        shirt: [
+          {color: 'black', value: '1'},
+          {color: 'grey', value: '2'},
+          {color: 'blue', value: '3'}
+        ],
+        sweatshirt: [
+          {color: 'black', value: '1'},
+          {color: 'grey', value: '2'},
+          {color: 'blue', value: '3'}
+        ],
+        pants: [
+          {color: 'black', value: '1'},
+          {color: 'grey', value: '2'},
+          {color: 'blue', value: '3'}
+        ],
+        beanie: [
+          {color: 'black', value: '1'},
+          {color: 'grey', value: '2'},
+          {color: 'blue', value: '3'}
+        ],
+        mug: [
+          {color: 'black', value: '1'},
+          {color: 'red', value: '2'},
+          // {color: 'blue', value: '3'}
+        ]
+    }
 
+// //authentication handler
+// document.addEventListener("DOMContentLoaded", function() {
+//     const forms = document.querySelectorAll('.cartClick');
+//     const popup = document.querySelector('.auth-popup-overlay');
+//     const closeBtn = document.getElementById('close-popup');
+//   console.log(forms, popup, closeBtn)
+//     forms.forEach((form) => {
+//       const closest = form.closest('[data-authenticated]');
+//       console.log(closest);
+
+//       if (!closest) return
+
+//         const isAuthenticated = closest.dataset.authenticated === true;
+//         console.log(isAuthenticated);
+//         form.addEventListener('submit', function(e) {
+//             if (!isAuthenticated) {
+//               e.preventDefault();
+//               // popup.style.display = 'block';
+//               document.getElementById('auth-popup-overlay').style.display = 'block';
+//               return false;
+//             } 
+//             // else {
+//             //   e.preventDefault();
+//             //   document.getElementById('auth-popup-overlay').style.display = 'none';
+//             //   showPopup();
+//             // }
+//         })
+//     })
+
+//     closeBtn.addEventListener('click', () => {
+//         popup.style.display = 'none'; // Hide modal
+// })
+
+//      // Optional: Close on outside click
+//      if (popup) {
+//     popup.addEventListener('click', (e) => {
+//     if (e.target === popup) {
+//     popup.style.display = 'none';
+// }
+// });
+//      }
+//   })
+
+// ADD TO CART CLICK HANDLER
+const selectedColors = {};
 document.querySelectorAll('.addToCart').forEach((btn) => {
     btn.addEventListener('click', function() {
-    showPopup();
+    // showPopup();
+    // e.preventDefault();
+    if (showAuthPopup) {
+        showPopup();
+    } 
+      
+    
       // popupImage.src = `${btn.dataset.img}`;
     const card = btn.closest('.productCard');
     if (card) {
@@ -1117,15 +1296,74 @@ document.querySelectorAll('.addToCart').forEach((btn) => {
     // popupImage.src = cardImage.src;
   // popupName.textContent = btn.dataset.name;
   // popupPrice.textContent = 'sale' + ' ' + '$' + `${btn.dataset.price / 100}` + '';
-  popupPrice.textContent = `${btn.dataset.price / 100}` + '';
-  // popup.classList.add('active');
+  popupPrice.textContent = 'price' + ' ' + '$' + `${btn.dataset.price / 100}` + '';
+    console.log('product color', productColors)
+    let type = btn.dataset.type;
+    if (type === 't-shirt') type = 'shirt';
+    if (type === 'sweatpants') type = 'pants';
+    if (type === 'sweatshirt') type = 'sweater';
+    if (type === 'beanie') type = 'beanie';
+    if (type === 'mug') type = 'mug';   
+    // console.log('this is the type logged', type);
+    const btnAtt = btn.closest('.productCard');
+    if (btnAtt) {
+    const radioBtn = btnAtt.querySelector('input:checked');
+    
+    // console.log('radio button checked', radioBtn?.value);
+    // console.log(selectedColors, type);
+    if (radioBtn) {
+      selectedColors[type] = radioBtn.value;
+    }
+  }
 
-  renderColorOptions(btn.dataset.type);
+    // console.log('this is the current value', radioBtn.value);
+
+    // const selectedColor = radioBtn.value;
+    const selectedColor = selectedColors[type] || "1";
+
+    // const radioBtns = document.querySelectorAll('.form-check-input');
+
+    // const productColors = {
+    //     shirt: [
+    //       {color: 'black', value: '1'},
+    //       {color: 'grey', value: '2'},
+    //       {color: 'blue', value: '3'}
+    //     ],
+    //     sweatshirt: [
+    //       {color: 'black', value: '1'},
+    //       {color: 'grey', value: '2'},
+    //       {color: 'blue', value: '3'}
+    //     ],
+    //     pants: [
+    //       {color: 'black', value: '1'},
+    //       {color: 'grey', value: '2'},
+    //       {color: 'blue', value: '3'}
+    //     ],
+    //     beanie: [
+    //       {color: 'black', value: '1'},
+    //       {color: 'grey', value: '2'},
+    //       {color: 'blue', value: '3'}
+    //     ],
+    //     mug: [
+    //       {color: 'black', value: '1'},
+    //       {color: 'red', value: '2'},
+    //       // {color: 'blue', value: '3'}
+    //     ]
+    // }
+
+    // const selectedColor = target;
+  renderColorOptions(btn.dataset.type, selectedColor);
+  // renderColorOptions(type, selectedColor)
 
 })
 })
 
-  function renderColorOptions(type) {
+  function renderColorOptions(type, selectedColor) {
+if (type === 'shirt') changeShirt1(selectedColor);
+else if (type === 'pants') changePants(selectedColor);
+else if (type === 'sweater') changeSweatshirt(selectedColor);
+else if (type === 'beanie') changeBeanie(selectedColor);
+else if (type === 'mug') changeMug(selectedColor);
 
   const popupOptions = document.querySelector('.popupOptions');
 
@@ -1149,8 +1387,10 @@ if (type === 'mug') {
 `<div class="form-flex">
       <div class="form-check">
         <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="1" id="radio-black" checked
+        <input class="form-check-input" type="radio" name="color-${type}" value="1" id="radio-black" checked
           onchange="${handler}(this.value)">
+         
+          
          
         </label>
         
@@ -1158,23 +1398,20 @@ if (type === 'mug') {
 
       <div class="form-check">
          <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="2" id="radio-red" 
+        <input class="form-check-input" type="radio" name="color-${type}" value="2" id="radio-red" 
           onchange="${handler}(this.value)">
           
         </label>
       </div>`;
-      // const sizeChart = document.querySelector('.size-selection');
-//       sizeChart.innerHTML = `
-//         <div class="size-selection"></div>
-// `;
       sizeChart.classList.add('disabledSizes');
-} else if (type === 'beanie') {
+      
+} else if (type === 'jacket') {
       sizeChart.classList.add('disabledSizes');
       popupOptions.innerHTML = 
 `<div class="form-flex">
       <div class="form-check">
         <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="1" id="radio-black" checked
+        <input class="form-check-input" type="radio" name="color-${type}" value="1" id="radio-black" checked
           onchange="${handler}(this.value)">
          
         </label>
@@ -1183,7 +1420,7 @@ if (type === 'mug') {
 
       <div class="form-check">
          <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="2" id="radio-grey" 
+        <input class="form-check-input" type="radio" name="color-${type}" value="2" id="radio-grey" 
           onchange="${handler}(this.value)">
           
         </label>
@@ -1191,7 +1428,7 @@ if (type === 'mug') {
 
       <div class="form-check">
          <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="3" id="radio-blue"
+        <input class="form-check-input" type="radio" name="color-${type}" value="3" id="radio-blue"
           onchange="${handler}(this.value)">
           
         </label>
@@ -1199,12 +1436,12 @@ if (type === 'mug') {
     </div>
   `;
 } else {
-
+  // if (this.value === '1') {
     popupOptions.innerHTML = 
 `<div class="form-flex">
       <div class="form-check">
         <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="1" id="radio-black" checked
+        <input class="form-check-input" type="radio" name="color-${type}" value="1" id="radio-black" checked 
           onchange="${handler}(this.value)">
          
         </label>
@@ -1212,22 +1449,22 @@ if (type === 'mug') {
       </div>
 
       <div class="form-check">
-         <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="2" id="radio-grey" 
+          <label class="color-option">
+        <input class="form-check-input" type="radio" name="color-${type}" value="2" id="radio-grey"
           onchange="${handler}(this.value)">
-          
         </label>
       </div>
 
       <div class="form-check">
          <label class="color-option">
-        <input class="form-check-input" type="radio" name="color" value="3" id="radio-blue"
-          onchange="${handler}(this.value)">
+        <input class="form-check-input" type="radio" name="color-${type}" value="3" id="radio-blue"
+           onchange="${handler}(this.value)">
           
         </label>
       </div>
     </div>
   `;
+  // }
 //       const sizeChart = document.querySelector('size-selection');
 //       if (sizeChart) {
 //       sizeChart.innerHTML = `
@@ -1245,43 +1482,64 @@ if (type === 'mug') {
 //         </div>
 // `;
 // }
+//  const selectedRadio = document.querySelector(`.form-check-input[value="${selectedColor}"]`);
+//       if (selectedRadio) {
+//           selectedRadio.checked = true;
+//       }
+const radios = popupOptions.querySelectorAll('.form-check-input');
+
+
+
+// radios.forEach((radio) => {
+//     radio.addEventListener('click', function (e) {
+//       const target = e.currentTarget.value;
+//       // selectedColor = target;
+//       console.log(selectedColor);
+
+//       if (radio.value === selectedColor) {
+//           radio.checked = true;
+//       }
+//     })
+// })
+
+// const selectedColors = {};
+radios.forEach((radio) => {
+    // if (radio.value === selectedColor) {
+    //   radio.checked = true;
+    // }
+
+    radio.checked = radio.value === selectedColor;
+radio.addEventListener('change', function() {
+    console.log('Updated Value', type, value)
+    // changeProduct(type, this.value)
+     if (type === 'shirt') changeShirt1(selectedColor);
+  else if (type === 'pants') changePants(selectedColor);
+  //  else if (type === 'pants') changePants(selectedColor);
+  else if (type === 'sweater') changeSweatshirt(selectedColor);
+  else if (type === 'beanie') changeBeanie(selectedColor);
+  else if (type === 'mug') changeMug(selectedColor);
+
+})
+
+color.textContent = 'Color: ' + (
+    selectedColor === '1' ? "Black" :
+    selectedColor === '2' ? (type === "mug" ? "Red" : "Grey") :
+    "Blue"
+)
+
+})
 }
 
 }
 
-// Size Selection Selection
-// const sizeSection = document.querySelector('.size-selection');
-// if (products.name.toLowerCase().includes('mug')) {
-//   sizeSection.style.display = 'none';
-// } else {
-//   sizeSection.style.display = 'block';
-// }
-
-// <div class="form-check">
-//                 <input class="form-check-input" type="radio" value="1" onchange="changeSweatshirt(this.value)" name="radioDefault" id="radio-black" checked>
-//                 <label class="form-check-label" for="radioDefault1">
-//                   <!-- Default radio
-//                   Black -->
-//                 </label>
-//               </div>
-// const name = newAddBtn.dataset.name;
-// const id = newAddBtn.dataset.id;
-// const img = newAddBtn.dataset.image;
-// const price = newAddBtn.dataset.price;
-// console.log(price, name)
-// const nameContainer = document.querySelector('.name_container');
 const imgContainer = document.querySelector('.img_container');
 const priceContainer = document.querySelector('.price_container');
 
-// priceContainer.textContent = price;
-// imgContainer.src = img;
+
 
 function showPopup() {
-    // popup.style.display = 'block'
-    popup.classList.add('active');
-    // console.log(p.name, p.id);
-
-}
+   popup.classList.add('active');
+    }
 
 //INPUT VALUE FOR QUANTITY INPUT ELEMENT
 // let inputValue = document.querySelector('.cart-quantity-input').value;
@@ -1294,10 +1552,6 @@ const showItemContainer = document.querySelector('.removeItemContainer');
 
 if (incBtn) {
 incBtn.addEventListener('click', function() {
-    // let currentValue = parseInt(newValue + 1);
-    // inputValue.value += currentValue;
-    // console.log(inputValue, currentValue);
-    // let inputValue = document.querySelector('.cart-quantity-input').value;
     const inputValue = document.querySelector('.cart-quantity-input');
     let newValue = parseInt(inputValue.value);
     newValue++
@@ -1318,216 +1572,89 @@ if (decBtn) {
     const inputValue = document.querySelector('.cart-quantity-input');
 
     let newValue = parseInt(inputValue.value);
-    // newValue--;
-    // inputValue.value = newValue;
 
     if (newValue > 1) {
       newValue--;
       inputValue.value = newValue;
-      //  decBtn.removeAttribute('disabled');
-      // decBtn.classList.remove('disabled');
-      // newValue = '1';
-      // const removePop = document.createElement('p');
-      // removePop.innerText = 'Would You Like To Remove Item?'
       if (newValue === 1) {
       decBtn.setAttribute('disabled', true);
       decBtn.classList.add('disabled');
-      // console.log('Would You Like To Remove Item?');
-      // showItemContainer.classList.add('showRemoveItemContainer');
 
 } 
 }
 
-
-
-// if (inputValue.value >= 1) {
-//     inputValue.value - 1;
-//     console.log('Would You Like To Remove Item?');
-// }
 })
 
 }
 
-//New Item Added DIV
-// const confirmAddBtn = document.querySelectorAll('.confirmAdd');
-
-// if (confirmAddBtn) {
-// console.log(confirmAddBtn);
-// }
-// console.log(confirmAddBtn);
 const itemAddedDiv = document.querySelector('.itemAdded');
 const itemDivClose = document.querySelector('.title-div-close');
-
+// const form = document.querySelector('.formSubmit');
+// console.log(form);
+// const form = document.querySelector('.cartClick');
+// console.log(form);
+const form = document.querySelector('.submitForm');
+console.log(form)
 
 if (itemDivClose) {
     itemDivClose.addEventListener('click', () => {
       itemAddedDiv.classList.remove('itemActive');
 });
 }
-// if (confirmAddBtn) {
-// confirmAddBtn.addEventListener('click', function() {
-//     popup.style.display = 'none';
-//     console.log('button clicked');
-//     // itemAddedDiv.style.display = 'block';
-//     itemAddedDiv.classList.add('itemActive');
-//     confirmImg.src = `${confirmAddBtn.dataset.img}`;
-//     console.log(confirmAddBtn.dataset.img);
-// confirmPrice.innerText = `${confirmAddBtn.dataset.price / 100}`
-// // confirmName.innerText = `${confirmAddBtn.dataset.name}`
-// });
 
-// confirmAddBtn.forEach((btn) => {
-//     btn.addEventListener('click', function() {
-//     // popup.style.display = 'none';
-//       popup.classList.remove('active');
-//     //  itemAddedDiv.style.display = 'block';
-//     itemAddedDiv.classList.add('itemActive');
-//     confirmImg.src = `${btn.dataset.image}`;
-//     console.log('Image path:', btn.dataset.image)
-    
-//     confirmPrice.innerText = `${btn.dataset.price / 100}`;
-// });
-// })
-
-// confirmAddBtn.forEach((btn) => {
-//     btn.addEventListener('click', function() {
-//       popup.classList.remove('active')
-
-//       btn.dataset.id = this.dataset.id;
-//       btn.dataset.name = this.dataset.name;
-//       btn.dataset.price = this.dataset.price;
-//       btn.dataset.img = this.dataset.img
-// })
-// })
-// }
-
-// document.querySelectorAll('.productCard').forEach((card) => {
-//     card.addEventListener('click', function() {
-//       popup.classList.remove('active');
-//       const confirmBtn = document.querySelector('.confirmAdd');
-
-//       confirmBtn.dataset.id = this.dataset.id;
-//       confirmBtn.dataset.name = this.dataset.name;
-//       confirmBtn.dataset.price = this.dataset.price;
-//       confirmBtn.dataset.img = this.dataset.img;
-// })
-
-// })
 
 document.querySelectorAll('.productCard').forEach((card) => {
       // const addBtn = card.querySelector('.confirmAdd');
       const addBtn = card.querySelector('.addToCart');
-      console.log(addBtn);
-      const confirmBtn = document.querySelector('.confirmAdd');
+      // console.log(addBtn);
+      const confirmBtn = document.querySelector('.confirmAdd');//popup add btn
       if (addBtn) {
-      addBtn.addEventListener('click', function() {
-        // console.log(addBtn);
-      // addBtn.dataset.id = this.dataset.id;
-      // addBtn.dataset.name = this.dataset.name;
-      // addBtn.dataset.price = this.dataset.price;
-      // addBtn.dataset.img = this.dataset.img;
-
+      addBtn.addEventListener('click', function() {   
       confirmBtn.dataset.id = this.dataset.id;
       confirmBtn.dataset.name = this.dataset.name;
       confirmBtn.dataset.price = this.dataset.price;
       confirmBtn.dataset.img = this.dataset.img;
       confirmBtn.dataset.description = this.dataset.description;
-
+      // form.action = `/addToCart/${id}`;
+      form.action = `/addToCart/${this.dataset.id}`;
+      // console.log(form);
       });
       }
  });
 
-//         const addCartBtn = card.querySelector('.addToCart');
-// // if (addCartBtn) {
-// // console.log(addCartBtn);
-// // addCartBtn.addEventListener('click', () => {
-// //           const confirmBtn = document.querySelector('.confirmAdd');
-// //                 confirmBtn.dataset.id = this.dataset.id;
-// //       confirmBtn.dataset.name = this.dataset.name;
-// //       confirmBtn.dataset.price = this.dataset.price;
-// //       confirmBtn.dataset.img = this.dataset.img;
-// })
-//         if (addCartBtn) {
-//         addCartBtn.addEventListener('click', () => {
-//           const confirmBtn = document.querySelector('.confirmAdd');
-//                 confirmBtn.dataset.id = this.dataset.id;
-//       confirmBtn.dataset.name = this.dataset.name;
-//       confirmBtn.dataset.price = this.dataset.price;
-//       confirmBtn.dataset.img = this.dataset.img;
-    
-
-// })
-//         }
-// }
-// });
-// const popupColor = ocuemnt.querySelector('.color');
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('confirmAdd')) {
         const btn = e.target
-      console.log('Image path:', btn.dataset.img);
-
-      // confirmImg.src = btn.dataset.img;
-      //  popupImage.src = `${btn.dataset.img}`;
-      // confirmImg.src = `${btn.dataset.img}`;
-      // confirmImg.src = popupImage.src;
-      // confirmImg.btn.dataset.img = popupImage.src;
-      // confirmImg.src = popupImage.btn.dataset.img;
-      // console.log(confirmImg, popupImage);
       console.log(popupImage);
       const newPopup = document.querySelector('.popupImg');
-      // console.log(newPopup);
-      console.log("Popup image currently:", document.querySelector('.popupImg').src);
+      
       confirmImg.src = newPopup.src;
-      // console.log("CONFIRM IMAGE SET TO:", confirmImg.src);
-      // console.log(confirmImg);
+    
       confirmPrice.innerText = `Price: $${btn.dataset.price / 100}`;
-      // confirmColor.innerText = popupColor.innerText;
+      
       confirmColor.textContent = newColor.textContent;
-      // confirmQuantity.textContent = 'Qauntity: ' + cartInput.value;
+      
       if (btn.dataset.name.toLowerCase().trim() === 'black mug') {
-      // confirmSize.textContent = '';
+      
       confirmSize.style.display = 'none';
 } else {
       confirmSize.textContent = popupSizes.textContent;
 }
       confirmDescription.textContent = btn.dataset.description;
-          // popup.style.display = 'none';
+          
           popup.classList.remove('active');
-    //  itemAddedDiv.style.display = 'block';
+    
     itemAddedDiv.classList.add('itemActive');
 
-    // console.log('This is the carts total quantity', '<=cart.totalQuantity%>');
+   
     const countItem = document.querySelector('.countItem');
     // countItem.innerText = <=cart.totalQuantity%> + 1;
 }
 })
 
-
-// document.querySelectorAll('.productCard').forEach(card => {
-//     card.addEventListener('click', function() {
-//       const popup = document.querySelector('.cartPopup1');
-//       // const popup = document.querySelector('.cartPopup');
-//       const confirmBtn = document.querySelector('.confirmAdd');
-
-//       document.querySelector('.popupImg').src= this.dataset.img;
-//       document.querySelector('.popupName').innerText = this.dataset.name;
-//       document.querySelector('.popupPrice').innerText = `${this.dataset.price / 100}`;
-
-//       confirmBtn.dataset.id = this.dataset.id;
-//       confirmBtn.dataset.name = this.dataset.name;
-//       confirmBtn.dataset.price = this.dataset.price;
-//       confirmBtn.dataset.img = this.dataset.img
-
-//       if (popup) popup.classlist.remove('hidden');
-//       // popup.style.display = 'none';
-// })
-// })
-
-
-
 // const confirmName = document.querySelector('.confirmName');
 const confirmImg = document.querySelector('.confirmImg');
-console.log(confirmImg);
+// console.log(confirmImg);
 const confirmPrice = document.querySelector('.confirmPrice');
 const confirmColor = document.querySelector('.confirmColor');
 const confirmDescription = document.querySelector('.confirmDescription');
@@ -1537,16 +1664,12 @@ const confirmShipping = document.querySelector('.confirmShipping');
 
 const deliverOption = document.querySelector('.highlight');
 const availContainer = document.querySelector('.avail-container');
-// const option = document.querySelector('');
-// console.log(availContainer.previousElementSibling);
-// if (availContainer.previousElementSibling) {
-    // console.log(availContainer.nextElementSibling);
 const option = availContainer.querySelector('.option');
-console.log(option);
+// console.log(option);
 
 if (deliverOption) {
   const option2 = availContainer.querySelector('.option');
-  console.log(option2);
+  // console.log(option2);
 }
 
 packageOptions.forEach((p) => {
@@ -1557,33 +1680,10 @@ packageOptions.forEach((p) => {
 
 p.addEventListener('click', function(e) {
   const target = e.currentTarget;
-  // console.log(target);
-  // if(target.classList.contains('ship-to-me')) {
-  // if (target.classList.contains('package-options')) {
-  // target.addEventListener('click', function(e) {
-  // const event = e.currentTarget;
 const result = target.querySelector('.avail-container');
 // console.log(new1);
 
 const option = result.querySelector('.option');
-// console.log(option.textContent);
-
-// confirmShipping.textContent = option.textContent;
-
-//   if (target.classList.contains('highlight')) {
-//   // if (event.classList.contains('highlight')) {
-//     // console.log(target.textContent);
-//     // console.log(event);
-
-//     // const result = document.querySelector('.ship');
-//     const result = target.querySelector('.avail-container');
-//     const text = result.querySelector('.option');
-//     console.log(text)
-//     // const result = document.querySelector('.option');
-//     // console.log(result.textContent);
-//     // confirmShipping.textContent = result.textContent;
-//     // confirmShipping.textContent = text.textContent;
-// }
 
   })
 })
@@ -1601,19 +1701,7 @@ const option = result.querySelector('.option');
 const newColor = document.querySelector('.color');
 const popupSizes = document.querySelector('.sizes');
 const cartInput = document.querySelector('.cart-quantity-input');
-// confirmColor.textContent = newColor.textContent;
-
-// confirmAddBtn.forEach((btn) => {
-
-//   confirmImg.src = `${btn.dataset.img}`;
-//   confirmPrice.innerText = `${btn.dataset.price / 100}`;
-//   confirmName.innerText = `${btn.dataset.name}`;
-// })
-
-
-// confirmImg.src = `${confirmAddBtn.dataset.img}`;
-// confirmPrice.innerText = `${confirmAddBtn.dataset.price / 100}`
-// confirmName.innerText = `${confirmAddBtn.dataset.name}`
+confirmColor.textContent = newColor.textContent;
 
 //Continue Shopping button
 const continueBtn = document.querySelector('.continueShopping');
@@ -1626,7 +1714,7 @@ continueBtn.addEventListener('click', () => {
 
 //SIZE CHART POPUP
 const sizeChartTitle = document.querySelector('.sizeChart-title');
-// const sizeChartImage = document.querySelector('.size_Chart');
+
 const sizeChartContainer = document.querySelector('.sizeChartContainer');
 const clothingContainer = document.querySelector('.clothingContainer');
 const chartClose = document.querySelector('.chart_close');
@@ -1636,16 +1724,15 @@ sizeChartTitle.addEventListener('click', showSizeChart);
 }
 
 function showSizeChart() {
-    // sizeChartImage.style.display = 'block';
     sizeChartContainer.style.display = 'block';
     clothingContainer.style.display = 'none';
 }
 
 chartClose.addEventListener('click', function() {
-    // sizeChartImage.style.display = 'none';
+    
     sizeChartContainer.style.display = 'none';
     clothingContainer.style.display = 'block';
-    // chartClose.style.display = 'none';
+    
 });
 
 //ADD TO CART BUTTON
@@ -1668,10 +1755,8 @@ chartClose.addEventListener('click', function() {
 
 // })
 const input = document.querySelector('.productName');
-if (input) {
-// const input = document.querySelector('.productName');
-console.log(input.value);
-}
+// if (input) {
+// }
 
 </script>
 <!-- <script src="/javascripts/quantityFile.js"></script> -->

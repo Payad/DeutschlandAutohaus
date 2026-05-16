@@ -19,7 +19,8 @@ const cartSchema = new mongoose.Schema({
     // products: [productSchema],
 products: [
     {
-        productId: Number,
+        // productId: Number,
+        productId: mongoose.Schema.Types.ObjectId,
         quantity: Number,
         name: String,
         price: Number,

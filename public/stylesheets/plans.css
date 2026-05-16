@@ -67,7 +67,7 @@ font-style: italic;
 /* Title Style */
 .popup-brand {
     margin-left: 5px;
-    /* color: white; */
+    
     align-items: baseline;
    
 }
@@ -75,14 +75,17 @@ font-style: italic;
 .flag {
     display: flex;
     align-items: center;
-    /* margin-bottom: -10px; */
+    
     margin-bottom: -20px;
 }
 
-.flag.autohaus {
-    /* margin-left: -8px; */
-    /* margin-left: -7px; */
+/* .flag.autohaus {
+    
   margin-left: -6px;
+} */
+
+.auto-text {
+    color: black;
 }
 
  .red, .black, .yellow {
@@ -90,7 +93,7 @@ font-style: italic;
     height: 18px;
     /* background-color: yellow; */
     transform: skew(-24deg);
-    margin-right: 2px;
+    /* margin-right: 2px; */
     /* margin-right: auto; */
     border-top: 1px solid white;
     border-left: 1px solid white;
@@ -111,16 +114,21 @@ font-style: italic;
 }
 
 .deutchland {
-    /* font-size: 27px; */
-    font-size: 25px;
-    /* font-size: 43px; */
+    
+    /* font-size: 25px; */
+    font-size: 27px;
+    
     transform: skew(-24deg);
     font-family: 'Changa', sans-serif;
-    /* color: white; */
+    
+}
+
+#deutschland-shop {
+    color: black;
 }
 
 .red.autohaus, .yellow.autohaus, .black.autohaus {
-    /* height: 8px; */
+    
     height: 10px;
     margin-bottom: -3px;
 }
@@ -131,12 +139,11 @@ font-style: italic;
 }
 
 .a, .u, .t, .o, .h, .s {
-    /* padding-right: 20px; */
-    /* padding-right: 26px; */
+  
     font-size: 10px;
-    /* color: black; */
-    padding-right: 18px;
-    /* color: white; */
+    
+    /* padding-right: 18px; */
+    
 }
 
 .a {
@@ -369,7 +376,7 @@ background: url('/assets/images/bronze-medal-svgrepo-com.svg') no-repeat fixed c
     /* box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); */
     box-shadow: -1px 10px 40px rgb(255 255 0);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 200px;
+    max-width: 250px;
     /* cursor: pointer; */
 }
 

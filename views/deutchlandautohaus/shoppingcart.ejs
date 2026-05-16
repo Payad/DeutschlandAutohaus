@@ -13,7 +13,60 @@
     <span class="close">&times</span>
     </div>
   </div> -->
-<h1 class="shoppingcart">shopping cart</h1>
+<!-- <h1 class="shoppingcart">shopping cart</h1> -->
+ <div class="hero-section-cart">
+ <div class="hero-grid-cart">
+<div class="logo">
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div> -->
+    <div class="logo-container-shop">
+    <div class="block">
+    <div class="navbar-brand" href="#">
+      <div class="flag">
+      <div class="black shop"></div>
+      <div class="red shop"></div>
+      <div class="yellow shop"></div>
+      <div class="deutchland cart">DEUTSCH<span>LAND</span></div><br>
+      </div>
+      <!-- <div class="flag autohaus"> -->
+        <div class="flag-container-cart">
+          <div class="flag autohaus-cart" id="exclusive-shop">
+        <div class="black autohaus cart"></div>
+        <div class="red autohaus cart"></div>
+        <div class="yellow autohaus cart"></div>
+        <div class="name autohaus">
+          <span class="c">C</span><span class="a-cart">A</span><span class="r">R</span><span class="t-cart">T</span>
+        </div>
+        </div>
+      </div>
+      <!-- <div>Deutchland</div><br> -->
+      <!-- <div class="flag autohaus">
+      <div class="black autohaus"></div>
+      <div class="red autohaus"></div>
+      <div class="yellow autohaus"></div> -->
+      <!-- <div class="autohaus"><span>A</span><span>u</span><span>t</span><span>o</span><span>h</span><span>a</sp><span>u</span><span>s</span>utohaus</div> -->
+      <!-- <div class="name autohaus"><span class="a">A</span><span class="u">U</span><span class="t">T</span><span class="o">O</span><span class="h">H</span><span class="a">A</span><span class="u">U</span><span class="s">S</span></div>
+      </div>     -->
+      <!-- <div>Autohaus</div> -->
+    </div>
+    <!-- <div class="navbar-brand autohaus" href="#">
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="black"></div>    
+      <div>Autohaus</div>
+    </div> -->
+    <!-- <div class="nanvbar-brand" href="#">Autohaus</div> -->
+    </div>
+    </div>
+  
+    <!-- <div class="red"></div>
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <a class="navbar-brand" href="#">Autohaus</a> -->
+  </div>
+  </div>
+  </div>
 
 <div class="shopmain">
     <!-- <span><=</span><span>Deutschland Autohaus</span> -->
@@ -31,8 +84,19 @@
 <!-- < localStorage.getItem('cart') %> -->
     <div class="cartContent">
     <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
-    <p>Your cart is empty<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p>
+    <!-- <p class="empty-cart">Your cart is empty!<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p> -->
+    <p class="empty-cart">Your cart is empty!</p>
     <span class="close">&times;</span>
+
+    <!-- <div class="popup-actions">
+      <a href="/login" class="popup-btn">Log In</a>
+      <a href="/register" class="popup-btn alt">Register</a>
+    </div> -->
+     <div class="popup-actions">
+      <a href="/login" class="popup-btn">Return to Shop</a>
+      <!-- <a href="/register" class="popup-btn alt">Register</a> -->
+    </div>
+
     </div>
   </div>
 <!-- < } else {%> -->
@@ -49,7 +113,7 @@
 <!--END ITEM MUG PLACEHOLDER-->
 
     <!-- <div class="cart-items"> -->
-    <div class="item-title-container">
+    <!-- <div class="item-title-container">
     <div class="item-container">
     <span class="item">Item</span>
     </div>
@@ -59,7 +123,7 @@
   <div class="quantity-container">
   <span class="quantity">Qty</span>
   </div>
-</div>
+</div> -->
         <!-- < products.forEach(function(product) {})  -->
         <!-- <div class="mainCart"> -->
 
@@ -130,6 +194,7 @@
 </main> -->
 <% } %>
 
+<% if (cart && cart.products) {%>
 <!-- cart render in shoppingcart.ejs -->
 <% if (cart && cart.products.length == 0) {%>
 
@@ -188,18 +253,22 @@
 <div class="cart-items"> 
   <div class="cart-row">
             <div class="cart-item cart-column">
-            
+                <div class="options">
                 <img class="blackMug Mugs cart-item-image" id="cartItemImg" src="/assets/images/<%=product.image%>" alt="">
+                </div>
                 <span class="cart-item-title"><%= product.name %></span>
             </div>
            
-            <div class="cart-quantity cart-column">  
-            <span class="cart-item-price">$ <%= product.price / 100%> </span>
+            <div class="cart-quantity cart-column"> 
+               <div class="quantity-select-div">
+            <span class="cart-item-price" data-price="<%=product.price%>">$ <%= product.price / 100%> </span>
+              <div class="quantity-select">
               <button class="decrease" id="decrement" name="quantityInput" > - </button>
               <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<%= product.quantity %>">
               <button  class="increase" name="quantityInput" onclick="increase3()">+</button>
-
-<form action="/delete-cart" method="POST">
+              </div>
+              </div><!--quantity select div end-->
+<form action="/delete-cart" method="POST" class="formSubmit">
                 <input type="hidden" name="prodId" class="cart-item-id" value="<%=product.id%>">
                 <button class="btn btn-danger" type="submit">REMOVE</button>
 </form>
@@ -229,6 +298,7 @@
 <span class="quantity-span">Total Quantity: <span class="totalQuantity"><%=cart.totalQuantity%></span></span>
 <%}%>
 
+<%}%><!--if cart-->
 <script>
       function decrease(value) {
         const inputValue = document.getElementById('quantity');

@@ -3158,7 +3158,7 @@ app.get('/deutchlandautohaus/shoppingcart', async (req, res) => {
 }
 })
 
-app.get('/addToCart/:id', async (req, res) => {
+app.post('/addToCart/:id', async (req, res) => {
     // const userId = '64e1163a0abd23119b081ae6'
     // const user = await User.find(req.session.user_id);
     // const user = await User.findOne(req.user);
@@ -3169,18 +3169,18 @@ const newUser = await User.findById(user)
 // const user = '65c2b5a341b9ff01608e1ada'
 const id = req.params.id;
 console.log(id)
-    // let cart = await Cart.findOne({user});
+    let cart = await Cart.findOne({user});
     // let name = "<%=name%>";
     // let name = "<%=p.name%>";
 
-let product = await Product.findById(id)
+let product = await Product.findById({_id: id});
 console.log(product)
 
 
     // console.log(cart);
     // res.send(cart);
     // res.send(user);
-    console.log(newUser);
+    // console.log(newUser);
 // res.send(user);
     
 // const {productId, quantity, name, price} = req.body;
@@ -3210,11 +3210,25 @@ if (newCart) {
 // //     console.log("Goodbye");
 // // }
 // } else {
-    let itemIndex = newCart.products.findIndex(p => p.id == product.id);
+    let itemIndex = newCart.products.findIndex(p => p.id.toString() === product._id.toString());
 //if item does not exist
+// console.log(p.id.toString());
+// console.log(product._id.toString());
 if (itemIndex == -1) {
     // newCart.products.push({id: product.id, quantity: 1, name: product.name, price: product.price, image: product.image});
-    newCart.products.push(product);
+    // newCart.products.push(product);
+    // new way to push product
+    newCart.products.push({
+        productId: product._id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: 1
+    })
+//     let itemIndex = newCart.products.findIndex(
+//    p => p.productId.toString() === product._id.toString()
+// );
+console.log('this is the item index', itemIndex)
     // newCart.totalPrice = product.price += product.price * product.quantity;
     newCart.totalPrice += product.price * product.quantity;
     // newCart.quantity = product.quantity;
@@ -3255,7 +3269,10 @@ console.log('new item added');
     existingProduct.quantity += 1;
 // existingProduct.quantity++;
     // existingProduct.totalPrice = product.price += product.price * product.quantity;
-    newCart.totalPrice += product.price * product.quantity;
+    
+    // newCart.totalPrice += product.price * product.quantity;
+    newCart.totalPrice += product.price;
+    
     // existingProduct.totalQuantity += 1;
     newCart.totalQuantity = product.quantity;
     newCart.totalQuantity += 1;
@@ -3297,7 +3314,7 @@ user,
     // products: [{quantity, name, price}]
     // products: [{name}]
     // products: [{id: product.id}, {name: product.name}, {price: product.price}]
-    products: [{id: product.id, name: product.name, price: product.price, image: product.image, description: product.description, category: product.category, quantity: product.quantity}],
+    products: [{id: product._id, name: product.name, price: product.price, image: product.image, description: product.description, category: product.category, quantity: product.quantity}],
     totalPrice: 0,
     totalQuantity: 0,
 });
@@ -3345,7 +3362,7 @@ console.log("new cart created")
 //     res.status(500).send("Something went wrong")
 // }
 
-    // res.render('deutchlandautohaus/shoppingcart', {product})
+    // res.render('deutchlandautohaus/shoppingcart', {product, cart})
 });
 
 // app.get('/deutchlandautohaus', (req, res) => {
@@ -3360,13 +3377,16 @@ app.post('/delete-all', async (req, res) => {
     const owner = req.user.id;
 
 const user = await User.findById(owner);
-const cart = await Cart.findOne({user: user})
+let cart = await Cart.findOne({user: user})
 
 if (cart.products.length >= 1) {
     console.log('Hello');
     console.log(cart.products);
-    cart.products.length = 0;
-    // cart = await cart.save();
+    // cart.products.length = 0;
+    cart.products = {};
+    // cart.totalPrice = 0;
+    // cart.totalQuantity = 0;
+    cart = await cart.save();
 console.log(cart.products);
 }
 res.render('deutchlandautohaus/shoppingcart', {cart: cart});
@@ -3411,7 +3431,7 @@ app.post('/delete-cart', async (req, res) => {
         // cart.totalPrice = 0;
         // cart.totalQuantity = 0;
         // product.quantity = 0;
-        console.log(product.quantity);
+        // console.log(product.quantity);
         console.log(cart.totalPrice);
         cart = await cart.save();
 // cart.totalQuantity -= 1;

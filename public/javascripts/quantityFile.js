@@ -82,37 +82,67 @@ const addBtnArr = document.getElementsByClassName('increase');
 for (let deductBtn of decBtnArr) {
 // total = 0;
     deductBtn.onclick = function() {
-    let currentInputBox = deductBtn.nextElementSibling;
-    console.log(currentInputBox.value);
-    let initInputBox = currentInputBox.value;
-    currentInputBox.value = parseInt(currentInputBox.value) - 1;
-    initInputBox -= currentInputBox.value;
-    console.log(initInputBox);
-    console.log(currentInputBox);
-    const priceElement = currentInputBox.previousElementSibling.previousElementSibling;
-    console.log(priceElement);
-    const price = parseFloat(priceElement.innerText.replace('$', ''));
-    console.log(price);
-    // const quantity = parseInt(currentInputBox.value);
-    const quantity = parseInt(initInputBox);
-    console.log(quantity);
+//     let currentInputBox = deductBtn.nextElementSibling;
+//     console.log(currentInputBox.value);
+//     let initInputBox = currentInputBox.value;
+//     currentInputBox.value = parseInt(currentInputBox.value) - 1;
+//     initInputBox -= currentInputBox.value;
+//     console.log(initInputBox);
+//     console.log(currentInputBox);
+//     const priceElement = currentInputBox.previousElementSibling;
+//     console.log(priceElement);
+//     const price = parseFloat(priceElement.innerText.replace('$', ''));
+//     console.log(price);
+//     // const quantity = parseInt(currentInputBox.value);
+//     const quantity = parseInt(initInputBox);
+//     console.log(quantity);
 
-    const total = price * quantity;
-    console.log(total);
-const totalElement = document.querySelector('.totalPrice');
-console.log(totalElement);
-const totalPrice = parseFloat(totalElement.innerText.replace('$', ''));
-console.log(totalPrice);
-let stripePrice = totalPrice - total;
-// let p = stripePrice
-let Price = Math.round(stripePrice * 100) / 100;
-console.log(Price);
-document.querySelector('.totalPrice').innerText = '$' + Price;
+//     const total = price * quantity;
+//     console.log(total);
+// const totalElement = document.querySelector('.totalPrice');
+// console.log(totalElement);
+// const totalPrice = parseFloat(totalElement.innerText.replace('$', ''));
+// console.log(totalPrice);
+// let stripePrice = totalPrice - total;
+// // let p = stripePrice
+// let Price = Math.round(stripePrice * 100) / 100;
+// console.log(Price);
+// document.querySelector('.totalPrice').innerText = '$' + Price;
 
-let quantityElement = document.querySelector('.totalQuantity').innerText;
-console.log(quantityElement);
-quantityElement = parseInt(quantityElement - 1);
-document.querySelector('.totalQuantity').innerText = quantityElement;
+// let quantityElement = document.querySelector('.totalQuantity').innerText;
+// console.log(quantityElement);
+// quantityElement = parseInt(quantityElement - 1);
+// document.querySelector('.totalQuantity').innerText = quantityElement;
+
+//NEW AS OF 5/16/2026
+        // const cartRow = document.querySelector('.cart-row');
+        const cartRow = deductBtn.closest('.cart-row');
+        const inputBox = cartRow.querySelector('.cart-quantity-input');
+
+        inputBox.value = parseInt(inputBox.value) - 1;
+
+        const priceElement = cartRow.querySelector('.cart-item-price');
+
+        const price = parseFloat(priceElement.dataset.price) / 100;
+
+        const totalElement = document.querySelector('.totalPrice');
+
+        let totalPrice = parseFloat(totalElement.innerText.replace("$", ''));
+
+        totalPrice -= price;
+        console.log(totalPrice);
+        console.log(price);
+
+        totalElement.innerText = "$" + totalPrice.toFixed(2);
+
+        let quantityElement = document.querySelector('.totalQuantity').innerText;
+
+        quantityElement = parseInt(quantityElement) - 1;
+
+        document.querySelector('.totalQuantity').innerText = quantityElement;
+
+
+
 // quantityElement = quantityElement.innerText - 1;
 
 // console.log(stripePrice);
@@ -173,39 +203,61 @@ document.querySelector('.totalQuantity').innerText = quantityElement;
 // }
 
 for (let addBtn of addBtnArr) {
+    // let closest = addBtn.closest('.increase');
     addBtn.onclick = function() {
-    let currentInputBox = addBtn.previousElementSibling;
+    // let currentInputBox = addBtn.previousElementSibling;
+    const cartRow = addBtn.closest('.cart-row');
 
-    let initInputBox = currentInputBox.value;
-    console.log(initInputBox);
-    currentInputBox.value = parseInt(currentInputBox.value) + 1;
+    const inputBox = cartRow.querySelector('.cart-quantity-input');
+    inputBox.value = parseInt(inputBox.value) + 1;
+    // let initInputBox = currentInputBox.value;
+    // // console.log(initInputBox);
+    // currentInputBox.value = parseInt(currentInputBox.value) + 1;
     // initInputBox -= currentInputBox.value;
 // initInputBox = initInputBox - currentInputBox.value;
 // initInputBox -= currentInputBox.value;
- let c = currentInputBox.value - initInputBox;
-console.log(c);
+//  let c = currentInputBox.value - initInputBox;
+// console.log(c);
+// const quantity = parseInt(currentInputBox.value)
+
 //     console.log(initInputBox);
 // console.log(currentInputBox.value);
-    const priceElement = currentInputBox.previousElementSibling.previousElementSibling;
-    console.log(priceElement);
-    const price = parseFloat(priceElement.innerText.replace('$', ''));
-    console.log(price);
+
+    // const priceElement = currentInputBox.previousElementSibling;
+    // const priceElement = currentInputBox;
+    // console.log(priceElement);
+    // const price = parseFloat(priceElement.innerText.replace('$', ''));
+    // console.log(price);
+    const priceElement = cartRow.querySelector('.cart-item-price');
+    // const price = parseFloat(addBtn.dataset.price);
+    const price = parseFloat(priceElement.dataset.price) / 100;
+    // const priceElement = document.querySelector('.totalPrice');
+    //     let price = priceElement.innerText;
     // const quantity = parseInt(initInputBox);
     // console.log(quantity);
-    const quantity = parseInt(c);
-    const total = price * quantity;
-console.log(total);
+    // const quantity = parseInt(c);
+    // const quantity = 1;
+    // let quantity = price * 1;
+
+//     const total = parseInt(price * quantity);
+// console.log(total);
 
     const totalElement = document.querySelector('.totalPrice');
 
-    const totalPrice = parseFloat(totalElement.innerText.replace('$', ''));
-    console.log(totalPrice);
-    console.log(total);
-     let stripePrice = totalPrice + total;
-    console.log(stripePrice);
-    let Price = Math.round(stripePrice * 100) / 100;
+    // totalElement.innerText
 
-    document.querySelector('.totalPrice').innerText = '$' + Price;
+    let totalPrice = parseFloat(totalElement.innerText.replace('$', ''));
+    // console.log(totalPrice);
+    // console.log(total);
+
+    totalPrice += price;
+
+    //  let stripePrice = totalPrice + total;
+    // console.log(stripePrice);
+    // let Price = Math.round(stripePrice * 100) / 100;
+
+    // document.querySelector('.totalPrice').innerText = '$' + Price;
+    totalElement.innerText = '$' + totalPrice.toFixed(2);
     // updateCartTotal();
 
     let quantityElement = document.querySelector('.totalQuantity').innerText;
@@ -656,6 +708,7 @@ console.log(checkoutButton);
 // const user = User.findById(owner);
 // const cart = user.findOne({user: user})
 // const products = cart.products;
+if(checkoutButton) {
 checkoutButton.addEventListener('click', function () {
 //   stripe.redirectToCheckout({
 //     lineItems: [{
@@ -730,4 +783,5 @@ fetch('/create-checkout-session', {
 console.log(e.error)
 })
 });
+}
 
