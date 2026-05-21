@@ -3163,6 +3163,8 @@ app.post('/addToCart/:id', async (req, res) => {
     // const user = await User.find(req.session.user_id);
     // const user = await User.findOne(req.user);
 // const user = req.user;
+const quantity = parseInt(req.body.quantity);
+console.log('this is the quantity', quantity);
 const user = req.user.id;
 const newUser = await User.findById(user)
     // console.log(user);
@@ -3210,7 +3212,7 @@ if (newCart) {
 // //     console.log("Goodbye");
 // // }
 // } else {
-    let itemIndex = newCart.products.findIndex(p => p.id.toString() === product._id.toString());
+    let itemIndex = newCart.products.findIndex(p => p.productId && p.productId.toString() === product._id.toString());
 //if item does not exist
 // console.log(p.id.toString());
 // console.log(product._id.toString());
@@ -3223,20 +3225,27 @@ if (itemIndex == -1) {
         name: product.name,
         price: product.price,
         image: product.image,
-        quantity: 1
+        description: product.description,
+        // quantity: 1
+        quantity: quantity
     })
 //     let itemIndex = newCart.products.findIndex(
 //    p => p.productId.toString() === product._id.toString()
 // );
 console.log('this is the item index', itemIndex)
     // newCart.totalPrice = product.price += product.price * product.quantity;
-    newCart.totalPrice += product.price * product.quantity;
+    // newCart.totalPrice += product.price * product.quantity;
+
+    // newCart.totalPrice += product.price;
+    newCart.totalPrice += product.price * quantity;
     // newCart.quantity = product.quantity;
     // newCart.quantity++;
-    product.quantity = 1;
+    // product.quantity = 1;
     // newCart.products.push(newCart.quantity);
-    newCart.totalQuantity = product.quantity;
-    newCart.totalQuantity += 1;
+    // newCart.totalQuantity = product.quantity;
+
+    // newCart.totalQuantity += 1;
+    newCart.totalQuantity += quantity;
     await newCart.save();
 // let productItem = newCart.products[itemIndex];
 // // productItem.quantity = quantity;
@@ -3266,16 +3275,23 @@ console.log('new item added');
 // console.log(existingProduct) //undefined
     // existingProduct.quantity += 1;
     // existingProduct.quantity = product.quantity;
-    existingProduct.quantity += 1;
+
+    // existingProduct.quantity += 1;
+    existingProduct.quantity += quantity;
+
 // existingProduct.quantity++;
     // existingProduct.totalPrice = product.price += product.price * product.quantity;
     
     // newCart.totalPrice += product.price * product.quantity;
-    newCart.totalPrice += product.price;
+    // newCart.totalPrice += product.price;
+    newCart.totalPrice += product.price * quantity;
+
     
     // existingProduct.totalQuantity += 1;
-    newCart.totalQuantity = product.quantity;
-    newCart.totalQuantity += 1;
+    // newCart.totalQuantity = product.quantity;
+    // newCart.totalQuantity += 1;
+    newCart.totalQuantity += quantity;
+
     await newCart.save();
     console.log('Same item added');
     // existingProduct.products.push(product);
@@ -3314,20 +3330,29 @@ user,
     // products: [{quantity, name, price}]
     // products: [{name}]
     // products: [{id: product.id}, {name: product.name}, {price: product.price}]
-    products: [{id: product._id, name: product.name, price: product.price, image: product.image, description: product.description, category: product.category, quantity: product.quantity}],
+    products: [{productId: product._id, name: product.name, price: product.price, image: product.image, description: product.description, category: product.category, quantity: quantity}],
     totalPrice: 0,
     totalQuantity: 0,
 });
 // newCart.save();
-newCart.totalPrice += product.price * product.quantity;
+
+// newCart.totalPrice += product.price * product.quantity;
+// newCart.totalPrice += product.price;
+newCart.totalPrice += product.price * quantity;
+
 // newCart.quantity++
 // product.qty = 1;
-product.quantity = 1;
-newCart.totalQuantity = newCart.quantity;
-newCart.totalQuantity += 1;
+// product.quantity = 1;
+// newCart.totalQuantity = newCart.quantity;
+// newCart.totalQuantity += 1;
+
+// newCart.totalQuantity = 1;
+newCart.totalQuantity = quantity;
+
 // newCart.save();
 console.log(newCart);
 console.log("new cart created")
+await newCart.save();
 }
 
 // exports.additemtocart = async () => {
@@ -3363,6 +3388,11 @@ console.log("new cart created")
 // }
 
     // res.render('deutchlandautohaus/shoppingcart', {product, cart})
+    // res.redirect('/deutchlandautohaus/shop7')
+    res.json({
+        success: true,
+        cart: newCart
+    })
 });
 
 // app.get('/deutchlandautohaus', (req, res) => {

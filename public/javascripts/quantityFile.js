@@ -76,7 +76,7 @@ function updateCartTotal() {
 
 const decBtnArr = document.getElementsByClassName('decrease');
 const addBtnArr = document.getElementsByClassName('increase');
-
+console.log(decBtnArr, addBtnArr)
 // function updateCartPrice () {
 // total = 0
 for (let deductBtn of decBtnArr) {
@@ -128,6 +128,7 @@ for (let deductBtn of decBtnArr) {
         const totalElement = document.querySelector('.totalPrice');
 
         let totalPrice = parseFloat(totalElement.innerText.replace("$", ''));
+        // let totalPrice = parseFloat(totalElement);
 
         totalPrice -= price;
         console.log(totalPrice);
@@ -135,11 +136,13 @@ for (let deductBtn of decBtnArr) {
 
         totalElement.innerText = "$" + totalPrice.toFixed(2);
 
-        let quantityElement = document.querySelector('.totalQuantity').innerText;
+        let quantityElement = document.querySelector('.totalQuantity').innerText
 
         quantityElement = parseInt(quantityElement) - 1;
 
         document.querySelector('.totalQuantity').innerText = quantityElement;
+        document.querySelector('.subtotal-amount').innerText = totalPrice.toFixed(2);
+        document.querySelector('.total-amount').innerText = "$" + totalPrice.toFixed(2);
 
 
 
@@ -266,6 +269,9 @@ console.log(quantityElement);
     // // quantityElement += 1;
     console.log(quantityElement)
     document.querySelector('.totalQuantity').innerText = quantityElement;
+    document.querySelector('.subtotal-amount').innerText = totalPrice.toFixed(2);
+    document.querySelector('.total-amount').innerText = "$" + totalPrice.toFixed(2);
+
 
     
 

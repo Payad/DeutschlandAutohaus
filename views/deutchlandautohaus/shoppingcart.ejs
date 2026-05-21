@@ -15,6 +15,7 @@
   </div> -->
 <!-- <h1 class="shoppingcart">shopping cart</h1> -->
  <div class="hero-section-cart">
+  <img class="shoppingcart-mainImage" src="/assets/images/mobile-car-lifts.jpg" alt="shoppingcart deutchlandautohaus inlandEmpire">
  <div class="hero-grid-cart">
 <div class="logo">
     <!-- <div class="red"></div>
@@ -80,7 +81,7 @@
     </div>
   </div>
 
-<% } else if (currentUser) { %>
+<% } else if (currentUser && !cart) { %>
 <!-- < localStorage.getItem('cart') %> -->
     <div class="cartContent">
     <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
@@ -98,7 +99,7 @@
     </div>
 
     </div>
-  </div>
+  <!-- </div> -->
 <!-- < } else {%> -->
 <!-- main body of cart page -->
 <!-- <main> -->
@@ -204,7 +205,23 @@
     <span class="close">&times</span>
     </div>
   </div>
+  <div class="cartContent">
+    <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
+    <!-- <p class="empty-cart">Your cart is empty!<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p> -->
+    <p class="empty-cart">Your cart is empty!</p>
+    <span class="close">&times;</span>
 
+    <!-- <div class="popup-actions">
+      <a href="/login" class="popup-btn">Log In</a>
+      <a href="/register" class="popup-btn alt">Register</a>
+    </div> -->
+     <div class="popup-actions">
+      <!-- <a href="/login" class="popup-btn">Return to Shop</a> -->
+      <!-- <a href="/register" class="popup-btn alt">Register</a> -->
+       <a href="/deutchlandautohaus/shop7" class="popup-btn">Return to Shop</a>
+    </div>
+
+    </div>
 <%} else {%>
 
 
@@ -246,8 +263,12 @@
  <button type="button" id="checkout-butt">Subscribe</button> -->
 <!--<button type="button" class="btn btn-purchase" id="checkout-button">Checkout</button>-->
 <!--<span class="cart-item-price">$ <= product.price / 100%> </span>-->
+
+<!--CART TITLE-->
+<h2 class="cart-title"><span class="cart-first">My</span> Cart</h2>
 <% for (let i = 0; i < cart.products.length; i++) {
     let product = cart.products[i];
+    <!-- console.log(product) -->
 %>
 
 <div class="cart-items"> 
@@ -256,7 +277,10 @@
                 <div class="options">
                 <img class="blackMug Mugs cart-item-image" id="cartItemImg" src="/assets/images/<%=product.image%>" alt="">
                 </div>
-                <span class="cart-item-title"><%= product.name %></span>
+                <div class="detail-div">
+                <!-- <span class="cart-item-title"><= product.name %></span> -->
+                <p class="cart-item-description"><%=product.description%></p>
+                </div>
             </div>
            
             <div class="cart-quantity cart-column"> 
@@ -265,7 +289,7 @@
               <div class="quantity-select">
               <button class="decrease" id="decrement" name="quantityInput" > - </button>
               <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<%= product.quantity %>">
-              <button  class="increase" name="quantityInput" onclick="increase3()">+</button>
+              <button class="increase" name="quantityInput" onclick="increase3()">+</button>
               </div>
               </div><!--quantity select div end-->
 <form action="/delete-cart" method="POST" class="formSubmit">
@@ -275,11 +299,62 @@
             </div>
         </div>
 </div>
+
+<!-- //Cart Summary
+<h3 class="orderSummary">Order Summary</h3>
+<div class="summary-underline"></div>
+<div class="items-div">
+  <p class="items">Items(<%=cart.products.length%>)</p>
+</div>
+<div class="subtotal-div">
+  <p class="subtotal">Subtotal</p>
+  <p class="subtotal-amount">$ <%=cart.totalPrice / 100%></p>
+</div>
+<div class="shipping-div">
+  <p class="shipping">Shipping</p>
+</div>
+<div class="taxes-div">
+  <p class="taxes">Taxes</p>
+</div>
+<div class="total-div">
+  <h4 class="total">Total</h4>
+</div> -->
  
 
 
 
 <%}%>
+
+<!--Order Summary-->
+<div class="order-summary-div">
+  <h3 class="orderSummary">Order Summary</h3>
+  <!-- <div class="summary-underline"></div> -->
+  <!-- <hr> -->
+  <div class="items-div">
+    <p class="items">Items (<span class="totalQuantity"><%=cart.totalQuantity%></span>)</p>
+    <p class="items-amount totalPrice">$<%=cart.totalPrice / 100%></p>
+  </div>
+  <!-- <div class="summary-underline"></div> -->
+  <hr class="cartSummary-hr">
+  <div class="subtotal-div">
+    <p class="subtotal">Subtotal</p>
+    <p class="subtotal-amount totalPrice"><%=cart.totalPrice / 100%></p>
+  </div>
+  <div class="shipping-div">
+    <p class="shipping">Shipping</p>
+    <p class="shipping-amount">$0.00</p>
+  </div>
+  <div class="taxes-div">
+    <p class="taxes">Taxes</p>
+    <p class="tax-amount">TBD</p>
+  </div>
+  <!-- <div class="summary-underline"></div> -->
+  <hr class="cartSummary-hr">
+  <div class="total-div">
+    <h5 class="total">Total</h5>
+    <p class="total-amount totalPrice">$<%=cart.totalPrice / 100%></p>
+  </div>
+</div>
 
 <div class="cart-total">
 <form action="/delete-all" method="POST">
@@ -288,14 +363,14 @@
   
  
 <form action="/create-checkout-session" method="POST">  
-<button type="button" class="btn btn-purchase" id="checkout-button">CHECKOUT</button>
+<button type="button" class="btn btn-purchase" id="checkout-button">Proceed to CHECKOUT</button>
 </form>
 </div>
-<tr class="price-table"><td class="pricet">Total Price: </td><td colspan="4">$ <%=cart.totalPrice / 100%></td></tr>
-<tr class="quantity-table"><td>Total Quantity: </td><td colspan="4"><%=cart.totalQuantity%></td></tr>
+<!-- <tr class="price-table"><td class="pricet">Total Price: </td><td colspan="4">$ <=cart.totalPrice / 100%></td></tr>
+<tr class="quantity-table"><td>Total Quantity: </td><td colspan="4"><=cart.totalQuantity%></td></tr>
 
-<span class="price-span"><span>Total Price:</span><span class="totalPrice">$ <%=cart.totalPrice / 100%></span></span>
-<span class="quantity-span">Total Quantity: <span class="totalQuantity"><%=cart.totalQuantity%></span></span>
+<span class="price-span"><span>Total Price:</span><span class="totalPrice">$ <=cart.totalPrice / 100%></span></span>
+<span class="quantity-span">Total Quantity: <span class="totalQuantity"><=cart.totalQuantity%></span></span> -->
 <%}%>
 
 <%}%><!--if cart-->
@@ -305,6 +380,50 @@
         const sumValue = inputValue.innerText;
         console.log(sumValue);
         // decreaseBtn.value = 
+}
+
+//New increase and decrease as of 5/20/2026
+const incBtn = document.querySelector('.increase');
+const decBtn = document.querySelector('.decrease');
+const showItemContainer = document.querySelector('.removeItemContainer');
+
+if (incBtn) {
+incBtn.addEventListener('click', function() {
+    const inputValue = document.querySelector('.cart-quantity-input');
+    let newValue = parseInt(inputValue.value);
+    // newValue++
+    inputValue.value = newValue;
+
+    if (newValue > 1) {
+    decBtn.removeAttribute('disabled');
+    decBtn.classList.remove('disabled');
+}
+
+})
+}
+
+if (decBtn) {
+    // decBtn.setAttribute('disabled', true);
+    // decBtn.classList.add('disabled');
+  decBtn.addEventListener('click', function() {
+    const inputValue = document.querySelector('.cart-quantity-input');
+
+    let newValue = parseInt(inputValue.value);
+
+    // if (newValue > 1) {
+      // newValue--;
+      inputValue.value = newValue;
+      newValue = newValue - 1;
+      if (newValue === 1) {
+        console.log(newValue)
+      decBtn.setAttribute('disabled', true);
+      decBtn.classList.add('disabled');
+
+} 
+// }
+
+})
+
 }
 </script>
 
@@ -323,5 +442,5 @@
 <!-- <script src="/javascripts/shoppingCart3.js"></script> -->
 <!-- <script src="/javascripts/shoppingcart4.js"></script> -->
 <!-- <script async src="/javascripts/shoppingcart6.js"></script> -->
-<--<script sr="/javascripts/shoppingcart6.js" defer></script>-->
+<!--<script sr="/javascripts/shoppingcart6.js" defer></script> -->
 <script src="/javascripts/quantityFile.js"></script>

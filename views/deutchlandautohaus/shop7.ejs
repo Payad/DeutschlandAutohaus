@@ -641,7 +641,7 @@ console.log(products);
           <!-- <div class="underline"></div> -->
         </div>
         <div class="underline-popup"></div>
-        <!-- <div class="product-light"></div> -->
+        <div class="product-light-popup"></div>
         <img class="popupImg"/>
         <!-- <div class="popupOptions"></div> -->
         <div class="price-container">   
@@ -730,6 +730,7 @@ const productName = products?.name?.toLowerCase().trim();
                     <!-- <form action="/addToCart/<=p.id%>" method="POST" class="submitForm"> -->
                       <form action="/addToCart" method="POST" class="submitForm">
                       <!-- <input type="hidden" value="<=p.id%>"> -->
+                       <input type="hidden" name="quantity" class="post-quantity-input">
               <button type="submit" class="confirmAdd addToCart shop">Add Item</button>
               </form>
             <!-- <button type="submit" class="confirmAdd" data-name="<=products.name%>" data-id="<=products._id%>" data-img="/assets/images/<= products.image%>" data-price="<=products.price%>" data-type="<=products.name%>">Add New Item</button> -->
@@ -1190,6 +1191,7 @@ const popup = document.querySelector('.cartPopup1');
 const popupImage = popup.querySelector('.popupImg');
 const popupName = popup.querySelector('.popupName');
 const popupPrice = popup.querySelector('.popupPrice');
+const quantity_input = document.querySelector('.cart-quantity-input');
 // const form = document.querySelectorAll('.form');
 // const addBtn = document.querySelector('');
 
@@ -1202,6 +1204,7 @@ const popupPrice = popup.querySelector('.popupPrice');
       const popupOptions = popup.querySelector('.popupOptions');
       // console.log(popupOptions);
       popupOptions.innerHTML = '';
+      quantity_input.value = 1;
     
 });
 
@@ -1587,6 +1590,23 @@ if (decBtn) {
 
 }
 
+//using fetch to submit form so no reloads/redirects, and cart updates smoothly
+document.querySelector('.submitForm')
+.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const form = e.target;
+
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: new formData(form)
+    });
+
+    const data = await response.json();
+    console.log(data);
+})
+
+
+
 const itemAddedDiv = document.querySelector('.itemAdded');
 const itemDivClose = document.querySelector('.title-div-close');
 // const form = document.querySelector('.formSubmit');
@@ -1643,12 +1663,20 @@ document.addEventListener('click', function(e) {
       confirmDescription.textContent = btn.dataset.description;
           
           popup.classList.remove('active');
-    
+          // quantity_input.value = 1; ???? need to adjust back to one when window closes
     itemAddedDiv.classList.add('itemActive');
 
+    // quantity_input.value = 1;
    
     const countItem = document.querySelector('.countItem');
     // countItem.innerText = <=cart.totalQuantity%> + 1;
+
+    //cart quanity input
+    const cartInput = document.querySelector('.cart-quantity-input');
+    const postInput = document.querySelector('.post-quantity-input');
+
+    postInput.value = cartInput.value;
+    console.log(postInput);
 }
 })
 

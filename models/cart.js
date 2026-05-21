@@ -23,6 +23,7 @@ products: [
         productId: mongoose.Schema.Types.ObjectId,
         quantity: Number,
         name: String,
+        description: String,
         price: Number,
 
         image: String,
