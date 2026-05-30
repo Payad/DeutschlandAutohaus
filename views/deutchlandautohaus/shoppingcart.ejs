@@ -332,13 +332,13 @@
   <!-- <hr> -->
   <div class="items-div">
     <p class="items">Items (<span class="totalQuantity"><%=cart.totalQuantity%></span>)</p>
-    <p class="items-amount totalPrice">$<%=cart.totalPrice / 100%></p>
+    <p class="items-amount totalPrice">$<%=(cart.totalPrice / 100).toFixed(2)%></p>
   </div>
   <!-- <div class="summary-underline"></div> -->
   <hr class="cartSummary-hr">
   <div class="subtotal-div">
     <p class="subtotal">Subtotal</p>
-    <p class="subtotal-amount totalPrice"><%=cart.totalPrice / 100%></p>
+    <p class="subtotal-amount totalPrice"><%=(cart.totalPrice / 100).toFixed(2)%></p>
   </div>
   <div class="shipping-div">
     <p class="shipping">Shipping</p>
@@ -387,44 +387,133 @@ const incBtn = document.querySelector('.increase');
 const decBtn = document.querySelector('.decrease');
 const showItemContainer = document.querySelector('.removeItemContainer');
 
-if (incBtn) {
-incBtn.addEventListener('click', function() {
-    const inputValue = document.querySelector('.cart-quantity-input');
-    let newValue = parseInt(inputValue.value);
-    // newValue++
-    inputValue.value = newValue;
+const allIncBtns = document.querySelectorAll('.increase');
+const allDecBtns = document.querySelectorAll('.decrease');
 
-    if (newValue > 1) {
-    decBtn.removeAttribute('disabled');
-    decBtn.classList.remove('disabled');
-}
+allDecBtns.forEach((btn) => {
+    // const allInputs = document.querySelectorAll('.cart-quantity-input');
+    // const newValue = parseInt(allInputs[i].value);
+
+    btn.addEventListener('click', () => {
+    const quantityContainer = btn.closest('.quantity-select');
+
+    const input = quantityContainer.querySelector('.cart-quantity-input');
+
+    let value = parseInt(input.value);
+      console.log(value);
+    value = value - 1;
+    console.log(value);
+
+    if (value === 1) {
+      // decBtn.setAttribute('disabled', true);
+      // decBtn.classList.add('disabled');
+      btn.setAttribute('disabled', true);
+      btn.classList.add('disabled');
+    } 
+    else if (value > 1) {
+        btn.removeAttribute('disabled');
+      btn.classList.remove('disabled');
+    }
+    // console.log(newValue)
+    // console.log(btn);
 
 })
-}
 
-if (decBtn) {
-    // decBtn.setAttribute('disabled', true);
-    // decBtn.classList.add('disabled');
-  decBtn.addEventListener('click', function() {
-    const inputValue = document.querySelector('.cart-quantity-input');
+});
 
-    let newValue = parseInt(inputValue.value);
+allIncBtns.forEach((btn) => {
+    // const allInputs = document.querySelectorAll('.cart-quantity-input');
+    // const newValue = parseInt(allInputs[i].value);
+ const quantityContainer = btn.closest('.quantity-select');
 
-    // if (newValue > 1) {
-      // newValue--;
-      inputValue.value = newValue;
-      newValue = newValue - 1;
-      if (newValue === 1) {
-        console.log(newValue)
+    const input = quantityContainer.querySelector('.cart-quantity-input');
+
+    const value = parseInt(input.value);
+      console.log(value);
+
+      if (value === 1) {
+        const decBtn = quantityContainer.querySelector('.cart-quantity-input').previousElementSibling;
+      console.log(decBtn);
+      console.log(btn);
+      // decBtn.removeAttribute('disabled');
+      // decBtn.classList.remove('disabled');
       decBtn.setAttribute('disabled', true);
       decBtn.classList.add('disabled');
+      } else if (value > 1) {
+        decBtn.removeAttribute('disabled');
+      decBtn.classList.remove('disabled');
+      }
+    btn.addEventListener('click', () => {
+    const quantityContainer = btn.closest('.quantity-select');
 
-} 
+    const input = quantityContainer.querySelector('.cart-quantity-input');
+
+    const value = parseInt(input.value);
+    //   console.log(value);
+    if (value > 1) {
+      // decBtn.setAttribute('disabled', true);
+      // decBtn.classList.add('disabled');
+      // btn.removeAttribute('disabled');
+      // btn.classList.remove('disabled');
+      const decBtn = quantityContainer.querySelector('.cart-quantity-input').previousElementSibling;
+      console.log(decBtn);
+      console.log(btn);
+      decBtn.removeAttribute('disabled');
+      decBtn.classList.remove('disabled');
+    } 
+    // else if (value < 2) {
+    //     btn.setAttribute('disabled', true);
+    //   btn.classList.add('disabled');
+    //   console.log(btn);
+    // }
+    // console.log(newValue)
+    // console.log(btn);
+
+});
+});
+
+// if (incBtn) {
+// incBtn.addEventListener('click', function() {
+//     const inputValue = document.querySelector('.cart-quantity-input');
+//     let newValue = parseInt(inputValue.value);
+//     // newValue++
+//     inputValue.value = newValue;
+
+//     if (newValue > 1) {
+//     decBtn.removeAttribute('disabled');
+//     decBtn.classList.remove('disabled');
 // }
 
-})
+// })
+// }
 
-}
+// if (decBtn) {
+//     // decBtn.setAttribute('disabled', true);
+//     // decBtn.classList.add('disabled');
+//   decBtn.addEventListener('click', function() {
+//     const inputValue = document.querySelector('.cart-quantity-input');
+//     // const allInputs = document.querySelectorAll('.cart-quantity-input');
+
+//     let newValue = parseInt(inputValue.value);
+//     // allInputs.forEach((i) => {
+//     //   let newInputs = allInputs[i];
+//     // })
+
+//     // if (newValue > 1) {
+//       // newValue--;
+//       inputValue.value = newValue;
+//       newValue = newValue - 1;
+//       if (newValue === 1) {
+//         console.log(newValue)
+//       decBtn.setAttribute('disabled', true);
+//       decBtn.classList.add('disabled');
+
+// } 
+// // }
+
+// })
+
+// }
 </script>
 
 

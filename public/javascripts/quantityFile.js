@@ -76,6 +76,39 @@ function updateCartTotal() {
 
 const decBtnArr = document.getElementsByClassName('decrease');
 const addBtnArr = document.getElementsByClassName('increase');
+const input = document.querySelectorAll('.cart-quantity-input');
+
+const allDecBtn = document.querySelectorAll('.decrease');
+// if (input) {
+//     input.forEach((i) => {
+//         if (i.value === 1) {
+//             // decBtnArr.setAttribute('disabled', true);
+//             // decBtnArr.classList.add('disabled');
+            
+//         }
+//     })
+// }
+// allDecBtn.forEach((btn, i) => {
+//     const inputIndex = input[i];
+//     console.log(parseInt(inputIndex.value))
+//     console.log(btn);
+
+//     const newValue = parseInt(inputIndex.value);
+//     if (newValue.value === 1) {
+//         btn.setAttribute('disabled', true);
+//         btn.classList.add('disabled');
+//     }
+//     // if (parseInt(inputIndex.value === 1)) {
+//     //     btn.setAttribute('disabled', true);
+//     //     btn.classList.add('disabled');
+//     // }
+// })
+
+// console.log('this is the value of the input', input.value);
+// if (input.value === 1) {
+//     decBtnArr.setAttribute('disbaled', true);
+//     decBtnArr.classList.add('disabled');
+// }
 console.log(decBtnArr, addBtnArr)
 // function updateCartPrice () {
 // total = 0

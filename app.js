@@ -3163,7 +3163,17 @@ app.post('/addToCart/:id', async (req, res) => {
     // const user = await User.find(req.session.user_id);
     // const user = await User.findOne(req.user);
 // const user = req.user;
-const quantity = parseInt(req.body.quantity);
+
+const quantity = parseInt(req.body.quantity) || 1;
+   console.log('BODY:', req.body);
+    console.log('QUANTITY:', req.body.quantity);
+
+    // const quantity = Number(req.body.quantity);
+
+    console.log('PARSED QUANTITY:', quantity);
+console.log(req.body);
+// const quantity = Number(parseInt(req.body.quantity)) || 1;
+console.log('this is the quantity being passed', quantity);
 console.log('this is the quantity', quantity);
 const user = req.user.id;
 const newUser = await User.findById(user)
@@ -3237,7 +3247,7 @@ console.log('this is the item index', itemIndex)
     // newCart.totalPrice += product.price * product.quantity;
 
     // newCart.totalPrice += product.price;
-    newCart.totalPrice += product.price * quantity;
+    newCart.totalPrice += product.price * Number(quantity);
     // newCart.quantity = product.quantity;
     // newCart.quantity++;
     // product.quantity = 1;
@@ -3245,7 +3255,10 @@ console.log('this is the item index', itemIndex)
     // newCart.totalQuantity = product.quantity;
 
     // newCart.totalQuantity += 1;
-    newCart.totalQuantity += quantity;
+    // newCart.totalQuantity += Number(quantity);
+    newCart.totalQuantity = Number(newCart.totalQuantity || 0) + Number(quantity || 0)
+    console.log('this is the Validation Error', newCart.totalQuantity);
+    console.log(JSON.stringify(newCart, null, 2));
     await newCart.save();
 // let productItem = newCart.products[itemIndex];
 // // productItem.quantity = quantity;
@@ -3277,21 +3290,27 @@ console.log('new item added');
     // existingProduct.quantity = product.quantity;
 
     // existingProduct.quantity += 1;
-    existingProduct.quantity += quantity;
+    // existingProduct.quantity += quantity;
+    existingProduct.quantity = Number(existingProduct.quantity || 0) + Number(quantity || 0)
 
 // existingProduct.quantity++;
     // existingProduct.totalPrice = product.price += product.price * product.quantity;
     
     // newCart.totalPrice += product.price * product.quantity;
     // newCart.totalPrice += product.price;
-    newCart.totalPrice += product.price * quantity;
+    // newCart.totalPrice += product.price * quantity;
+    newCart.totalPrice = Number(newCart.totalPrice || 0) + (Number(product.price) * Number(quantity));
 
     
     // existingProduct.totalQuantity += 1;
     // newCart.totalQuantity = product.quantity;
     // newCart.totalQuantity += 1;
-    newCart.totalQuantity += quantity;
+    // newCart.totalQuantity += quantity;
+    newCart.totalQuantity = Number(newCart.totalQuantity || 0) + Number(quantity);
 
+    console.log('this is the total quantity', newCart.totalQuantity);
+    
+    console.log(JSON.stringify(newCart, null, 2));
     await newCart.save();
     console.log('Same item added');
     // existingProduct.products.push(product);
@@ -3348,6 +3367,7 @@ newCart.totalPrice += product.price * quantity;
 
 // newCart.totalQuantity = 1;
 newCart.totalQuantity = quantity;
+console.log('this is the total quantity', newCart.totalQuantity);
 
 // newCart.save();
 console.log(newCart);
@@ -3409,18 +3429,34 @@ app.post('/delete-all', async (req, res) => {
 const user = await User.findById(owner);
 let cart = await Cart.findOne({user: user})
 
-if (cart.products.length >= 1) {
-    console.log('Hello');
-    console.log(cart.products);
-    // cart.products.length = 0;
-    cart.products = {};
-    // cart.totalPrice = 0;
-    // cart.totalQuantity = 0;
-    cart = await cart.save();
-console.log(cart.products);
+// if (cart.products.length >= 1) {
+//     console.log('Hello');
+//     console.log(cart.products);
+//     // cart.products.length = 0;
+//     cart.products = {};
+//     // cart.totalPrice = 0;
+//     // cart.totalQuantity = 0;
+//     cart = await cart.save();
+// console.log(cart.products);
+// }
+
+if (!cart) {
+    return res.json({ success: false});
 }
-res.render('deutchlandautohaus/shoppingcart', {cart: cart});
-// res.redirect('deutchlandautohaus/shoppingcart', {cart: cart});
+
+cart.products = [];
+cart.totalPrice = 0;
+cart.totalQuantity = 0;
+
+await cart.save();
+
+// res.json({
+//     cart: cart,
+//     success: true
+// })
+
+// res.render('deutchlandautohaus/shoppingcart', {cart: cart});
+res.redirect('/deutchlandautohaus/shoppingcart');
 // res.redirect({cart: cart}, 'deutchlandautohaus/shoppingcart');
 })
 

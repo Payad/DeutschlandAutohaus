@@ -2132,19 +2132,27 @@ display: block;
 }
 
 .count-container {
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-color: #ff0000;
     border-radius: 20px;
     display: inline-block;
     width: 18px;
     height: 18px;
     position: absolute;
+    left: 0;
+    margin: 1px 12px;
     font-size: 12px;
 }
 
 .countItem {
     /* padding-left: 4px;
     padding-bottom: 4px; */
-    padding: 0px 0px 1px 6px;
+    /* padding: 0px 0px 1px 6px; */
+    /* padding: 1px 3px; */
+    /* padding: 1.5px 3px; */
+    text-align: center;
+    color: #ffffff;
+    /* font-size: 10px; */
     /* position: absolute;
     top: 0; */
 }
@@ -2329,7 +2337,29 @@ height: 100vh;
 
 
 div#protect-action {
-    width: 250px;
+    /* width: 250px; */
+    width: 300px;
+    margin: auto;
+}
+
+.options {
+    width: 220px;
+}
+
+.main-products {
+    width: 200px;
+    height: 220px;
+}
+
+.description-container {
+    padding: 5px 0;
+    font-size: 18px;
+    width: 200px;
+}
+
+.description-title, .sweater {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
 }
 /* hero banner */
 /* .deutchland {
@@ -2409,16 +2439,18 @@ transform: rotate(15deg);
 /* Product Cards */
 .radio-flex {
     width: 200px;
+    margin: auto;
 }
 
-.form-flex {
+/* .form-flex {
     display: flex;
     margin: 5px 10px;
-}
+} */
 
 .addToCart {
     margin: auto;
     display: block;
+    width: 100%;
 }
 
 /* Carousel-inner */

@@ -9,9 +9,9 @@
   <img class="shoppingCartImage" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
 <div class='count-container'>
   <% if (cart && cart.products.length > 0) {%>
-    <span class="countItem"><%=cart.totalQuantity%></span>
+    <p class="countItem"><%=cart.totalQuantity%></p>
   <%} else {%>
-    <span class="countItem">0</span>
+    <p class="countItem">0</p>
   <%}%>
   <!-- <span class="countItem"><=cart.totalQuantity%></span> -->
 </div>
@@ -264,6 +264,7 @@
 <%for (let p of products) {%>
 <!-- < products.forEach((this) => {%> -->
 <!-- < products.forEach((p) => {%> -->
+ <!-- <div class="product-light"></div> -->
 <div class="productCard" data-id="<%=p._id%>" data-name="<%=p.name%>" data-price="<%=p.price%>" id="protect-action" data-authenticated="<%= !!currentUser %>" data-img="/assets/images/<%=p.image%>">
 <!-- <form action="/shop7" method="POST"> -->
     <!-- <div class=" mx-3 my-3" id="card-accessory" style="width: 18rem; display: flex"> -->
@@ -313,6 +314,7 @@
     <span class="shop-item-id"><%=p.id%></span>
     <div class="item-container">
       <div class="options">
+        <!-- <div class="product-light"></div> -->
          <img src="/assets/images/<%= p.image %>"  class="main-products Mugs sweater-item-image" alt="...">
         <!-- <img src="/assets/images/<= p.image %>"  class="blackMug Mugs sweater-item-image" alt="..."> -->
         <div class="form-flex">
@@ -719,18 +721,19 @@ const productName = products?.name?.toLowerCase().trim();
           <div class="add_quantity">
           <!-- <button class="decrease" id="decrement" name="quantityInput" onclick="decrease3()"> - </button> -->
                     <!-- <div class="inputContainer"> -->
-                    <button class="decrease" id="decrement" name="quantityInput"> - </button>
+                      <!-- <form action="/addToCart" method="POST" class="submitForm"> -->
+                    <button type="button" class="decrease" id="decrement" name="quantityInput"> - </button>
                     <!-- <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<= product.quantity %>"> -->
-                    <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="1">
+                    <input type="number" class="cart-quantity-input" name="quantity" value="1">
                     <!-- <button  class="increase" name="quantityInput" onclick="increase3()">+</button> -->
-                    <button  class="increase" name="quantityInput"> + </button>
+                    <button type="button" class="increase" name="quantityInput"> + </button>
                     <!-- </div> -->
             <!-- <a href="/addToCart/<=p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
            
                     <!-- <form action="/addToCart/<=p.id%>" method="POST" class="submitForm"> -->
                       <form action="/addToCart" method="POST" class="submitForm">
                       <!-- <input type="hidden" value="<=p.id%>"> -->
-                       <input type="hidden" name="quantity" class="post-quantity-input">
+                       <input type="hidden" name="quantity" class="post-quantity-input" value="1">
               <button type="submit" class="confirmAdd addToCart shop">Add Item</button>
               </form>
             <!-- <button type="submit" class="confirmAdd" data-name="<=products.name%>" data-id="<=products._id%>" data-img="/assets/images/<= products.image%>" data-price="<=products.price%>" data-type="<=products.name%>">Add New Item</button> -->
@@ -850,8 +853,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     })
 
+    //Auth close btn
     closeBtn.addEventListener('click', () => {
         popup.style.display = 'none'; // Hide modal
+        // const decBtn = document.querySelector('.decrease');
+        // decBtn.setAttribute('disabled', true);
+        // decBtn.classList.add('disabled');
 })
 
      // Optional: Close on outside click
@@ -1205,6 +1212,9 @@ const quantity_input = document.querySelector('.cart-quantity-input');
       // console.log(popupOptions);
       popupOptions.innerHTML = '';
       quantity_input.value = 1;
+       const decBtn = document.querySelector('.decrease');
+        decBtn.setAttribute('disabled', true);
+        decBtn.classList.add('disabled');
     
 });
 
@@ -1551,29 +1561,47 @@ function showPopup() {
 
 const incBtn = document.querySelector('.increase');
 const decBtn = document.querySelector('.decrease');
+const container = document.querySelector('.add_quantity');
 const showItemContainer = document.querySelector('.removeItemContainer');
 
 if (incBtn) {
-incBtn.addEventListener('click', function() {
-    const inputValue = document.querySelector('.cart-quantity-input');
+incBtn.addEventListener('click', function(e) {
+    // const inputValue = container.querySelector('.cart-quantity-input');
+    // const inputValue = document.querySelector('#quantity');
+    // const container = incBtn.closest('.quantity-select');
+    // console.log(incBtn);
+    const container = incBtn.closest('.submitForm');
+    e.preventDefault();
+    // const inputValue = container.querySelector('.cart-quantity-input');
+let inputValue = document.querySelector('.cart-quantity-input');
+    console.log(inputValue);
     let newValue = parseInt(inputValue.value);
     newValue++
     inputValue.value = newValue;
-
+    // inputValue.innerText = newValue;
+    inputValue = newValue;
+// document.querySelectorAll('.cart-quantity-input').length
     if (newValue > 1) {
     decBtn.removeAttribute('disabled');
     decBtn.classList.remove('disabled');
+    
 }
 
-})
-}
+// const hiddenInput = container.querySelector('.post-quantity-input');
+// hiddenInput.value = newValue;
+
+// console.log('this is the value of the hidden input', hiddenInput.value);
+
+});
+};
 
 if (decBtn) {
     decBtn.setAttribute('disabled', true);
     decBtn.classList.add('disabled');
   decBtn.addEventListener('click', function() {
     const inputValue = document.querySelector('.cart-quantity-input');
-
+    // const inputValue = document.querySelector('#quantity');
+    
     let newValue = parseInt(inputValue.value);
 
     if (newValue > 1) {
@@ -1585,24 +1613,37 @@ if (decBtn) {
 
 } 
 }
-
+//     const hiddenInput = document.querySelector('.post-quantity-input');
+// hiddenInput.value = newValue;
 })
 
 }
 
 //using fetch to submit form so no reloads/redirects, and cart updates smoothly
 document.querySelector('.submitForm')
-.addEventListener('submit', (e) => {
+.addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
+const cartCount = document.querySelector('.countItem')
+  // console.log(form.querySelector('.post-quantity-input').value);
+const fd = new FormData(form);
 
+for (const [key, value] of fd.entries()) {
+    console.log(key, value);
+}
     const response = await fetch(form.action, {
         method: 'POST',
-        body: new formData(form)
+        // body: new FormData(form)
+        body: new URLSearchParams(new FormData(form))
     });
 
     const data = await response.json();
     console.log(data);
+
+    // window.location.href = '/deutchlandautohaus/shop7';
+    // cartCount.innerText = data.totalQuantity;
+    cartCount.innerText = data.cart.totalQuantity;
+    // console.log('this is the fetch total quantity', data.cart.totalQuantity);
 })
 
 
@@ -1671,7 +1712,7 @@ document.addEventListener('click', function(e) {
     const countItem = document.querySelector('.countItem');
     // countItem.innerText = <=cart.totalQuantity%> + 1;
 
-    //cart quanity input
+    //cart quantity input
     const cartInput = document.querySelector('.cart-quantity-input');
     const postInput = document.querySelector('.post-quantity-input');
 
