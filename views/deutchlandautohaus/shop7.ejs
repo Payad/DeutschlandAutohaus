@@ -5,7 +5,7 @@
 <div class="drop-icon">
   <img class="slide-left" onclick="togglePanel()" src="/assets/images/burgerdropleft-removebg-preview.png" alt="">
   <a href="/searchpage"><img class="magnifyingGlassImage" src="/assets/images/loupe.png" alt=""></a>
-  <div class="cart">
+  <div class="cart-icon">
   <img class="shoppingCartImage" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
 <div class='count-container'>
   <% if (cart && cart.products.length > 0) {%>
@@ -722,17 +722,23 @@ const productName = products?.name?.toLowerCase().trim();
           <!-- <button class="decrease" id="decrement" name="quantityInput" onclick="decrease3()"> - </button> -->
                     <!-- <div class="inputContainer"> -->
                       <!-- <form action="/addToCart" method="POST" class="submitForm"> -->
+                        <div class="quantity-selection">
                     <button type="button" class="decrease" id="decrement" name="quantityInput"> - </button>
                     <!-- <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<= product.quantity %>"> -->
-                    <input type="number" class="cart-quantity-input" name="quantity" value="1">
+                    <input type="text" class="cart-quantity-input" name="quantity" value="1">
                     <!-- <button  class="increase" name="quantityInput" onclick="increase3()">+</button> -->
                     <button type="button" class="increase" name="quantityInput"> + </button>
+                    </div>
                     <!-- </div> -->
             <!-- <a href="/addToCart/<=p.id%>" class="cartBTN1 btn btn-primary shop-item-button">Add to cart</a> -->
            
                     <!-- <form action="/addToCart/<=p.id%>" method="POST" class="submitForm"> -->
                       <form action="/addToCart" method="POST" class="submitForm">
                       <!-- <input type="hidden" value="<=p.id%>"> -->
+                       <input type="hidden" name="color" class="colorInput">
+                       <input type="hidden" name="size" class="sizeInput">
+                       <input type="hidden" name="image" class="imageInput">
+                        <!-- <img class="imageInput" name="image"/> -->
                        <input type="hidden" name="quantity" class="post-quantity-input" value="1">
               <button type="submit" class="confirmAdd addToCart shop">Add Item</button>
               </form>
@@ -976,8 +982,13 @@ const products = {
     mug: [
         // { color: 'black', image: '/assets/images/IMG_0444.jpeg'},
         // { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
-        { color: 'black', image: '/assets/images/DeutschMugNew.png'},
-        { color: 'red', image: '/assets/images/DeutschMugRed.png'}
+        // { color: 'black', image: '/assets/images/DeutschMugNew.png'},
+        // { color: 'red', image: '/assets/images/DeutschMugRed.png'}
+        // { color: 'black', image: '/assets/images/Untitled_design__6_-removebg-preview (3).png'},
+        // { color: 'red', image: '/assets/images/Untitled_design__7___1_-removebg-preview.png'}
+        { color: 'black', image: '/assets/images/DeutschlandMugNewBlack.png'},
+        { color: 'red', image: '/assets/images/DeutschlandMugNewRed.png'}
+        
         // { color: 'red', image: '/assets/images/IMG_0442.jpeg'},
 ]
 };
@@ -1694,7 +1705,31 @@ document.addEventListener('click', function(e) {
       confirmPrice.innerText = `Price: $${btn.dataset.price / 100}`;
       
       confirmColor.textContent = newColor.textContent;
-      
+
+      //color and size inputs for backend
+      // const colorInput = document.querySelector();
+      const sizeInput = document.querySelector('.sizeInput');
+      console.log('this is the size input', sizeInput.value);
+      // document.querySelectorAll('.size').forEach((size) => {
+      //     size.addEventListener('click', () => {
+      //         sizeInput.value = confirmSize.textContent;
+      //     })
+      // })
+      // sizeInput.value = confirmSize.textContent;
+      sizeInput.value = popupSizes.textContent;
+
+      const colorInput = document.querySelector('.colorInput');
+      // document.querySelectorAll('.color').forEach((color) => {
+      //     color.addEventListener('click', () => {
+      //         colorInput.value = confirmColor.textContent;
+      //     })
+      // })
+      colorInput.value = newColor.textContent;
+// 
+
+      const imageInput = document.querySelector('.imageInput');
+      imageInput.value = newPopup.src.split('/').pop();
+
       if (btn.dataset.name.toLowerCase().trim() === 'black mug') {
       
       confirmSize.style.display = 'none';
@@ -1716,8 +1751,17 @@ document.addEventListener('click', function(e) {
     const cartInput = document.querySelector('.cart-quantity-input');
     const postInput = document.querySelector('.post-quantity-input');
 
+    // cartInput.value = 1;
     postInput.value = cartInput.value;
     console.log(postInput);
+
+     const popupOptions = popup.querySelector('.popupOptions');
+      // console.log(popupOptions);
+      popupOptions.innerHTML = '';
+      // quantity_input.value = 1;
+       const decBtn = document.querySelector('.decrease');
+        decBtn.setAttribute('disabled', true);
+        decBtn.classList.add('disabled');
 }
 })
 

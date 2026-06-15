@@ -154,7 +154,7 @@
     No Plan Tier Selected
 <}%> -->
 </p>
-    <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a>
+    <!-- <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a> -->
 
     <!-- Display if there is a pending upgrade -->
     <% if (currentUser.pending_plan) { %>
@@ -165,24 +165,28 @@
 
     </section>
     <section class="tier-group-section section-padding">
-<div class="user-info">
+      <hr>
+              <div class="user-info">
                 <h3>Member Tier</h3>
-                <h3 class="user-tiergroup"><span>Current Plan:</span> Nitros Charged Package</h3>
+                <p class="user-tiergroup"><span>Current Plan:</span> Nitros Charged Package</p>
+                <!-- <div class="turbo-icon-div"><img  class="turbo-icon" src="/assets/images/turboChargerIcon-removebg-preview.png" alt=""></div> -->
+                <div class="turbo-icon-div"><img  class="noz-icon" src="/assets/images/nosOxideIcon-removebg-preview (1).png" alt=""></div>
                 <div class="upgrade-plan-container">
-  <!-- <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a> -->
-</div>
+                    <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a>
+                </div>
                 <!-- <h3 class="user-tiergroup">Member Tier: The Nitros Charged Package</h3> -->
-            </div>
+              </div>
+              <hr>
             <!-- <}%> -->
             <div class="tier-contract-status">
                 <div class="tier-level">
-                    <p class="tier-level-plan2"></p>
+                    <!-- <p class="tier-level-plan2"></p> -->
                     <!-- <p class="tier-level-plan">Tier Structure Level: The Nitros Charged Package</p> -->
-                  <div class="upgrade-plan-container">
+                  <!-- <div class="upgrade-plan-container"> -->
   <!-- <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Plan</a> -->
-</div>
+<!-- </div> -->
                   <span class="tier-level-plan"><h3>Tier Structure Level</h3>
-                  <p>Entry Level Plan With Basic Services</p>  
+                  <p class="level-plan-title">Entry Level Plan With Basic Services</p>  
                     <!-- <img id="image-1" src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt=""> -->
                 </span>
 <div class="secondDiv">
@@ -192,10 +196,15 @@
 </span>
 </div>
                     <!-- <p class="tier-level-plan2"></p> -->
+                     <div class="upgrade-services-container">
+                    <a href="/upgrade-plan" class="btn-upgrade-plan">Upgrade Your Services</a>
                 </div>
+                </div>
+
+              <hr>
                 <!-- <span><img id="image-3" src="/assets/images/bronze-medal-svgrepo-com.svg" class="medal_svg_bronze" alt=""></span> -->
                 <div class="tier-medal">
-                    <h2 class="member_benefits">Membership Benefits</h2>
+                    <h3 class="member_benefits">Membership Benefits</h3>
                     <div class="encompass-div">
                     <!-- <h2 class="member_benefits">Membership Benefits</h2> -->
                         <ul class="encompass-list">
@@ -229,12 +238,12 @@
                             <li class="encompass">light bulbs</li>
                             <li class="encompass">hand car wash</li> -->
                             <!-- <li class="encompass">Free Car Wash</li> -->
-                            <ul class="encompass">
+                            <li class="encompass">
                                 <li class="encompass">Clay Bar Treatment</li>
                                 <li class="encompass">Polishing</li>
                                 <li class="encompass">Deep Clean Upholstery</li>
                                 <!-- <li>clay bar treatment, polishing, and deep-cleaning your upholstery</li> -->
-                              </ul>
+                            </li>
                         </ul>
                         <!-- <span>Note: V6 and v8 vehicles prices may vary</span> -->
                         <ul class="encompass-list">
@@ -260,7 +269,7 @@
                         </ul>
                     </div>
                 </div>
-
+                <hr>
 
             <!-- < for (let c of cart.vehicles) {%>
     <- <h4 class="vehicle_register">Vehicle</h4>  -->
@@ -272,10 +281,10 @@
  <!-- }%> -->
 
             <div class="vehicle-type">
-                    <h2 class="vehicle-title">Your Vehicle</h2>
-                    <div class="vehicle-type-div">
+                    <h3 class="vehicle-title">Your Vehicle</h3>
+                    <!-- <div class="vehicle-type-div"> -->
                         <!-- <div class="vehicle-title">hello</div> -->
-                    </div>
+                    <!-- </div> -->
                     <!-- < for (let c of cart.vehicles) {%> -->
     <!-- <h4 class="vehicle_register">Vehicle</h4>  -->
     <!-- <div class="flex-container">
@@ -325,7 +334,8 @@
     </div>
   <% }); %>
 <% } else { %>
-  <p class="no-vehicle-msg">🚗 You haven’t added any vehicles yet.</p>
+  <!-- <p class="no-vehicle-msg">🚗 You haven’t added any vehicles yet.</p> -->
+   <p class="no-vehicle-msg">🚗 You haven't added any vehicles yet</p>
   <a href="/add-vehicle" class="btn-add-vehicle">Add a Vehicle</a>
 <% } %>
 
@@ -349,7 +359,7 @@
 
             
     </section>
-
+<!-- <hr> -->
 <section class="previous-orders-section section-padding">
                 <div class="previous-orders">
                     <h2 class="orders">Orders</h2>
@@ -361,41 +371,47 @@
 
 
 
-                <%for (let order of order1) { 
-                
-                for (let i = 0; i < order.cart.length; i++) {
+                <%for (let order of order1) {%>
+                 
+                <%for (let i = 0; i < order.cart.length; i++) {
                        let product = order.cart[i];
+                     
                        
                         console.log(product);
                        
 
 %>                      
+
 <div class="orders-flex-container">
                             <div class="img-container">
                                 <img class="recentItem-img" src="/assets/images/<%=product.image%>">
                             </div>
+                            <h1>Hello Every BODY</h1>
                                     <div class="product-info">
                                         <p class="shipping-status">SHIPPED</p>
                                         <p class="product-name"><%=product.name%></p>
                                         <p class="product-price">$ <%=product.price / 100%></p>
                                         <p class="shipping-selection">free shipping</p>
                                     </div>
+                                    <div class="quantity-date">
                                     <div class="quantity-container">
                                         <p class="qty">QTY <%=product.quantity%></p>
                                     </div>
                                     <div class="order-date-container">
                                         <p><%=order.purchaseDate%></p>
+                                        <!-- <p><=order.customer.id%></p> -->
+                                    </div>
                                     </div>
                                     
                         </div>
                 
 
- %>
+ <!-- %> -->
 
 
   <%}%>
 
-  %>
+  <!-- %> -->
 
 
 
@@ -410,36 +426,64 @@
 <%}%>
 
 
-<% if (order1 && order1.length > 0) { %>
-  <% order1.forEach(order => {
+<!-- < if (order1 && order1.length > 0) { %>
+  < order1.forEach(order => {
     order.cart.forEach(product => {
   %>
     <div class="orders-flex-container">
       <div class="img-container">
-        <img class="recentItem-img" src="/assets/images/<%= product.image %>">
+        <img class="recentItem-img" src="/assets/images/<= product.image %>">
       </div>
       <div class="product-info">
         <p class="shipping-status">SHIPPED</p>
-        <p class="product-name"><%= product.name %></p>
-        <p class="product-price">$<%= (product.price / 100).toFixed(2) %></p>
+        <p class="product-name"><= product.name %></p>
+        <p class="product-price">$<= (product.price / 100).toFixed(2) %></p>
         <p class="shipping-selection">Free shipping</p>
       </div>
       <div class="quantity-container">
-        <p class="qty">QTY <%= product.quantity %></p>
+        <p class="qty">QTY <= product.quantity %></p>
       </div>
       <div class="order-date-container">
-        <p><%= order.purchaseDate %></p>
+        <p><= order.purchaseDate %></p>
       </div>
     </div>
-  <% }); }); %>
-<% } else { %>
+  < }); }); %>
+< } else { %>
   // <p class="no-orders-msg">No orders yet. Once you make a purchase, it’ll appear here!</p>
     <p class="no-orders-msg">
   🚗 You haven’t placed any orders yet. Check out our <a href="/shop">services</a>!
 </p>
-<% } %>
+< } %> -->
 
 </section>
+
+<% for (let order of order1) {%>
+  
+<% for (let product of order.cart.products) {%>
+                                    <div class="product-info">
+                                       <div class="img-container">
+                                <img class="recentItem-img" src="/assets/images/<%=product.image%>">
+                            </div>
+                                        <div class="product-flex">
+                                        <p class="shipping-status">SHIPPED</p>
+                                        <!-- <p class="product-name"><=product.name%></p> -->
+                                        <p class="product-description"><%=product.description%></p>
+                                        <p class="product-price">$ <%=product.price / 100%></p>
+                                        <p class="shipping-selection">free shipping</p>
+                                        </div>
+                                    </div>
+                                    <div class="quantity-container">
+                                        <p class="qty">QTY <%=product.quantity%></p>
+                                    </div>
+                                    <div class="order-date-container">
+                                        <p><%=order.purchaseDate%></p>
+                                        <!-- <p><=order.customer.id%></p> -->
+                                    </div>
+
+<%}%>
+<%}%>
+
+
 <%}%>
 </body>
 </html>

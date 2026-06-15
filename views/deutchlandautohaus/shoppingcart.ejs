@@ -74,11 +74,11 @@
 
     <!-- current user shoppingcart -->
   <% if (!currentUser) { %>
-    <div class="cartContent">
+    <!-- <div class="cartContent">
     <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
     <p>You must be logged in to view the cart<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p>
     <span class="close">&times;</span>
-    </div>
+    </div> -->
   </div>
 
 <% } else if (currentUser && !cart) { %>
@@ -199,12 +199,12 @@
 <!-- cart render in shoppingcart.ejs -->
 <% if (cart && cart.products.length == 0) {%>
 
-<div class="cartContent">
+<!-- <div class="cartContent">
     <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
     <p>You must be logged in to view the cart<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p>
     <span class="close">&times</span>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
   <div class="cartContent">
     <img class="shoppingCartImage1" src="/assets/images/shoppingcart-removebg-preview.png" alt="">
     <!-- <p class="empty-cart">Your cart is empty!<br>Have an acount?<br><a href="/register">Sign up</a> for free!</p> -->
@@ -266,6 +266,8 @@
 
 <!--CART TITLE-->
 <h2 class="cart-title"><span class="cart-first">My</span> Cart</h2>
+<div class="flex2">
+<div class="flex1">
 <% for (let i = 0; i < cart.products.length; i++) {
     let product = cart.products[i];
     <!-- console.log(product) -->
@@ -280,6 +282,8 @@
                 <div class="detail-div">
                 <!-- <span class="cart-item-title"><= product.name %></span> -->
                 <p class="cart-item-description"><%=product.description%></p>
+                <p class="cart-size"><%=product.size%></p>
+                <p class="cart-color"><%=product.color%></p>
                 </div>
             </div>
            
@@ -288,7 +292,7 @@
             <span class="cart-item-price" data-price="<%=product.price%>">$ <%= product.price / 100%> </span>
               <div class="quantity-select">
               <button class="decrease" id="decrement" name="quantityInput" > - </button>
-              <input type="number" id="quantity" class="cart-quantity-input" name="quantityInput" value="<%= product.quantity %>">
+              <input type="text" id="quantity" class="cart-quantity-input" name="quantityInput" value="<%= product.quantity %>">
               <button class="increase" name="quantityInput" onclick="increase3()">+</button>
               </div>
               </div><!--quantity select div end-->
@@ -324,8 +328,9 @@
 
 
 <%}%>
-
+</div><!--end div flex-->
 <!--Order Summary-->
+<div class="orders-section">
 <div class="order-summary-div">
   <h3 class="orderSummary">Order Summary</h3>
   <!-- <div class="summary-underline"></div> -->
@@ -366,6 +371,7 @@
 <button type="button" class="btn btn-purchase" id="checkout-button">Proceed to CHECKOUT</button>
 </form>
 </div>
+</div><!--end orders section-->
 <!-- <tr class="price-table"><td class="pricet">Total Price: </td><td colspan="4">$ <=cart.totalPrice / 100%></td></tr>
 <tr class="quantity-table"><td>Total Quantity: </td><td colspan="4"><=cart.totalQuantity%></td></tr>
 
@@ -374,6 +380,7 @@
 <%}%>
 
 <%}%><!--if cart-->
+</div><!--end flex 2-->
 <script>
       function decrease(value) {
         const inputValue = document.getElementById('quantity');

@@ -90,8 +90,8 @@ const products = [
     // description: "DeutchlandAutohaus premier Beanie (Black)",
     description: "Mens Deutschland beanie, 100% high quality cotton",
     category: "clothing",
-    colors: ['Black', 'Grey', 'Blue'],
-    sizes: ["S", "M", "L", "XL"],
+    colors: ['black', 'grey', 'blue'],
+    // sizes: ["S", "M", "L", "XL"],
     quantity: 1
 },
 {
@@ -100,7 +100,9 @@ const products = [
     // price: 30,
     price: 2999,
     // image: "IMG_0444.jpeg",
-    image: "DeutschMugNew.png",
+    // image: "DeutschMugNew.png",
+    // image: "Untitled_design__6_-removebg-preview (3).png",
+    image: 'DeutschlandMugNewBlack.png',
     // description: "DeutchlandAutohaus premier Mug (Black)",
     description: "Classic Deutschland Mug",
     category: "cup",

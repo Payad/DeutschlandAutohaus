@@ -810,6 +810,12 @@ app.get('/deutchlandautohaus/success', async(req, res) => {
     const owner = req.user.id;
     const user = await User.findById(owner);
     const cart = await Cart.findOne({user: user});
+
+    const products = await Product.find({});
+
+    if (products) {
+        console.log("Product Variants", products.variantsDAHShirtM);
+    }
     // const order = await Cart.findOne({user: user});
     // console.log(order);
     // console.log(cart);
@@ -1764,6 +1770,13 @@ app.get('/deutchlandautohaus/userprofile3', async (req, res) => {
     const user = await User.findById(owner);
     const cart = await Cart.findOne({user: user});
     const order1 = await Order.find({user});
+
+    order1.forEach((order) => {
+        if (typeof order.cart === 'string') {
+            order.cart = JSON.parse(order.cart)
+        }
+    })
+
     User.findById(user)
         .then(user => {
             res.render('deutchlandautohaus/userprofile3', { user, order1, cart, vin: null }); // Send user data to the profile page
@@ -3168,13 +3181,17 @@ const quantity = parseInt(req.body.quantity) || 1;
    console.log('BODY:', req.body);
     console.log('QUANTITY:', req.body.quantity);
 
+    const color = req.body.color;
+    const size = req.body.size;
+    const image = req.body.image;
+    console.log('THIS IS THE COLOR, IMAGE AND THE SIZE', color, size, image)
     // const quantity = Number(req.body.quantity);
 
     console.log('PARSED QUANTITY:', quantity);
 console.log(req.body);
 // const quantity = Number(parseInt(req.body.quantity)) || 1;
-console.log('this is the quantity being passed', quantity);
-console.log('this is the quantity', quantity);
+// console.log('this is the quantity being passed', quantity);
+// console.log('this is the quantity', quantity);
 const user = req.user.id;
 const newUser = await User.findById(user)
     // console.log(user);
@@ -3222,7 +3239,8 @@ if (newCart) {
 // //     console.log("Goodbye");
 // // }
 // } else {
-    let itemIndex = newCart.products.findIndex(p => p.productId && p.productId.toString() === product._id.toString());
+    let itemIndex = newCart.products.findIndex(p => p.productId && p.productId.toString() === product._id.toString() && p.color === color && p.size === size)
+    // p.color === color && p.size === size;
 //if item does not exist
 // console.log(p.id.toString());
 // console.log(product._id.toString());
@@ -3234,9 +3252,12 @@ if (itemIndex == -1) {
         productId: product._id,
         name: product.name,
         price: product.price,
-        image: product.image,
+        // image: product.image,
+        image: image,
         description: product.description,
         // quantity: 1
+        color: color,
+        size: size,
         quantity: quantity
     })
 //     let itemIndex = newCart.products.findIndex(
@@ -3349,7 +3370,7 @@ user,
     // products: [{quantity, name, price}]
     // products: [{name}]
     // products: [{id: product.id}, {name: product.name}, {price: product.price}]
-    products: [{productId: product._id, name: product.name, price: product.price, image: product.image, description: product.description, category: product.category, quantity: quantity}],
+    products: [{productId: product._id, name: product.name, price: product.price, image: image, description: product.description, category: product.category, size: size, color: color, quantity: quantity}],
     totalPrice: 0,
     totalQuantity: 0,
 });

@@ -27,8 +27,10 @@ products: [
         price: Number,
 
         image: String,
-        selectedSize: String,
-        selectedColor: String
+        // selectedSize: String,
+        // selectedColor: String
+        size: String,
+        color: String
         // description: String,
         // category: String
 
